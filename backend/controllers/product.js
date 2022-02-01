@@ -42,3 +42,35 @@ const getAllProduct = (req, res) => {
     });
   };
   
+  const updateproductById = (req, res) => {
+    const { Product_Name, Description,Price } = req.body;
+    const id = req.params.id;
+  
+    const query = `UPDATE product SET Product_Name=?, Description=? WHERE id=?;`;
+  
+    const data = [Product_Name, Description,Price, id];
+  
+    connection.query(query, data, (err, results) => {
+      if (err) {
+        return res.status(404).json({
+          success: false,
+          massage: `Server error`,
+          err: err,
+        });
+      }
+      if (results.changedRows == 0) {
+        res.status(404).json({
+          success: false,
+          massage: `The product: ${id} is not found`,
+          err: err,
+        });
+      }
+      // result are the data returned by mysql server
+      res.status(201).json({
+        success: true,
+        massage: `product updated`,
+        results: results,
+      });
+    });
+  };
+   
