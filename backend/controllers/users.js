@@ -1,15 +1,15 @@
 const connection = require("../database/db");
 
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 
 const createNewUser = async (req, res) => {
-  const { Username, Phone_number, password, Email} = req.body;
+  const { Username, Phone_number, Password, Email} = req.body;
 
-  const encryptedPassword = await bcrypt.hash(password, saltRounds);
+  const encryptedPassword = await bcrypt.hash(Password, saltRounds);
 
-  const query = `INSERT INTO users (Username, Phone_number, password, Email) VALUES (?,?,?,?)`;
-  const data = [ Username, Phone_number, password, Email ];
+  const query = `INSERT INTO user (Username, Phone_number, password, Email) VALUES (?,?,?,?)`;
+  const data = [ Username, Phone_number, Password, Email ];
   connection.query(query, data, (err, results) => {
     if (err) {
       res.status(409).json({
@@ -18,7 +18,7 @@ const createNewUser = async (req, res) => {
         err: err,
       });
     }
-    // result are the data returned by mysql server
+    
     res.status(200).json({
       success: true,
       massage: "User has been added successfully",

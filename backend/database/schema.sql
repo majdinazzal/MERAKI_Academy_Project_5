@@ -1,8 +1,9 @@
 -- create database MERAKI_Academy_Project_5;
 use MERAKI_Academy_Project_5;
+
 create table user (
-    id INT AUTO_INCREMENT NOT NULL,
-    Username VARchar (255) UNIQUE,
+id INT AUTO_INCREMENT NOT NULL,
+Username VARchar (255) UNIQUE,
 Phone_number INT,
 Email VARchar (255) UNIQUE,
 Password VARchar (255),

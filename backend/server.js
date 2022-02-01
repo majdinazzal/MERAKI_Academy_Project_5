@@ -16,7 +16,7 @@ const PORT = 5000;
 const usersRouter = require("./routes/users");
 
 // Routes Middleware
-app.use("/register", usersRouter);
+app.use("/users", usersRouter);
 
 app.listen(PORT, () => {
   console.log(`SERVER WORKING ON PORT: ${PORT}`);
