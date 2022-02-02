@@ -19,5 +19,6 @@ const getAllOrders = (req, res) => {
   });
 };
 
+module.exports = { getAllOrders };
 
 //get checkout ordersF
