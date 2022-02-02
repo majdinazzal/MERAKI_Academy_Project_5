@@ -124,8 +124,8 @@ const getproductByuser = (req, res) => {
 const deleteProductById = (req, res) => {
   const productId = req.params.product_id;
 
-  const query = `delete from orders where id=${orderId}`;
-  const query2 = `select * from orders where id =${orderId}`;
+  const query = `delete from orders where id=${productId}`;
+  const query2 = `select * from orders where id =${productId}`;
   const data = [productId];
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -151,4 +151,5 @@ module.exports = {
   updateproductById,
   getproductByproductname,
   getproductByuser,
+  deleteProductById,
 };
