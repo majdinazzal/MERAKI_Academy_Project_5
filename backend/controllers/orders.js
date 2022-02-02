@@ -1,7 +1,7 @@
 const connection = require("../database/db");
 const db = require("../database/db");
 
-const getAllOrders = () => {
+const getAllOrders = (req, res) => {
   const query = `select * from orders`;
 
   connection.query(query, (err, result) => {
@@ -41,6 +41,22 @@ const addOrders = (req, res) => {
       });
     }
   });
+};
+const deleteOrderById = (req, res) => {
+  const orderId = req.params.order_id;
+
+  const query = `delete from order where id=${orderId}`;
+  const data = [orderId];
+  connection.query(query,data,(err,result)=>{
+if (err) {
+  console.log(err);
+  
+  
+}
+
+
+
+  })
 };
 
 module.exports = { getAllOrders, addOrders };
