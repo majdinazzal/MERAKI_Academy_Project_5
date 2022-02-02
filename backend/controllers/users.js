@@ -15,7 +15,7 @@ const createNewUser = async (req, res) => {
     if (err) {
       res.status(409).json({
         success: false,
-        massage: "The email already exists",
+        massage: "The email already exists .",
         err: err,
       });
     }
@@ -28,6 +28,7 @@ const createNewUser = async (req, res) => {
   });
 };
 
+//hi 
 module.exports = {
   createNewUser,
 };
