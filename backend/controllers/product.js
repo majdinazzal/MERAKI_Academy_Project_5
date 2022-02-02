@@ -83,17 +83,17 @@ const getAllProduct = (req, res) => {
       if (err) {
         return res.status(404).json({
           success: false,
-          massage: "The Author Not Found",
+          massage: "The Product_Name Not Found",
           err: err,
         });
       }
   
-//       // result are the data returned by mysql server
-//       res.status(200).json({
-//         success: true,
-//         massage: `All the articles for the author: ${author_id}`,
-//         results: results,
-//       });
-//     });
-//   };
+      // result are the data returned by mysql server
+      res.status(200).json({
+        success: true,
+        massage: `All the product for the Product_Name: ${Product_Name}`,
+        results: results,
+      });
+    });
+  };
   
