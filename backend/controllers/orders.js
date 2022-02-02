@@ -1,7 +1,7 @@
 const connection = require("../database/db");
 const db = require("../database/db");
 
-const getAllOrders = (req, res) => {
+const getAllOrders = () => {
   const query = `select * from orders`;
 
   connection.query(query, (err, result) => {
@@ -19,6 +19,14 @@ const getAllOrders = (req, res) => {
   });
 };
 
+//================================================================================
+
+const addOrders = (req, res) => {
+  const { Product_Name, Product_Price, Product_Description, product_id } =
+    req.body;
+
+};
+
 module.exports = { getAllOrders };
 
-//get checkout ordersF
+//get checkout ordersFunctions
