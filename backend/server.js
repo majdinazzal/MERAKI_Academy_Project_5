@@ -14,11 +14,12 @@ const PORT = 5000;
 const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/login");
 const ordersRouter = require("./routes/orders");
-
+const productRouter=require("./routes/product")
 // Routes Middleware
 app.use("/users", usersRouter);
 app.use("/login", loginRouter);
 app.use("/orders", ordersRouter);
+app.use("/product", productRouter);
 
 app.listen(PORT, () => {
   console.log(`SERVER WORKING ON PORT: ${PORT}`);
