@@ -24,7 +24,8 @@ const getAllOrders = () => {
 const addOrders = (req, res) => {
   const { Product_Name, Product_Price, Product_Description, product_id } =
     req.body;
-
+  const query = `insert into orders (Product_Name, Product_Price, Product_Description, product_id) values (?,?,?,?)`;
+  const data = [Product_Name, Product_Price, Product_Description, product_id];
 };
 
 module.exports = { getAllOrders };
