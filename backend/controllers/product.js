@@ -73,25 +73,49 @@ const getAllProduct = (req, res) => {
       });
     });
   };
+  const getproductByproductname = (req, res) => {
+    const Product_Name = req.body;
+  
+    const query = `SELECT * FROM articles WHERE Product_Name=? AND is_deleted=0;`;
+    const data = [Product_Name];
+        connection.query(query, data, (err, results) => {
+      if (err) {
+        return res.status(404).json({
+          success: false,
+
+          massage: "The Product_Name Not Found",
+                    err: err,
+        });
+      }
+                //  are the data returned by mysql server
+      res.status(200).json({
+        succesresults: true,
+  results: results,
+      });
+    });
+  
+
   const getproductByuser = (req, res) => {
     const userId = req.query.id;
   
     const query = `SELECT * FROM product WHERE userId=? AND is_deleted=0;`;
     const data = [userId];
+
   
     connection.query(query, data, (err, results) => {
       if (err) {
         return res.status(404).json({
           success: false,
-          massage: "The user Not Found",
+          massage: "The user Not Found"
           err: err,
         });
       }
   
-      // result are the data returned by mysql server
+      //  are the data returned by mysql server
       res.status(200).json({
-        success: true,
+        succesresults: true
         massage: `All the articles for the author: ${userId}`,
+
         results: results,
       });
     });
