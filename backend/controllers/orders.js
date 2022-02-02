@@ -66,6 +66,6 @@ const deleteOrderById = (req, res) => {
   });
 };
 
-module.exports = { getAllOrders, addOrders };
+module.exports = { getAllOrders, addOrders, deleteOrderById };
 
 //get checkout ordersFunctions
