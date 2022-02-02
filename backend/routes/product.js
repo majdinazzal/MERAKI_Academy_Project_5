@@ -5,6 +5,7 @@ const {
   updateproductById,
   getproductByproductname,
   getproductByuser,
+  deleteProductById,
 } = require("../controllers/product");
 const authentication = require("../middleware/authentication");
 const productRouter = express.Router();
@@ -15,7 +16,7 @@ productRouter.get("/search_1", getproductByuser);
 productRouter.get("/", getproductByproductname);
 productRouter.post("/", authentication, createNewproduct);
 productRouter.put("/:id", updateproductById);
-productRouter.delete("/del/:product_id", deleteArticlesByAuthor);
+productRouter.delete("/del/:id", deleteProductById);
 // productRouter.delete("/:id", deleteArticleById);
 
 module.exports = productRouter;
