@@ -1,9 +1,16 @@
 import "./App.css";
 
+// import components
+import Hero from "./components/hero"
+
+
 function App() {
   return (
     <div className="App">
-      <h1>Start project 5</h1>
+     <Routes>
+      <Route path="/" element = {<Hero/>} />
+
+     </Routes>
     </div>
   );
 }
