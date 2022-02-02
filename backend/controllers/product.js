@@ -93,7 +93,7 @@ const getAllProduct = (req, res) => {
   results: results,
       });
     });
-  
+}
 
   const getproductByuser = (req, res) => {
     const userId = req.query.id;
@@ -106,14 +106,14 @@ const getAllProduct = (req, res) => {
       if (err) {
         return res.status(404).json({
           success: false,
-          massage: "The user Not Found"
+          massage: "The user Not Found",
           err: err,
         });
       }
   
       //  are the data returned by mysql server
       res.status(200).json({
-        succesresults: true
+        succesresults: true,
         massage: `All the articles for the author: ${userId}`,
 
         results: results,
