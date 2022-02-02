@@ -1,0 +1,20 @@
+
+                                                    ==============Branches names==============
+
+
+
+ordersRouter : is the orders router in the ./routes folder And its the same Branche for the router in server.js  
+ 
+    .نعمل عليها الراوتر داخل ملف الراوتر و نعمل عليها عملية تصدير الراوتر نفسه للسيرفرordersRouterيعني 
+
+
+==============================================================================================================
+
+
+ordersFunctions : is the orders functions in ./controllers folder.
+
+
+
+
+
+ 
