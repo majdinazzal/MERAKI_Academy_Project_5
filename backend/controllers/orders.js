@@ -43,6 +43,6 @@ const addOrders = (req, res) => {
   });
 };
 
-module.exports = { getAllOrders };
+module.exports = { getAllOrders, addOrders };
 
 //get checkout ordersFunctions
