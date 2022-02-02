@@ -120,10 +120,36 @@ const getproductByuser = (req, res) => {
   });
 };
 
+//==================================================
+const deleteProductById = (req, res) => {
+  const productId = req.params.product_id;
+
+  const query = `delete from orders where id=${productId}`;
+  const query2 = `select * from orders where id =${productId}`;
+  const data = [productId];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      console.log(err);
+      res
+        .status(500)
+        .json({ success: false, message: "Internal server error" });
+    } else {
+      console.log(result);
+      res.status(200).json({
+        success: true,
+        message: query2 + " was deleted",
+        // message: `${Product_Name} was added`,
+        result: result,
+      });
+    }
+  });
+};
+
 module.exports = {
   getAllProduct,
   createNewproduct,
   updateproductById,
   getproductByproductname,
   getproductByuser,
+  deleteProductById,
 };
