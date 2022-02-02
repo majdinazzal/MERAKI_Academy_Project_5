@@ -4,8 +4,6 @@ require("dotenv").config();
 const app = express();
 const db = require("./database/db");
 
-
-
 app.use(cors());
 
 app.use(express.json());
@@ -15,11 +13,12 @@ const PORT = 5000;
 // Import Routers
 const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/login");
-
+const ordersRouter = require("./routes/orders");
 
 // Routes Middleware
 app.use("/users", usersRouter);
 app.use("/login", loginRouter);
+app.use("/orders", ordersRouter);
 
 app.listen(PORT, () => {
   console.log(`SERVER WORKING ON PORT: ${PORT}`);
