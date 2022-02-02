@@ -6,4 +6,4 @@ const ordersR = express.Router();
 
 ordersR.get("/allOrders", getAllOrders);
 
-
+module.exports = ordersR;
