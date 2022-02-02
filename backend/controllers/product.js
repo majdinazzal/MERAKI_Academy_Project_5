@@ -120,6 +120,14 @@ const getproductByuser = (req, res) => {
   });
 };
 
+//==================================================
+const deleteProductById=(req,res)=>{
+
+
+
+  
+}
+
 module.exports = {
   getAllProduct,
   createNewproduct,
