@@ -73,4 +73,27 @@ const getAllProduct = (req, res) => {
       });
     });
   };
-   
+  const getproductByproductname = (req, res) => {
+    const Product_Name = req.body;
+  
+    const query = `SELECT * FROM articles WHERE Product_Name=? AND is_deleted=0;`;
+    const data = [Product_Name];
+  
+//     connection.query(query, data, (err, results) => {
+//       if (err) {
+//         return res.status(404).json({
+//           success: false,
+//           massage: "The Author Not Found",
+//           err: err,
+//         });
+//       }
+  
+//       // result are the data returned by mysql server
+//       res.status(200).json({
+//         success: true,
+//         massage: `All the articles for the author: ${author_id}`,
+//         results: results,
+//       });
+//     });
+//   };
+  
