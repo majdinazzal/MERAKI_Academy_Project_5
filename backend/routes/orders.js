@@ -7,9 +7,8 @@ const ordersR = express.Router();
 //the main route is "/orders"
 
 ordersR.get("/all", getAllOrders);
+// ordersR.post("add",)
 
 module.exports = ordersR;
 
 //branch name ordersRouter
-
-
