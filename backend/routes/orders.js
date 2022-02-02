@@ -4,4 +4,10 @@ const express = require("express");
 
 const ordersR = express.Router();
 
-ordersR.get("/allOrders", getAllOrders);
+
+//the main route is "/orders"
+ordersR.get("/all", getAllOrders);
+// ordersR.post("add",)
+module.exports = ordersR;
+//branch name ordersRouter
+
