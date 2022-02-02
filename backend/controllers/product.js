@@ -79,21 +79,21 @@ const getAllProduct = (req, res) => {
     const query = `SELECT * FROM product WHERE userId=? AND is_deleted=0;`;
     const data = [userId];
   
-//     connection.query(query, data, (err, results) => {
-//       if (err) {
-//         return res.status(404).json({
-//           success: false,
-//           massage: "The Author Not Found",
-//           err: err,
-//         });
-//       }
+    connection.query(query, data, (err, results) => {
+      if (err) {
+        return res.status(404).json({
+          success: false,
+          massage: "The user Not Found",
+          err: err,
+        });
+      }
   
-//       // result are the data returned by mysql server
-//       res.status(200).json({
-//         success: true,
-//         massage: `All the articles for the author: ${author_id}`,
-//         results: results,
-//       });
-//     });
-//   };
+      // result are the data returned by mysql server
+      res.status(200).json({
+        success: true,
+        massage: `All the articles for the author: ${userId}`,
+        results: results,
+      });
+    });
+  };
   
