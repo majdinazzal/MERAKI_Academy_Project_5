@@ -1,7 +1,7 @@
 const connection = require("../database/db");
 const db = require("../database/db");
 
-const getAllOrders = () => {
+const getAllOrders = (req, res) => {
   const query = `select * from orders`;
 
   connection.query(query, (err, result) => {
@@ -42,7 +42,30 @@ const addOrders = (req, res) => {
     }
   });
 };
+const deleteOrderById = (req, res) => {
+  const orderId = req.params.order_id;
 
-module.exports = { getAllOrders, addOrders };
+  const query = `delete from orders where id=${orderId}`;
+  const query2 = `select * from orders where id =${orderId}`;
+  const data = [orderId];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      console.log(err);
+      res
+        .status(500)
+        .json({ success: false, message: "Internal server error" });
+    } else {
+      console.log(result);
+      res.status(200).json({
+        success: true,
+        message: query2 + " was deleted",
+        // message: `${Product_Name} was added`,
+        result: result,
+      });
+    }
+  });
+};
+
+module.exports = { getAllOrders, addOrders, deleteOrderById };
 
 //get checkout ordersFunctions
