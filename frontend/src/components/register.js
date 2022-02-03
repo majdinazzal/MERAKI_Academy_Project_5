@@ -10,7 +10,7 @@ const Register = () => {
       return { isLoggedIn: state.loginReducer.isLoggedIn };
     });
   
-    const [username, setFirstName] = useState("");
+    const [username, setusername] = useState("");
     const [phoneNumber, setphoneNumber] = useState(0);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -26,7 +26,6 @@ const Register = () => {
             username,
             phoneNumber,
             email,
-            country,
             password,
                      });
           if (result.data.success) {
@@ -42,4 +41,53 @@ const Register = () => {
         }
       };
     
+      return (
+        <>
+          <div className="Form">
+            {!state.isLoggedIn ? (
+              <>
+                <p className="Title">Register:</p>
+                <form onSubmit={addNewUser}>
+                  <br />
+                  <input
+                    type="text"
+                    placeholder="user name"
+                    onChange={(e) => setusername(e.target.value)}
+                  />
+                  <br />
+                  <input
+                    type="number"
+                    placeholder="phone Number"
+                    onChange={(e) => setphoneNumber(e.target.value)}
+                  />
+                  <br />
+                  <br />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <br />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <br />
+                  <button>Register</button>
+                  <br />
+                </form>
+                {status
+                  ? message && <div className="SuccessMessage">{message}</div>
+                  : message && <div className="ErrorMessage">{message}</div>}
+              </>
+            ) : (
+              <p>Logout First</p>
+            )}
+          </div>
+        </>
+      );
+    };
+    
+    export default Register;
     
