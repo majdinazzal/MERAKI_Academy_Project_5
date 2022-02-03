@@ -1,0 +1,13 @@
+.NavBar{
+    background-color: beige;
+}
+
+.list{
+    display: inline;
+}
+
+.ul {
+        list-style-type:none;
+        margin: 0;
+        padding: 0;
+}

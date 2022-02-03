@@ -3,8 +3,10 @@
 const Home = ()=> {
     return (
     <>
-    This is the Home Page
+    <p>This is the Home Page</p>
+    
     </>
+
     )
     }
     

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../reducers/login";
+// import { login } from "../reducers/login";
 //===============================================================
 
 const Login = () => {
@@ -35,7 +35,7 @@ const Login = () => {
             setMessage("");
             localStorage.setItem("token", res.data.token);
             // saveToken(res.data.token);
-            dispatch(login(res.data.token));
+            // dispatch(login(res.data.token));
           } else throw Error;
         } catch (error) {
           if (error.response && error.response.data) {
