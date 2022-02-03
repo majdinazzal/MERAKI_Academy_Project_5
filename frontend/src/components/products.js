@@ -12,3 +12,7 @@ export const addProducts = (products) => {
 export const updateProduct = (products) => {
   return { type: "UPDATE_PRODUCT", payload: products };
 };
+
+export const deletePorduct = (products) => {
+  return { type: "DELETE_PRODUCT", payload: products };
+};
