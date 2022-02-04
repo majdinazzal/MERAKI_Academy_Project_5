@@ -43,5 +43,4 @@ export const updateProduct = (updatedProduct) => {
 export const deletePorduct = (id) => {
   return { type: "DELETE_PRODUCT", payload: id };
 };
-
 export default products;
