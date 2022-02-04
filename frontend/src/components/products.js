@@ -1,39 +1,61 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  addProducts,
-  updateProduct,
-  deletePorduct,
+  
   setProducts,
 } from "../reducers/products/index";
-const Product = () => {
-  const [showProduct, setShowProducts] = useState([]);
-  const addProduct = (req, res) => {
-    axios
-      .get("http://localhost:5000/product/")
-      .then((result) => {
-        console.log(result);
-        setShowProducts(result.data.results);
+//===============================================================
 
-        // res.status(200).json({"hello"})
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+const ShowProduct = () => {
+  // ---------------------------------------------
+  const state = useSelector((state) => {
+    return {
+      products: state.products.products,
+    };
+  });
+
+  const { token, products } = state;
+
+  const dispatch = useDispatch();
+  // ---------------------------------------------
+  const [show, setShow] = useState(false);
+  const [productsShower, setProductsShower] = useState([]);
+
+
+  //===============================================================
+
+  const allProducts = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/product");
+      console.log(res);
+      if (res.data.success) {
+        dispatch(setProducts(res.data.results));
+        setProductsShower(res.data.results)
+} else throw Error;
+    } catch (error) {
+      console.log(error);
+    }
   };
+  useEffect(() => {
+    allProducts();
+  }, []);
   return (
     <div>
-      <h1>hello products</h1>
-
-      <p>
-        {showProduct.map((element, i) => {
-          return <div key={i}>{element}</div>;
-        })}
-      </p>
-      <button onClick={addProduct}></button>
+      <div>
+        {" "}
+        {productsShower &&
+          productsShower.map((element, i) => {
+            return (
+              <div  key={i}>
+                <p>{element.Product_Name}</p>
+                <p>{element.id}</p>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };
-
-export default Product;
+export default ShowProduct;
