@@ -1,7 +1,7 @@
 -- create database MERAKI_Academy_Project_5;
 use MERAKI_Academy_Project_5;
 
-
+drop table orders;
 -- create table user (
 -- id INT AUTO_INCREMENT NOT NULL,
 -- Username VARchar (255) UNIQUE,
@@ -25,13 +25,14 @@ use MERAKI_Academy_Project_5;
 -- Primary Key (id)
 -- );
 
--- create table orders (
--- id INT AUTO_INCREMENT NOT NULL,
--- Product_Name VARCHAR (255),
--- Product_Price INT,
--- Product_Description VARCHAR (255),
--- product_id INT,
--- FOREIGN KEY (product_id) REFERENCES products(id),
--- Primary Key (id)
--- );
+create table orders (
+id INT AUTO_INCREMENT NOT NULL,
+Product_Name VARCHAR (255),
+Product_Price INT,
+Product_Description VARCHAR (255),
+Category VARchar (255),
+product_id INT,
+FOREIGN KEY (product_id) REFERENCES products(id),
+Primary Key (id)
+);
 
