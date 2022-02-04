@@ -3,9 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  addProducts,
-  updateProduct,
-  deletePorduct,
+  
   setProducts,
 } from "../reducers/products/index";
 //===============================================================
@@ -22,7 +20,6 @@ const ShowProduct = () => {
 
   const dispatch = useDispatch();
   // ---------------------------------------------
-  // const [articles, setArticles] = useState("");
   const [show, setShow] = useState(false);
   const [productsShower, setProductsShower] = useState([]);
 
@@ -35,14 +32,12 @@ const ShowProduct = () => {
       console.log(res);
       if (res.data.success) {
         dispatch(setProducts(res.data.results));
-        setProductsShower(res.data.results);
-        setShow(true);
-      } else throw Error;
+        setProductsShower(res.data.results)
+} else throw Error;
     } catch (error) {
       console.log(error);
     }
   };
-
   useEffect(() => {
     allProducts();
   }, []);
