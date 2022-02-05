@@ -3,3 +3,8 @@
   text-align: center;
   height: 100vh;
 }
+#renderProduct {
+  border: solid 1px crimson;
+  /* padding-bottom: 01%; */
+  margin-bottom: 01%;
+}
