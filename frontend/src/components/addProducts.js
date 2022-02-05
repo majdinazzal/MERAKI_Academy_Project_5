@@ -19,6 +19,7 @@ const NewProduct = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
+//hi
 
   const { token, isLoggedIn } = state;
 
@@ -29,7 +30,7 @@ const NewProduct = () => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
   const [Product_Name, setProduct_Name] = useState("");
-  const [Price, setPrice] = useState("");
+  const [Price, setPrice] = useState();
   const [Description, setDescription] = useState("");
   const [Category, setCategory] = useState("");
   // const product = {
@@ -102,6 +103,7 @@ const NewProduct = () => {
       history("/dashboard");
     }
   });
+//hi
 
   //===============================================================
   return (
@@ -120,6 +122,11 @@ const NewProduct = () => {
         <textarea
           placeholder="product description here"
           onChange={(e) => setDescription(e.target.value)}
+        ></textarea>
+        <br />
+        <textarea
+          placeholder="product price here"
+          onChange={(e) => setPrice(e.target.value)}
         ></textarea>
         <br />
         <button>Create New product</button>

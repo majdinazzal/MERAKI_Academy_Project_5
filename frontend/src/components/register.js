@@ -18,6 +18,7 @@ const Register = () => {
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState(false);
     // =================================================================
+//hi
 
     const addNewUser = async (e) => {
         e.preventDefault();
