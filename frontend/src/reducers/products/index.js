@@ -7,7 +7,7 @@ const products = (state = iniaialState, { type, payload }) => {
     case "SET_PRODUCTS":
       return { ...state, products: products };
     case "add_PRODUCTS":
-      return { ...state, payload };
+      return { ...state, products: [...state.products, payload] };
     case "UPDATE_PRODUCT":
       return {
         ...state,

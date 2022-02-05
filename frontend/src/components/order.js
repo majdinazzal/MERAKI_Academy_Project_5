@@ -5,11 +5,11 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addProducts } from "../reducers/products/index";
 
-import { AuthContext } from "./../context/auth";
+// import { AuthContext } from "./context";
 
 //===============================================================
 
-const NewOrder = () => {
+const NewProduct = () => {
   // const { token, isLoggedIn } = useContext(AuthContext);
   const history = useNavigate();
 
@@ -25,30 +25,54 @@ const NewOrder = () => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  // const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
+  const [Product_Name, setProduct_Name] = useState("");
+  const [Price, setPrice] = useState("");
+  const [Description, setDescription] = useState("");
+  const [Category, setCategory] = useState("");
+  // const product = {
+  //   product_Name,
+  //   product_Price,
+  //   product_Description,
+  //   category,
+  // }; //===============================================================
 
-  //===============================================================
-
-  const createNewOrder = async (e) => {
+  const createNewProduct = async (e) => {
     e.preventDefault();
     try {
-      const order = {
+      const product = {
         Product_Name,
-        Product_Price,
-        Product_Description,
+        Price,
+        Description,
         Category,
       };
-      const result = await axios.post("http://localhost:5000/orders", article, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const result = await axios.post(
+        "http://localhost:5000/product",
+        {
+          Product_Name,
+          Price,
+          Description,
+          Category,
         },
-      });
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (result.data.success) {
         setStatus(true);
-        dispatch(addProducts({ orderName, description, Price, Category }));
-        setMessage("The Order has been created successfully");
+        dispatch(
+          addProducts({
+            Product_Name,
+            Description,
+            Price,
+            Category,
+          })
+        );
+        setMessage("The product has been created successfully");
       }
     } catch (error) {
       if (!error.response.data.success) {
@@ -57,6 +81,19 @@ const NewOrder = () => {
       }
     }
   };
+
+  //===============================================================
+  // const createNewProduct = () => {
+  //   axios
+  //     .post("http://localhost:5000/product", product)
+  //     .then((result) => {
+  //       // console.log(token);
+  //       console.log(result);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   //===============================================================
 
@@ -68,13 +105,16 @@ const NewOrder = () => {
 
   //===============================================================
   return (
+    // <div>
+    //   <h1>hello product</h1>
+    // </div>
     <>
-      <form onSubmit={createNewOrder}>
+      <form onSubmit={createNewProduct}>
         <br />
         <input
           type="text"
           placeholder="Product name here"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setProduct_Name(e.target.value)}
         />
         <br />
         <textarea
@@ -82,7 +122,7 @@ const NewOrder = () => {
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
         <br />
-        <button>Create New Order</button>
+        <button>Create New product</button>
       </form>
       <br />
       {status
@@ -101,4 +141,4 @@ const NewOrder = () => {
   );
 };
 
-export default NewOrder;
+export default NewProduct;
