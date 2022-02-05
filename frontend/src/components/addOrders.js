@@ -83,7 +83,7 @@ const NewOrder = () => {
   };
   useEffect(() => {
     if (!isLoggedIn) {
-      history("/dashboard");
+      history("/login");
     }
   });
   //hi
