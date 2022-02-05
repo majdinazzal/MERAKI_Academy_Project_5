@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../reducers/products/index";
+import "./home.css"
+import { Link } from "react-router-dom";
 const Home = () => {
   const state = useSelector((state) => {
     return {
@@ -37,13 +39,21 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <h1>home page</h1>
-      <div>
+      <div className="logo">
+    <h2>Xchange</h2>
+</div>
+<div className="NavBar">
+      <div ><Link to="/home"><a className="">Home</a></Link>{" "}
+      </div> 
+      <div><Link to="/login"><a className="">Login</a></Link>{" "}
+      </div> 
+    </div>
+      <div className="product">
         {" "}
         {productsShower &&
           productsShower.map((element, i) => {
             return (
-              <div id="renderProduct" key={i}>
+              <div className="productelement" id="renderProduct" key={i}>
                 <p>{element.Product_Name}</p>
                 <p>{element.Product_Description}</p>{" "}
                 <p>{element.ProductPrice}</p> <p>{element.Category}</p>
@@ -51,6 +61,11 @@ const Home = () => {
             );
           })}
       </div>
+      <div className="Footer">
+        <div>Meraki C4 </div>
+        <div>Project Done By team A4 </div>
+        <div> c 2022 </div>
+    </div>
     </div>
   );
 };
