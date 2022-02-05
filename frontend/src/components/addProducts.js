@@ -19,6 +19,7 @@ const NewProduct = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
+//hi
 
   const { token, isLoggedIn } = state;
 
@@ -102,6 +103,7 @@ const NewProduct = () => {
       history("/dashboard");
     }
   });
+//hi
 
   //===============================================================
   return (

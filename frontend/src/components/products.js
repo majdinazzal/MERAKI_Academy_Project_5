@@ -12,6 +12,7 @@ const ShowProduct = () => {
       products: state.products.products,
     };
   });
+//hi
 
   const { token, products } = state;
 
