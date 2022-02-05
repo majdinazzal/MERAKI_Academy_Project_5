@@ -22,10 +22,21 @@ const getAllOrders = (req, res) => {
 //================================================================================
 
 const addOrders = (req, res) => {
-  const { Product_Name, Product_Price, Product_Description, product_id } =
-    req.body;
+  const {
+    Product_Name,
+    Product_Price,
+    Product_Description,
+    Category,
+    product_id,
+  } = req.body;
   const query = `insert into orders (Product_Name, Product_Price, Product_Description, product_id) values (?,?,?,?)`;
-  const data = [Product_Name, Product_Price, Product_Description, product_id];
+  const data = [
+    Product_Name,
+    Product_Price,
+    Product_Description,
+    product_id,
+    Category,
+  ];
   connection.query(query, data, (err, result) => {
     if (err) {
       console.log(err);

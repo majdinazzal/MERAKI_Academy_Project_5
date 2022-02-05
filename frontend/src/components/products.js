@@ -2,10 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  
-  setProducts,
-} from "../reducers/products/index";
+import { setProducts } from "../reducers/products/index";
 //===============================================================
 
 const ShowProduct = () => {
@@ -23,7 +20,6 @@ const ShowProduct = () => {
   const [show, setShow] = useState(false);
   const [productsShower, setProductsShower] = useState([]);
 
-
   //===============================================================
 
   const allProducts = async () => {
@@ -32,8 +28,8 @@ const ShowProduct = () => {
       console.log(res);
       if (res.data.success) {
         dispatch(setProducts(res.data.results));
-        setProductsShower(res.data.results)
-} else throw Error;
+        setProductsShower(res.data.results);
+      } else throw Error;
     } catch (error) {
       console.log(error);
     }
@@ -48,9 +44,10 @@ const ShowProduct = () => {
         {productsShower &&
           productsShower.map((element, i) => {
             return (
-              <div  key={i}>
+              <div key={i}>
                 <p>{element.Product_Name}</p>
-                <p>{element.id}</p>
+                <p>{element.Product_Description}</p>{" "}
+                <p>{element.ProductPrice}</p> <p>{element.Category}</p>
               </div>
             );
           })}
