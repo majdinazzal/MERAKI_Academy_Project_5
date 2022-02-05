@@ -83,15 +83,13 @@ const NewOrder = () => {
   };
   useEffect(() => {
     if (!isLoggedIn) {
-      history("/dashboard");
+      history("/login");
     }
   });
-  //hi
 
   //===============================================================
   return (
-    // <div>
-    // </div>
+   
     <>
       <h1>hello order</h1>
 
