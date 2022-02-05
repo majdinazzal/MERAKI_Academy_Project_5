@@ -100,7 +100,7 @@ const NewProduct = () => {
 
   useEffect(() => {
     if (!isLoggedIn) {
-      history("/dashboard");
+      history("/login");
     }
   });
 //hi
