@@ -1,13 +1,47 @@
 .NavBar{
+    display:flex;
     background-color: beige;
+    font-family:cursive ;
+    
 }
 
-.list{
-    display: inline;
+.NavBar>div {
+    margin: 1%
 }
 
-.ul {
-        list-style-type:none;
-        margin: 0;
-        padding: 0;
+.logo {
+    font-family: cursive;
 }
+
+.body{
+    display: flex;
+    flex-direction: column;
+    background-image: url("./ecommerce-2140603_960_720.jpg");
+    color: blue;
+    background-size: cover;
+    align-items:flex-end;
+}
+
+.body>div {
+    margin: 5%;
+    margin-bottom: 5%;
+    background-color: beige;
+    width: 5%;
+   
+   
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.icons > div{
+    align-items: center;
+}
+
+
+
+
+
