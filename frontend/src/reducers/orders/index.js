@@ -2,12 +2,12 @@ const iniaialState = {
   orders: [],
 };
 
-const ordersReducer = (state = iniaialState, { type, payload }) => {
+const orders = (state = iniaialState, { type, payload }) => {
   switch (type) {
     case "SET_ORDERS":
-      return { ...state, products: products };
+      return { ...state, products: orders };
     case "ADD_ORDERS":
-      return { ...state, products: [...state.products, payload] };
+      return { ...state, products: [...state.orders, payload] };
     case "UPDATE_ORDER":
       return {
         ...state,
@@ -43,4 +43,4 @@ export const updateProduct = (updatedOrder) => {
 export const deletePorduct = (id) => {
   return { type: "DELETE_ORDER", payload: id };
 };
-export default ordersReducer;
+export default orders;
