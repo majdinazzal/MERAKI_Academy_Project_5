@@ -1,13 +1,20 @@
 .NavBar{
     background-color: beige;
+    display: flex;
+    flex-direction: row;
 }
 
-.list{
-    display: inline;
+.NavBar > div{
+    margin: 10px;
 }
 
-.ul {
-        list-style-type:none;
-        margin: 0;
-        padding: 0;
+.Footer{
+    background-color: beige;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Footer > div{
+    margin: 10px;  
 }
