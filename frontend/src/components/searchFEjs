@@ -19,7 +19,44 @@ const SearchBar = () => {
       });
   };
 
-  return <div></div>;
+  return (
+    <div>
+      <label>
+        <input
+          placeholder="Search"
+          type={"text"}
+          onChange={(e) => {
+            console.log(e);
+            setTitle(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            searchFunc();
+            console.log(found);
+          }}
+        >
+          Search
+        </button>
+      </label>
+      {found.length ? (
+        <div>
+          {found &&
+            found.map((elem) => {
+              return (
+                <div>
+                  <h2>{elem.title}</h2>
+                  <p>{elem.description}</p>
+                  <h6>{elem.category}</h6>
+                </div>
+              );
+            })}
+        </div>
+      ) : (
+        <p>No items....</p>
+      )}
+    </div>
+  );
 };
 
 export default SearchBar;
