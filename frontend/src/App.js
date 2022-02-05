@@ -8,13 +8,15 @@ import Hero from "./components/hero";
 import Home from "./components/home";
 import Login from "./components/login";
 import ShowProduct from "./components/products";
-import NewProduct from "./components/order";
+import NewProduct from "./components/addProducts";
+import NewOrder from "./components/addOrders";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         {" "}
+        <Route path="/addOrder" element={<NewOrder />} />
         <Route path="/addProduct" element={<NewProduct />} />
         <Route path="/" element={<Hero />} />
         <Route path="/home" element={<Home />} />

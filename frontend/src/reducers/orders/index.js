@@ -1,14 +1,14 @@
 const iniaialState = {
-  products: [],
+  orders: [],
 };
 
-const products = (state = iniaialState, { type, payload }) => {
+const ordersReducer = (state = iniaialState, { type, payload }) => {
   switch (type) {
-    case "SET_PRODUCTS":
+    case "SET_ORDERS":
       return { ...state, products: products };
-    case "ADD_PRODUCTS":
+    case "ADD_ORDERS":
       return { ...state, products: [...state.products, payload] };
-    case "UPDATE_PRODUCT":
+    case "UPDATE_ORDER":
       return {
         ...state,
         products: state.products.map((element) => {
@@ -17,7 +17,7 @@ const products = (state = iniaialState, { type, payload }) => {
           }
         }),
       };
-    case "DELETE_PRODUCT":
+    case "DELETE_ORDER":
       return {
         ...state,
         products: state.products.filter((element) => {
@@ -29,18 +29,18 @@ const products = (state = iniaialState, { type, payload }) => {
   }
 };
 
-export const setProducts = (products) => {
-  return { type: "SET_PRODUCTS", payload: products };
+export const setOrders = (orders) => {
+  return { type: "SET_ORDERS", payload: orders };
 };
 
-export const addProducts = (products) => {
-  return { type: "ADD_PRODUCTS", payload: products };
+export const addProducts = (orders) => {
+  return { type: "ADD_ORDERS", payload: orders };
 };
-export const updateProduct = (updatedProduct) => {
-  return { type: "UPDATE_PRODUCT", payload: updatedProduct };
+export const updateProduct = (updatedOrder) => {
+  return { type: "UPDATE_ORDER", payload: updatedOrder };
 };
 
 export const deletePorduct = (id) => {
-  return { type: "DELETE_PRODUCT", payload: id };
+  return { type: "DELETE_ORDER", payload: id };
 };
-export default products;
+export default ordersReducer;
