@@ -48,7 +48,7 @@ const NewOrder = () => {
       if (result.data.success) {
         setStatus(true);
         dispatch(addProducts({ orderName, description, Price, Category }));
-        setMessage("The article has been created successfully");
+        setMessage("The Order has been created successfully");
       }
     } catch (error) {
       if (!error.response.data.success) {
@@ -67,6 +67,38 @@ const NewOrder = () => {
   });
 
   //===============================================================
+  return (
+    <>
+      <form onSubmit={createNewOrder}>
+        <br />
+        <input
+          type="text"
+          placeholder="Product name here"
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <br />
+        <textarea
+          placeholder="product description here"
+          onChange={(e) => setDescription(e.target.value)}
+        ></textarea>
+        <br />
+        <button>Create New Order</button>
+      </form>
+      <br />
+      {status
+        ? message && (
+            <div className="SuccessMessage">
+              {message} && <p>{console.log(status)}</p>
+            </div>
+          )
+        : message && (
+            <div className="ErrorMessage">
+              {message}
+              <p>{console.log(status)}</p>
+            </div>
+          )}
+    </>
+  );
 };
 
 export default NewOrder;
