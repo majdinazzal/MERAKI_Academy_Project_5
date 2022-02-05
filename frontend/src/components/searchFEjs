@@ -2,7 +2,25 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-const SearchBar = () => {};
+const SearchBar = () => {
+  const [title, setTitle] = useState("");
+  const [found, setFound] = useState([]);
+
+  const searchFunc = () => {
+    console.log("inside search");
+    axios
+      .get(`http://localhost:5000/search/${Product_Name}`)
+      .then((result) => {
+        console.log(result.data);
+        setFound(result.data.posts);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  };
+
+  return <div></div>;
+};
 
 export default SearchBar;
 
