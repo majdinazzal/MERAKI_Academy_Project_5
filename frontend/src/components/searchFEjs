@@ -1,0 +1,9 @@
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useState } from "react";
+
+const SearchBar = () => {};
+
+export default SearchBar;
+
+// to show the posts that was found during the search we will put a SVG search icon in the app component so when we click it it takes us to the seach copmponent
