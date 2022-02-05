@@ -29,7 +29,7 @@ const NewOrder = () => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
   const [Product_Name, setProduct_Name] = useState("");
-  const [Product_Price, setProduct_Price] = useState("");
+  const [Product_Price, setProduct_Price] = useState();
   const [Product_Description, setProduct_Description] = useState("");
   const [Category, setCategory] = useState("");
   // const product = {
@@ -81,22 +81,6 @@ const NewOrder = () => {
       }
     }
   };
-
-  //===============================================================
-  // const createNewProduct = () => {
-  //   axios
-  //     .post("http://localhost:5000/product", product)
-  //     .then((result) => {
-  //       // console.log(token);
-  //       console.log(result);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  //===============================================================
-
   useEffect(() => {
     if (!isLoggedIn) {
       history("/dashboard");
@@ -121,6 +105,11 @@ const NewOrder = () => {
         <textarea
           placeholder="product description here"
           onChange={(e) => setProduct_Description(e.target.value)}
+        ></textarea>
+        <br />{" "}
+        <textarea
+          placeholder="product price here"
+          onChange={(e) => setProduct_Price(e.target.value)}
         ></textarea>
         <br />
         <button>Create New product</button>
