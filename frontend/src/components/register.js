@@ -75,13 +75,13 @@ const Register = () => {
                     placeholder="Email"
                     required=""
                   />
-                  {/* <input
+                  <input
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
                     name="pswd"
                     placeholder="Password"
                     required=""
-                  /> */}
+                  />
                   <button>Sign up</button>
                 </form>
               </div>
