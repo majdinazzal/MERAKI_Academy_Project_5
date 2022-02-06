@@ -11,6 +11,7 @@ app.use(express.json());
 const PORT = 5000;
 
 // Import Routers
+const categoryRouter = require("./routes/categoryR");
 const searchRouter = require("./routes/searchR");
 const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/login");
@@ -22,6 +23,7 @@ app.use("/login", loginRouter);
 app.use("/orders", ordersRouter);
 app.use("/product", productRouter);
 app.use("/search", searchRouter);
+app.use("/category", categoryRouter);
 
 app.listen(PORT, () => {
   console.log(`SERVER WORKING ON PORT: ${PORT}`);
