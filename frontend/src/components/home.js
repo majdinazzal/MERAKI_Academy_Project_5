@@ -23,8 +23,8 @@ const Home = () => {
 
   //===============================================================
   //hi
-  const searchFunc = () => {
-    console.log("inside search");
+  const searchFix = (Product_Name) => {
+    // console.log("inside search");
     axios
       .get(`http://localhost:5000/search/${Product_Name}`)
       .then((result) => {
@@ -36,10 +36,27 @@ const Home = () => {
         console.log(err);
       });
   };
+  // useEffect(() => {
+  //   searchFix("wwww");
+  // }, []);
+  // setFound(['wwww'])
+  const searchFunc = () => {
+    console.log("inside search");
+    axios
+      .get(`http://localhost:5000/search/${Product_Name}`)
+      .then((result) => {
+        console.log(result.data.result);
+        setFound(result.data.result);
+        console.log(found);
+      })
+      .catch((err) => {
+        console.log(err.response);
+        console.log(err);
+      });
+  };
   const allProducts = async () => {
     try {
       const res = await axios.get("http://localhost:5000/product");
-      console.log(res);
       if (res.data.success) {
         dispatch(setProducts(res.data.results));
         setProductsShower(res.data.results);
@@ -58,14 +75,10 @@ const Home = () => {
       </div>
       <div className="NavBar">
         <div>
-          <Link to="/home">
-            <a className="">Home</a>
-          </Link>{" "}
+          <Link to="/home">Home</Link>{" "}
         </div>
         <div>
-          <Link to="/login">
-            <a className="">Login</a>
-          </Link>{" "}
+          <Link to="/login">Login</Link>{" "}
         </div>
         <div>
           <label>
@@ -86,19 +99,23 @@ const Home = () => {
               Search
             </button>
           </label>
+          <br />
+          <div>
+            <Link to="/category">category</Link>{" "}
+          </div>
           {found.length ? (
             //length is not defined???
             <div>
-              {found &&
-                found.map((elem) => {
-                  return (
-                    <div>
-                      <h2>{elem.title}</h2>
-                      <p>{elem.description}</p>
-                      <h6>{elem.category}</h6>
-                    </div>
-                  );
-                })}
+              {found.map((elem) => {
+                console.log(elem);
+                return (
+                  <div key={elem.id}>
+                    <h2>oooooooooo{elem.Product_Name}</h2>
+                    {/* <p>{elem}</p>
+                      <h6>{elem}</h6> */}
+                  </div>
+                );
+              })}
             </div>
           ) : (
             <p></p>

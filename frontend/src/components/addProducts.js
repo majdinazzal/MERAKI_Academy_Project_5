@@ -19,7 +19,7 @@ const NewProduct = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
-//hi
+  //hi
 
   const { token, isLoggedIn } = state;
 
@@ -128,6 +128,22 @@ const NewProduct = () => {
           onChange={(e) => setPrice(e.target.value)}
         ></textarea>
         <br />
+        <div>
+          <select
+            placeholder="category"
+            id="categorySelector"
+            onClick={(e) => {
+              setCategory(e.target.value);
+            }}
+          >
+            <option>vehicles</option>
+            <option>clothes</option>
+            <option>pc</option>
+            <option>phones</option>
+            <option>tools</option>
+            <option>realEstate</option> options
+          </select>
+        </div>{" "}
         <button>Create New product</button>
       </form>
       <br />

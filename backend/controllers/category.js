@@ -3,21 +3,24 @@ const db = require("../database/db");
 
 const categoryFunc = (req, res) => {
   //select all where category =.......
-  const category = req.params.Category;
-  const query = `select * from products where Category=${"'" + category + "'"}`;
-  const data = [category];
+  const categoryType = req.params.Category;
+  console.log(categoryType);
+  const query = `select * from products where Category= ?`;
+  const data = [categoryType];
   connection.query(query, data, (err, result) => {
     if (err) {
+      console.log("nononononon");
       res.status(500).json({
         success: true,
         message: `Not found`,
         err,
       });
     } else if (result) {
-      res.status(500).json({
+      console.log("ysysysysysys");
+      res.status(200).json({
         success: true,
-        message: `All products from ${category} category`,
-        err,
+        message: `All products from ${categoryType} category`,
+        result: result,
       });
     }
   });

@@ -5,7 +5,20 @@ import { useState } from "react";
 const SearchBar = () => {
   const [Product_Name, setProduct_Name] = useState("");
   const [found, setFound] = useState([]);
-
+  useEffect(searchFix("wwww"), []);
+  const searchFix = (Product_Name) => {
+    // console.log("inside search");
+    axios
+      .get(`http://localhost:5000/search/${Product_Name}`)
+      .then((result) => {
+        console.log(result.data);
+        setFound(result.data.posts);
+      })
+      .catch((err) => {
+        console.log(err.response);
+        console.log(err);
+      });
+  };
   const searchFunc = () => {
     console.log("inside search");
     axios
@@ -42,6 +55,7 @@ const SearchBar = () => {
       </label>
       {found.length ? (
         //length is not defined???
+        //because when the array is empty the length method cant be use/read
         <div>
           {found &&
             found.map((elem) => {
