@@ -10,12 +10,14 @@ import Login from "./components/login";
 import ShowProduct from "./components/products";
 import NewProduct from "./components/addProducts";
 import NewOrder from "./components/addOrders";
+import SearchBar from "./components/search.js";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         {" "}
+        <Route path="/search" element={<SearchBar />} />
         <Route path="/addOrder" element={<NewOrder />} />
         <Route path="/addProduct" element={<NewProduct />} />
         <Route path="/" element={<Hero />} />

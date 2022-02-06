@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 
 const SearchBar = () => {
-  const [title, setTitle] = useState("");
+  const [Product_Name, setProduct_Name] = useState("");
   const [found, setFound] = useState([]);
 
   const searchFunc = () => {
@@ -15,7 +15,8 @@ const SearchBar = () => {
         setFound(result.data.posts);
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err.response);
+        console.log(err);
       });
   };
 
@@ -27,7 +28,7 @@ const SearchBar = () => {
           type={"text"}
           onChange={(e) => {
             console.log(e);
-            setTitle(e.target.value);
+            setProduct_Name(e.target.value);
           }}
         />
         <button
@@ -40,6 +41,7 @@ const SearchBar = () => {
         </button>
       </label>
       {found.length ? (
+        //length is not defined???
         <div>
           {found &&
             found.map((elem) => {
