@@ -57,7 +57,24 @@ const Login = () => {
 
   return (
     <>
-      <div className="Form">
+    <head>
+	<title>Slide Navbar</title>
+	<link rel="stylesheet" type="text/css" href="slide navbar style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet"/>
+</head>
+
+<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true"/>
+    <div class="login">
+				<form  onSubmit={loginUser}>
+					<label for="chk" aria-hidden="true">Login</label>
+					<input  onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="Email" required=""/>
+					<input  onChange={(e) => setPassword(e.target.value)} type="password" name="pswd" placeholder="Password" required=""/>
+					<button>Login</button>
+				</form>
+			</div>
+
+      {/* <div className="Form">
         <p className="Title">Login:</p>
         <form onSubmit={loginUser}>
           <br />
@@ -79,45 +96,10 @@ const Login = () => {
 
         {status
           ? message && <div className="SuccessMessage">{message}</div>
-          : message && <div className="ErrorMessage">{message}</div>}
+          : message && <div className="ErrorMessage">{message}</div>} */}
       </div>
     </>
   );
-  //========================================================================
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [token, setToken] = useState("");
-  // const log = () => {
-  //   axios
-  //     .post("http://localhost:5000/login", { password, email })
-  //     .then((result) => {
-  //       console.log(result);
-  //       setToken(result.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-  // return (
-  //   <div>
-  //     <h1>login</h1>
-  //     <form>
-  //       <input
-  //         placeholder="Email"
-  //         onChange={(e) => {
-  //           setEmail(e.target.value);
-  //         }}
-  //       ></input>
-  //       <input
-  //         placeholder="Password"
-  //         onChange={(e) => {
-  //           setPassword(e.target.value);
-  //         }}
-  //       ></input>
-  //     </form>
-  //     <button onClick={log}>send info</button>
-  //   </div>
-  // );
 };
 
 export default Login;
