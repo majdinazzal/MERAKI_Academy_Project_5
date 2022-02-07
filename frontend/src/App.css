@@ -10,33 +10,3 @@
 /* margin-bottom: 01%;
 } */
 
-#category {
-  margin-left: -3em;
-  display: grid;
-  padding-left: 5.5%;
-  padding-top: 03em;
-  grid-template-columns: 030em 030em 030em;
-  grid-template-rows: 020em 020em;
-  background-color: rgb(204, 255, 0);
-  height: 100vh;
-  width: 100%;
-}
-.categoryPics {
-  height: 15em;
-  width: 24em;
-}
-.categoryPics:hover {
-  height: 18em;
-  width: 27em;
-  border: rgb(0, 0, 0) solid 0.3em;
-}
-#renderdCategory {
-  border: 1px solid orange;
-  margin-top: 1.5em;
-  background-color: rgba(180, 179, 179, 0.863);
-}
-#renderedContainer {
-  margin-top: 3em;
-  width: 050%;
-  margin-left: 24%;
-}
