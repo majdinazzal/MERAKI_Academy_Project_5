@@ -1,4 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
+import { Route, Routes, Link } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -106,60 +108,88 @@ const NewProduct = () => {
 
   //===============================================================
   return (
-    // <div>
-    //   <h1>hello product</h1>
-    // </div>
-    <>
-      <form onSubmit={createNewProduct}>
+    <div id="addProductBackGround">
+      <>
+        <div id="categoryNavBar">
+          <Link className="categoryLinks" to={"/"}>
+            <h2 id="logoCategory">Xchange</h2>
+          </Link>
+          <div id="categoryLinksDiv">
+            <Link className="categoryLinks" to={"/Home"}>
+              Home
+            </Link>
+            <Link className="categoryLinks" to={"/category"}>
+              category
+            </Link>
+            <Link className="categoryLinks" to={"/addproduct"}>
+              add Product
+            </Link>
+            {state.token ? (
+              <Link className="categoryLinks" to={"/logout"}>
+                logout
+              </Link>
+            ) : (
+              <Link className="categoryLinks" to={"/login"}>
+                login
+              </Link>
+            )}
+          </div>
+        </div>
+        <form id="form" onSubmit={createNewProduct}>
+          <br />
+          <input
+            id="postTitle"
+            type="text"
+            placeholder="Product name here"
+            onChange={(e) => setProduct_Name(e.target.value)}
+          />
+          <br />
+          <textarea
+            id="PostDescription"
+            placeholder="product description here"
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
+          <br />
+          <textarea
+            id="PostPrice"
+            placeholder="product price here"
+            onChange={(e) => setPrice(e.target.value)}
+          ></textarea>
+          <br />
+          <div>
+            <select
+              id="categorySelector"
+              placeholder="category"
+              id="categorySelector"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
+            >
+              <option>vehicles</option>
+              <option>clothes</option>
+              <option>pc</option>
+              <option>phones</option>
+              <option>tools</option>
+              <option>realEstate</option> options
+            </select>
+          </div>{" "}
+          <button id="createPost">Create New product</button>
+        </form>
         <br />
-        <input
-          type="text"
-          placeholder="Product name here"
-          onChange={(e) => setProduct_Name(e.target.value)}
-        />
-        <br />
-        <textarea
-          placeholder="product description here"
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
-        <br />
-        <textarea
-          placeholder="product price here"
-          onChange={(e) => setPrice(e.target.value)}
-        ></textarea>
-        <br />
-        <div>
-          <select
-            placeholder="category"
-            id="categorySelector"
-            onClick={(e) => {
-              setCategory(e.target.value);
-            }}
-          >
-            <option>vehicles</option>
-            <option>clothes</option>
-            <option>pc</option>
-            <option>phones</option>
-            <option>tools</option>
-            <option>realEstate</option> options
-          </select>
-        </div>{" "}
-        <button>Create New product</button>
-      </form>
-      <br />
-      {status
-        ? message && (
-            <div className="SuccessMessage">
-              {message} && <p>{console.log(status)}</p>
-            </div>
-          )
-        : message && (
-            <div className="ErrorMessage">
-              {message}
-              <p>{console.log(status)}</p>
-            </div>
-          )}
-    </>
+        {status
+          ? message && (
+              <div className="SuccessMessage">
+                {message} && <p>{console.log(status)}</p>
+              </div>
+            )
+          : message && (
+              <div className="ErrorMessage">
+                {message}
+                <p>{console.log(status)}</p>
+              </div>
+            )}
+      </>
+    </div>
   );
 };
 
