@@ -10,7 +10,7 @@ import Login from "./components/login";
 import ShowProduct from "./components/products";
 import NewProduct from "./components/addProducts";
 import NewOrder from "./components/addOrders";
-import SearchBar from "./components/search.js";
+
 import AllCategories from "./components/category";
 import Categories from "./components/categories/clothes";
 
@@ -20,7 +20,6 @@ function App() {
       <Routes>
         {" "}
         <Route path="/categories" element={<Categories />} />{" "}
-        <Route path="/search" element={<SearchBar />} />{" "}
         <Route path="/category" element={<AllCategories />} />
         <Route path="/addOrder" element={<NewOrder />} />
         <Route path="/addProduct" element={<NewProduct />} />
