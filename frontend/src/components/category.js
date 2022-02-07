@@ -2,10 +2,15 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { Route, Routes, Link } from "react-router-dom";
+import { createContext } from "react";
+import Categories from "./categories/clothes";
+import Home from "./home";
+export const UserContext = createContext();
 const AllCategories = () => {
-  /*VIQ 
+  /*VIQ
   //can we do   const [{vehicles , clothes ,realEstate}, {setVehicles,setClothes,setRealEstate}] = useState("");
   ???*/ const [found, setFound] = useState([""]);
+  // const [cataeg, setCateg] = useState("");
 
   const GetCategory = (Category) => {
     axios
@@ -20,8 +25,30 @@ const AllCategories = () => {
 
   return (
     <div>
-      {" "}
-      <h2>Xchange</h2>
+      {/* <div>
+        <UserContext.Provider value={cataeg}>
+          <Categories />
+        </UserContext.Provider>
+      </div>{" "} */}
+      {/* <div>
+        <Home />
+      </div> */}
+      <div id="categoryNavBar">
+        <Link className="categoryLinks" to={"/"}>
+          <h2 id="logoCategory">Xchange</h2>
+        </Link>
+        <div id="categoryLinksDiv">
+          <Link className="categoryLinks" to={"/Home"}>
+            Home
+          </Link>
+          <Link className="categoryLinks" to={"/addproduct"}>
+            add Product
+          </Link>
+          <Link className="categoryLinks" to={"/login"}>
+            login
+          </Link>
+        </div>
+      </div>
       <div id="category">
         {/* <Link to={`/${category}`}> */}
         <Link to={`/Vehicles`}>
@@ -38,7 +65,7 @@ const AllCategories = () => {
           {" "}
           <img
             onClick={() => {
-              // setCategory("clothes");
+              // setCateg("clothes");
               GetCategory("clothes");
             }}
             className="categoryPics"
