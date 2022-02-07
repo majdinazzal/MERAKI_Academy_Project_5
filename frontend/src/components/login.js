@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 import { useNavigate } from "react-router-dom";
+import "./login.css";
 
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,11 +17,13 @@ const Login = () => {
 
   const dispatch = useDispatch();
   // ---------------------------------------------
-//hi
-
+  //hi
+  const [Username, setUsername] = useState("");
+  const [Phone_number, setPhone_number] = useState(0);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
+
   const [status, setStatus] = useState(false);
   // const [saveToken, setSaveToken] = useState("");
   //===============================================================
@@ -46,6 +49,27 @@ const Login = () => {
       setMessage("Error happened while Login, please try again");
     }
   };
+  const addNewUser = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await axios.post("http://localhost:5000/users", {
+        Username,
+        Phone_number,
+        email,
+        password,
+      });
+      if (result.data.success) {
+        setStatus(true);
+        setMessage("The user has been created successfully");
+      } else throw Error;
+    } catch (error) {
+      setStatus(false);
+      if (error.response && error.response.data) {
+        return setMessage(error.response.data.message);
+      }
+      setMessage("Error happened while register, please try again");
+    }
+  };
 
   useEffect(() => {
     if (state.isLoggedIn) {
@@ -57,7 +81,73 @@ const Login = () => {
 
   return (
     <>
-      <div className="Form">
+      <div className="bodylogin">
+        <div class="main">
+          <input className="inp" type="checkbox" id="chk" aria-hidden="true" />
+
+          <div class="signup">
+            <form onSubmit={addNewUser}>
+              <label className="lable" for="chk" aria-hidden="true">
+                Sign up
+              </label>
+             < input className="inp"
+                    onChange={(e) => setUsername(e.target.value)}
+                    type="text"
+                    name="txt"
+                    placeholder="User name"
+                    required=""
+                  />
+              <input className="inp"
+                onChange={(e) => setPhone_number(e.target.value)}
+                type="number"
+                name="phone"
+                placeholder="phone Number"
+                required=""
+              />
+              <input className="inp"
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                name="email"
+                placeholder="Email"
+                required=""
+              />
+              <input className="inp"
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                name="pswd"
+                placeholder="Password"
+                required=""
+              />
+              <button className="btn">Sign up</button>
+            </form>
+          </div>
+
+          <div class="login">
+            <form >
+              <label className="lable" for="chk" aria-hidden="true">
+                Login
+              </label>
+              <input className="inp"
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                name="email"
+                placeholder="Email"
+                required=""
+              />
+              <input className="inp"
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                name="pswd"
+                placeholder="Password"
+                required=""
+              />
+              <button className="btn" onClick={loginUser}>Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="Form">
         <p className="Title">Login:</p>
         <form onSubmit={loginUser}>
           <br />
@@ -79,45 +169,10 @@ const Login = () => {
 
         {status
           ? message && <div className="SuccessMessage">{message}</div>
-          : message && <div className="ErrorMessage">{message}</div>}
-      </div>
+          : message && <div className="ErrorMessage">{message}</div>} */}
+      {/* </div> */}
     </>
   );
-  //========================================================================
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [token, setToken] = useState("");
-  // const log = () => {
-  //   axios
-  //     .post("http://localhost:5000/login", { password, email })
-  //     .then((result) => {
-  //       console.log(result);
-  //       setToken(result.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-  // return (
-  //   <div>
-  //     <h1>login</h1>
-  //     <form>
-  //       <input
-  //         placeholder="Email"
-  //         onChange={(e) => {
-  //           setEmail(e.target.value);
-  //         }}
-  //       ></input>
-  //       <input
-  //         placeholder="Password"
-  //         onChange={(e) => {
-  //           setPassword(e.target.value);
-  //         }}
-  //       ></input>
-  //     </form>
-  //     <button onClick={log}>send info</button>
-  //   </div>
-  // );
 };
 
 export default Login;

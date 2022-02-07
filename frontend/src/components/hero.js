@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "./hero.css"
-
+import "./hero.css";
+import Login from "./login";
 const Hero = ()=> {
 return (
 <>
