@@ -2,8 +2,7 @@
     display:flex;
     background-color:rgb(0, 0, 0);
     font-family:cursive ;
-    gap: 30px;
-    
+    align-items: end;
     
 }
 
@@ -20,8 +19,8 @@ a{
 
 .NavBar>div {
     margin: 1%;
-   margin-left: 5%;
-   margin-bottom: %;
+    margin-left: 5%;
+    
     /* color: rgb(238, 155, 1); */
 }
 

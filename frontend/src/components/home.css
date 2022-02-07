@@ -38,9 +38,19 @@
 
 }
 
-.Inputhome {
+.inputsearch {
 
-    width: 6em;
+    width: 15em;
     
+}
+
+.Searchbar {
+ display: flex;
+ justify-content:center;
+ background-color: #e5e5e5;
+}
+
+.Searchbar > div {
+  margin-top: 1%;
 }
 
