@@ -6,9 +6,9 @@ return (
 <>
    
 <div className="logo">
-    <h2>Xchange</h2>
 </div>
     <div className="NavBar">
+        <div className="logo">Xchange</div>
       <div ><Link to="/home"><a className="">Home</a></Link>{" "}
       </div> 
       <div><Link to="/login"><a className="">Login</a></Link>{" "}
@@ -17,10 +17,9 @@ return (
     <div className="body">
        
    
-        <div>First Register to have an account</div>
-        <div>Second Login to your account</div>
-        <div>Third Start Item Exchanging</div>
-   
+        <div> Register to have an account </div>
+        <div> Login to your account </div>
+        <div> Start Item Exchange </div>
             </div>
     <div className="Footer">
         <div>Meraki C4 </div>
