@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Route, Router, Link } from "react-router-dom";
 
-const Categories = () => {
+import { useState, useEffect } from "react";
+
+const Phones = () => {
   const [found, setFound] = useState([]);
   useEffect(() => {
-    GetCategory("clothes");
+    GetCategory("Phones");
   }, []);
   const GetCategory = async (category) => {
     await axios
@@ -57,4 +58,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Phones;

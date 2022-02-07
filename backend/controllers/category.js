@@ -11,7 +11,7 @@ const categoryFunc = (req, res) => {
     if (err) {
       console.log("nononononon");
       res.status(500).json({
-        success: true,
+        success: false,
         message: `Not found`,
         err,
       });

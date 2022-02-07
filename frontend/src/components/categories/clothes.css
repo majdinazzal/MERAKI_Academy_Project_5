@@ -1,20 +1,16 @@
-/*  
-.App {
-  background-color: grey;
-  text-align: center;
-  height: 100vh;
+* {
+  margin-top: 0%;
 }
-#renderProduct {
-  border: solid 1px crimson;
-  /* padding-bottom: 01%; */
-/* margin-bottom: 01%;
-} */
-*{
-  margin: 0;
-  padding: 0;
+#renderedContainer {
+  border: solid blue 2px;
 }
-
-
+#renderdCategory {
+  border: solid blueviolet 2px;
+}
+#n {
+  background-color: blue;
+}
+/* //======================================== */
 
 #category {
   margin-left: -3em;
@@ -23,20 +19,18 @@
   padding-top: 03em;
   grid-template-columns: 030em 030em 030em;
   grid-template-rows: 020em 020em;
-  /* background-color: rgb(204, 255, 0); */
-  background-color: #e5e5e5;
-
+  background-color: rgb(1, 1, 41);
   height: 100vh;
   width: 100%;
 }
 .categoryPics {
-  height: 15em;
-  width: 24em;
+  height: 75%;
+  width: 85%;
 }
 .categoryPics:hover {
   height: 18em;
   width: 27em;
-  border: rgb(0, 0, 0) solid 0.3em;
+  border: orange solid 0.3em;
 }
 #renderdCategory {
   border: 1px solid orange;
@@ -47,4 +41,14 @@
   margin-top: 3em;
   width: 050%;
   margin-left: 24%;
+}
+#renderedContainer {
+  border: solid blue 2px;
+}
+#renderdCategory {
+  border: solid blueviolet 2px;
+}
+#n {
+  border: solid green 2px;
+  height: 100vh;
 }
