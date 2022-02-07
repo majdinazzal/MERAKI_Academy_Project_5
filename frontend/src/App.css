@@ -9,6 +9,10 @@
   /* padding-bottom: 01%; */
 /* margin-bottom: 01%;
 } */
+*{
+  margin: 0;
+  padding: 0;
+}
 
 #category {
   margin-left: -3em;
@@ -17,7 +21,9 @@
   padding-top: 03em;
   grid-template-columns: 030em 030em 030em;
   grid-template-rows: 020em 020em;
-  background-color: rgb(204, 255, 0);
+  /* background-color: rgb(204, 255, 0); */
+  background-color: #e5e5e5;
+
   height: 100vh;
   width: 100%;
 }

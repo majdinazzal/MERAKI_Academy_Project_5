@@ -70,19 +70,36 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div className="logo">
-        <h2>Xchange</h2>
-      </div>
       <div className="NavBar">
+        <div className="logo">Xchange</div>
         <div>
-          <Link to="/home">Home</Link>{" "}
+          <Link className="Homelinks" to="/home">
+            Home
+          </Link>{" "}
+        </div>
+
+        <div>
+          <Link className="Homelinks" to="/addProduct">
+            Add Product
+          </Link>{" "}
         </div>
         <div>
-          <Link to="/login">Login</Link>{" "}
+          <Link className="Homelinks" to="/category">
+            Category
+          </Link>{" "}
         </div>
+        <div>
+          <Link className="Homelinks" to="/login">
+            Login
+          </Link>{" "}
+        </div>
+
+      </div>
+      <div className="Searchbar">
         <div>
           <label>
             <input
+              className="inputsearch"
               placeholder="Search"
               type={"text"}
               onChange={(e) => {
@@ -99,10 +116,9 @@ const Home = () => {
               Search
             </button>
           </label>
-          <br />
-          <div>
-            <Link to="/category">category</Link>{" "}
           </div>
+          <br />
+
           {found.length ? (
             //length is not defined???
             <div>
@@ -110,7 +126,7 @@ const Home = () => {
                 console.log(elem);
                 return (
                   <div key={elem.id}>
-                    <h2>oooooooooo{elem.Product_Name}</h2>
+                    <h2>{elem.Product_Name}</h2>
                     {/* <p>{elem}</p>
                       <h6>{elem}</h6> */}
                   </div>
@@ -121,13 +137,16 @@ const Home = () => {
             <p></p>
           )}
         </div>
-      </div>
       <div className="product">
         {" "}
         {productsShower &&
           productsShower.map((element, i) => {
             return (
               <div className="productelement" id="renderProduct" key={i}>
+                <img
+                  className="productimage"
+                  src="https://www.notebookcheck.net/fileadmin/_processed_/c/d/csm_Produktfotos_Apple_iPhone_13_Pro_1448_0001583eaa.jpg"
+                />
                 <p>{element.Product_Name}</p>
                 <p>{element.Product_Description}</p>{" "}
                 <p>{element.ProductPrice}</p> <p>{element.Category}</p>
