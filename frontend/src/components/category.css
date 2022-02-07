@@ -1,0 +1,30 @@
+.categoryLinks {
+  color: rgb(1, 1, 41);
+  text-decoration: none;
+  margin-bottom: 0.3%;
+}
+.categoryLinks:hover {
+  color: aqua;
+}
+#logoCategory {
+  margin-left: 01%;
+  color: rgb(1, 1, 41);
+}
+
+#categoryNavBar {
+  margin-left: -0.93%;
+  padding-left: 0.93%;
+  margin-right: 0%;
+  padding-right: 0%;
+  background-color: orange;
+  border: solid;
+  width: 103%;
+}
+#categoryLinksDiv {
+  /* justify-content: space-around; */
+  color: rgb(1, 1, 41);
+  display: flex;
+  gap: 19%;
+  margin-left: 25%;
+  margin-top: -1%;
+}

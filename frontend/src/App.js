@@ -1,4 +1,8 @@
 import "./App.css";
+import "./components/category.css";
+import "./components/categories/clothes.css";
+import "./components/addProduct.css";
+import "./components/categories/categoriesFilter.css";
 import { Route, Routes } from "react-router-dom";
 import { UserContext } from "./components/login";
 import { useContext } from "react";
@@ -13,12 +17,18 @@ import NewOrder from "./components/addOrders";
 
 import AllCategories from "./components/category";
 import Categories from "./components/categories/clothes";
+import Vehicles from "./components/categories/Vehicles";
+//=============================================================
+import PC from "./components/categories/PC";
+import Phones from "./components/categories/Phones";
+import RealEstate from "./components/categories/RealEstate";
+import Tools from "./components/categories/Tools";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        {" "}
+        t <Route path="/vehicles" element={<Vehicles />} />{" "}
         <Route path="/categories" element={<Categories />} />{" "}
         <Route path="/category" element={<AllCategories />} />
         <Route path="/addOrder" element={<NewOrder />} />
@@ -27,6 +37,10 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/product" element={<ShowProduct />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/PC" element={<PC />} />{" "}
+        <Route path="/Phones" element={<Phones />} />{" "}
+        <Route path="/RealEstate" element={<RealEstate />} />{" "}
+        <Route path="/Tools" element={<Tools />} />{" "}
       </Routes>
     </div>
   );

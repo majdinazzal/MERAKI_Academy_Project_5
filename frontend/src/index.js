@@ -7,10 +7,11 @@ import { Provider } from "react-redux";
 import store from "./reducers/index";
 import { UserContext } from "./components/login";
 import token from "./components/login";
+import cataeg from "./components/category";
 
 ReactDOM.render(
   <Router>
-    <UserContext.Provider value={token}>
+    <UserContext.Provider value={(token,cataeg)}>
       <Provider store={store}>
         <App />
       </Provider>

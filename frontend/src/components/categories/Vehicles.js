@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react";import { Route, Router, Link } from "react-router-dom";
+
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
-const Categories = () => {
+const Vehicles = () => {
   const [found, setFound] = useState([]);
   useEffect(() => {
-    GetCategory("clothes");
+    GetCategory("vehicles");
   }, []);
   const GetCategory = async (category) => {
     await axios
@@ -57,4 +57,6 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Vehicles;
+
+//vehicles
