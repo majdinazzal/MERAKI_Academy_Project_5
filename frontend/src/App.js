@@ -12,6 +12,7 @@ import { useContext } from "react";
 import Hero from "./components/hero";
 import Home from "./components/home";
 import Login from "./components/login";
+import Logout from "./components/logout";
 import ShowProduct from "./components/products";
 import NewProduct from "./components/addProducts";
 import NewOrder from "./components/addOrders";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/product" element={<ShowProduct />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/PC" element={<PC />} />{" "}
         <Route path="/Phones" element={<Phones />} />{" "}
         <Route path="/RealEstate" element={<RealEstate />} />{" "}
