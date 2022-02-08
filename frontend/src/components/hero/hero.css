@@ -13,19 +13,14 @@
 
 .body>div {
     margin: 5%;
-   
     margin-top: 2%;;
-    /* background-color: beige; */
     height: 100px;
     width: 100px;
     text-align: center;
-    justify-content: center;
-    /* background-color:rgb(238, 155, 1); */
-    /* background-color:#fff; */
-    /* background-color: #9e9e9e; */
+    justify-content: center; 
     color:black;
     font-family:cursive;
-    /* width: 5%; */
+    
 
 }
 
