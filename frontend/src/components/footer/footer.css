@@ -1,6 +1,6 @@
 .Footer{
     display:flex;
-    background-color: #111111;
+    background-color: #24292f;
     font-family:cursive ;
     justify-content: center;
 }
@@ -10,9 +10,7 @@
     color: #e5e5e5;
 }
 
-.bmw{
-    
-}
+
 
 .bmwimage{
     height: 60px;
