@@ -1,6 +1,6 @@
 .NavBar{
     display:flex;
-    background-color:rgb(0, 0, 0);
+    background-color:#24292f;
     font-family:cursive ;
     align-items: end;
 }
