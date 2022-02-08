@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { addProducts } from "../reducers/products/index";
+import { addProducts } from "../../reducers/products/index";
 
 //===============================================================
 

@@ -5,9 +5,9 @@ import { createContext } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./reducers/index";
-import { UserContext } from "./components/login";
-import token from "./components/login";
-import cataeg from "./components/category";
+import { UserContext } from "./components/login/login";
+import token from "./components/login/login";
+import cataeg from "./components/category/category";
 
 ReactDOM.render(
   <Router>

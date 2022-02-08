@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { setProducts } from "../reducers/products/index";
+import { setProducts } from "../../reducers/products/index";
 
 
 const NavBar = () => {
