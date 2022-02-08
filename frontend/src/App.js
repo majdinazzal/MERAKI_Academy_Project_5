@@ -27,6 +27,7 @@ import RealEstate from "./components/categories/RealEstate";
 import Tools from "./components/categories/Tools";
 import Footer from "./components/footer/footer"
 
+
 function App() {
   return (
     <div className="App">
