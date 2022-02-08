@@ -3,4 +3,10 @@
     /* background-color:rgb(0, 0, 0); */
     background-color: #111111;
     font-family:cursive ;
+    justify-content: center;
+}
+
+.Footer>div {
+    margin: 2%;
+    color: #e5e5e5;
 }
