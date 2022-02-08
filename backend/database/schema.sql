@@ -25,6 +25,7 @@
 -- Primary Key (id)
 -- );
 
+
 -- create table orders (
 -- id INT AUTO_INCREMENT NOT NULL,
 -- Product_Name VARCHAR (255),
@@ -35,4 +36,3 @@
 -- FOREIGN KEY (product_id) REFERENCES products(id),
 -- Primary Key (id)
 -- );
-
