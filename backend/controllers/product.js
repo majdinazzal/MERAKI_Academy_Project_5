@@ -124,24 +124,29 @@ const getproductByuser = (req, res) => {
 const deleteProductById = (req, res) => {
   const id = req.params.id;
   console.log("pasnpsnspdn");
-  const query = `delete from products where id=${id}`;
-  const query2 = `select * from products where id =${id}`;
+  const query = `DELETE FROM products WHERE id=?;`;
   const data = [id];
   connection.query(query, data, (err, result) => {
     if (err) {
-      console.log(err);
-      res
-        .status(500)
-        .json({ success: false, message: "Internal server error" });
-    } else {
-      console.log(result);
-      res.status(200).json({
-        success: true,
-        message: `product ${id} was deleted`,
-        // / message: `${Product_Name} was added`,
-        result: result,
+      return res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
       });
     }
+    if (!result.changedRows) {
+      return res.status(404).json({
+        success: false,
+        massage: `The product: ${id} is not found`,
+        err: err,
+      });
+    }
+    // result are the data returned by mysql server
+    res.status(200).json({
+      success: true,
+      massage: `Succeeded to delete product with id: ${id}`,
+      results:result,
+    });
   });
 };
 

@@ -87,7 +87,7 @@ const Home = () => {
     try {
       await axios.delete(`http://localhost:5000/product/${id}`);
       allProducts();
-      dispatch(deleteArticleById(id));
+      dispatch(deletePorduct(id));
     } catch (error) {
       console.log(error);
     }
@@ -133,12 +133,12 @@ const Home = () => {
                       ></textarea>
                     </form>
                   )}
-                  {/* <button
+                  <button
                   className="delete"
-                  onClick={() => deleteArticle(article.id)}
+                  onClick={() => deleteproduct(element.id)}
                 >
                   X
-                </button> */}
+                </button>
                   <button
                     className="update"
                     onClick={() => handleUpdateClick(element)}
