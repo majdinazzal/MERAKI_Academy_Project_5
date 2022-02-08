@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addProducts } from "../reducers/products/index";
-// import { Image, Video, Transformation } from "cloudinary-react";
 
 //===============================================================
 
@@ -122,7 +121,8 @@ const NewProduct = () => {
   return (
     <div id="addProductBackGround">
       <>
-        <div id="categoryNavBar">
+
+        {/* <div id="categoryNavBar">
           <Link className="categoryLinks" to={"/"}>
             <h2 id="logoCategory">Xchange</h2>
           </Link>
@@ -145,8 +145,8 @@ const NewProduct = () => {
                 login
               </Link>
             )}
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         <form id="form" onSubmit={createNewProduct}>
           <br />
           <input

@@ -3,6 +3,7 @@ import "./components/category.css";
 import "./components/categories/clothes.css";
 import "./components/addProduct.css";
 import "./components/categories/categoriesFilter.css";
+import "./components/search.css";
 import { Route, Routes } from "react-router-dom";
 import { UserContext } from "./components/login";
 import { useContext } from "react";
@@ -15,7 +16,7 @@ import Logout from "./components/logout";
 import ShowProduct from "./components/products";
 import NewProduct from "./components/addProducts";
 import NewOrder from "./components/addOrders";
-
+import NavBar from "./components/navBar";
 import AllCategories from "./components/category";
 import Categories from "./components/categories/clothes";
 import Vehicles from "./components/categories/Vehicles";
@@ -28,6 +29,8 @@ import Tools from "./components/categories/Tools";
 function App() {
   return (
     <div className="App">
+      <NavBar></NavBar>
+
       <Routes>
         t <Route path="/vehicles" element={<Vehicles />} />{" "}
         <Route path="/categories" element={<Categories />} />{" "}

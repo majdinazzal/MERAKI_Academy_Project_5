@@ -21,7 +21,7 @@ const Categories = () => {
   };
   return (
     <div>
-    <div id="categoryNavBar">
+    {/* <div id="categoryNavBar">
       <Link className="categoryLinks" to={"/"}>
         <h2 id="logoCategory">Xchange</h2>
       </Link>
@@ -36,7 +36,7 @@ const Categories = () => {
           login
         </Link>
       </div>
-    </div>
+    </div> */}
     <div id="renderedContainer">
       {found.map((elem, i) => {
         return (

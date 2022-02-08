@@ -1,50 +1,30 @@
 import React, { useContext, useEffect, useState } from "react";
-// import Rating from "react-rating";
 
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../reducers/products/index";
 import "./home.css";
 import { Link } from "react-router-dom";
-
-
+import NavBar from "./navBar";
 const Home = () => {
   const state = useSelector((state) => {
     return {
       products: state.products.products,
-      isLoggedIn: state.loginReducer.isLoggedIn,
+      token: localStorage.getItem("token"),
     };
   });
-  const token = localStorage.getItem("token");
-  const { isLoggedIn, products } = state;
 
+  const { token, products } = state;
   const dispatch = useDispatch();
+
+  console.log(state.products);
   // ---------------------------------------------
   const [show, setShow] = useState(false);
   const [productsShower, setProductsShower] = useState([]);
   const [Product_Name, setProduct_Name] = useState("");
   const [found, setFound] = useState([]);
 
-  //===============================================================
-  //hi
-  const searchFix = (Product_Name) => {
-    // console.log("inside search");
-    axios
-      .get(`http://localhost:5000/search/${Product_Name}`)
-      .then((result) => {
-        console.log(result.data);
-        setFound(result.data.posts);
-      })
-      .catch((err) => {
-        console.log(err.response);
-        console.log(err);
-      });
-  };
-  // useEffect(() => {
-  //   searchFix("wwww");
-  // }, []);
-  // setFound(['wwww'])
-  const searchFunc = () => {
+  const searchSmallerFunc = () => {
     console.log("inside search");
     axios
       .get(`http://localhost:5000/search/${Product_Name}`)
@@ -74,58 +54,9 @@ const Home = () => {
   }, []);
   return (
     <div>
-      
-      <div className="NavBar">
-      <div className="logo">Xchange</div>
-      <div>
-          <Link to={"/search"}>
-            <svg
-              id="searchIcon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-search"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-            </svg>
-          </Link>
-        </div>
-
-        
-        <div>
-          <Link className="Homelinks" to="/home">
-            Home
-          </Link>{" "}
-          </div>
-
-        <div>
-          <Link className="Homelinks" to="/addProduct">
-            Add Product
-          </Link>{" "}
-        </div>
-        <div>
-          <Link className="Homelinks" to="/category">
-            Category
-          </Link>{" "}
-        </div>
-        {console.log(token)}
-        { token ?  <div>
-          <Link className="Homelinks" to="/logout">
-            Logout
-          </Link>{" "}
-        </div> :  <div>
-          <Link className="Homelinks" to="/login">
-            login
-          </Link>{" "}
-        </div>  }
-        
-
-      </div>
-      
       <div className="product">
         {" "}
+        {/* try map on products instead of productsShower */}
         {productsShower &&
           productsShower.map((element, i) => {
             return (
@@ -141,10 +72,6 @@ const Home = () => {
             );
           })}
       </div>
-      {/* <Rating
-  emptySymbol={<span className="icon-text">-</span>}
-  fullSymbol={[1,2,3,4,5].map(n => <span className="icon-text">{n}</span>)}
-/> */}
       <div className="Footer">
         <div>Meraki C4 </div>
         <div>Project Done By team A4 </div>

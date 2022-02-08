@@ -33,7 +33,7 @@ const AllCategories = () => {
       {/* <div>
         <Home />
       </div> */}
-      <div id="categoryNavBar">
+      {/* <div id="categoryNavBar">
         <Link className="categoryLinks" to={"/"}>
           <h2 id="logoCategory">Xchange</h2>
         </Link>
@@ -48,7 +48,7 @@ const AllCategories = () => {
             login
           </Link>
         </div>
-      </div>
+      </div> */}
       <div id="category">
         {/* <Link to={`/${category}`}> */}
         <Link to={`/Vehicles`}>
