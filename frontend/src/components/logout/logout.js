@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 
-const logout=()=>{
+const Logout=()=>{
     return (
         <>
         <h>Are you sure you want to log out</h>
@@ -25,4 +25,4 @@ const logout=()=>{
     )
 }
 
-export default logout
+export default Logout
