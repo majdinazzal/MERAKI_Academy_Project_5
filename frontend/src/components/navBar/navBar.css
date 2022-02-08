@@ -1,0 +1,25 @@
+.NavBar{
+    display:flex;
+    background-color:rgb(0, 0, 0);
+    font-family:cursive ;
+    align-items: end;
+}
+
+.logo{
+    color: #e5e5e5;
+    font-size: 150%;
+    font-family: cursive;
+}
+
+.Homelinks {  
+    text-decoration: none;
+  }
+
+a{
+    color: #e5e5e5;
+}
+
+.NavBar>div {
+    margin: 1%;
+    margin-left: 5%;
+}
