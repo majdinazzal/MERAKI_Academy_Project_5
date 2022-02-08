@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../../reducers/products/index";
-
+import "./navBar.css";
 
 const NavBar = () => {
   const state = useSelector((state) => {
