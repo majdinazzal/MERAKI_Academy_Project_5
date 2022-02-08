@@ -1,23 +1,23 @@
 import "./App.css";
-import "./components/category.css";
+import "./components/category/category.css";
 import "./components/categories/clothes.css";
-import "./components/addProduct.css";
+import "./components/addProducts/addProduct.css";
 import "./components/categories/categoriesFilter.css";
-import "./components/search.css";
+import "./components/search/search.css";
 import { Route, Routes } from "react-router-dom";
-import { UserContext } from "./components/login";
+import { UserContext } from "./components/login/login";
 import { useContext } from "react";
 // import components
 
-import Hero from "./components/hero";
-import Home from "./components/home";
-import Login from "./components/login";
-import Logout from "./components/logout";
+import Hero from "./components/hero/hero";
+import Home from "./components/home/home";
+import Login from "./components/login/login";
+import Logout from "./components/logout/logout";
 import ShowProduct from "./components/products";
-import NewProduct from "./components/addProducts";
-import NewOrder from "./components/addOrders";
-import NavBar from "./components/navBar";
-import AllCategories from "./components/category";
+import NewProduct from "./components/addProducts/addProducts";
+import NewOrder from "./components/addOrders/addOrders";
+import NavBar from "./components/navBar/navBar";
+import AllCategories from "./components/category/category";
 import Categories from "./components/categories/clothes";
 import Vehicles from "./components/categories/Vehicles";
 //=============================================================

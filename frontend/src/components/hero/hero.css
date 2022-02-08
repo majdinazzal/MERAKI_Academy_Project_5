@@ -31,7 +31,7 @@ a{
 .body{
     display: flex;
     flex-direction: row;
-    background-image: url("./ecommerce-2140603_960_720.jpg");
+    background-image: url("../ecommerce-2140603_960_720.jpg"); 
     height:525px;
     color: blue;
     background-size: cover;

@@ -3,8 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import { createContext } from "react";
-import Categories from "./categories/clothes";
-import Home from "./home";
+import Categories from "../categories/clothes";
+import Home from "../home/home";
 export const UserContext = createContext();
 const AllCategories = () => {
   /*VIQ
