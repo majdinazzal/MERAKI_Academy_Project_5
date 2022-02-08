@@ -6,13 +6,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addProducts } from "../reducers/products/index";
-import { Image, Video, Transformation } from "cloudinary-react";
-// import { AuthContext } from "./context";
+// import { Image, Video, Transformation } from "cloudinary-react";
 
 //===============================================================
 
 const NewProduct = () => {
-  // const { token, isLoggedIn } = useContext(AuthContext);
   const history = useNavigate();
 
   const state = useSelector((state) => {
@@ -21,16 +19,13 @@ const NewProduct = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
-  //hi
 
   const { token, isLoggedIn } = state;
 
   const dispatch = useDispatch();
   const [Image, setImage] = useState("");
   const [url, setUrl] = useState("");
-const [img
-  , setimg
-] = useState("")
+  const [img, setimg] = useState("");
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
@@ -51,11 +46,11 @@ const [img
         "https://api.cloudinary.com/v1_1/aljariri/image/upload",
         data
       );
-      console.log(result)
-      console.log(img)
+      console.log(result);
+      console.log(img);
+      console.log(result.data.url);
       if (result.data.success) {
-        setImage(data.url);
-        
+        setDescription(result.data.url);
       }
     } catch (error) {
       console.log(error);
@@ -73,6 +68,7 @@ const [img
         Description,
         Category,
       };
+      console.log(Image);
       const result = await axios.post(
         "http://localhost:5000/product",
         {
@@ -80,7 +76,7 @@ const [img
           Price,
           Description,
           Category,
-          Image
+          Image,
         },
         {
           headers: {
@@ -88,15 +84,19 @@ const [img
           },
         }
       );
-      console.log(Image)
+      console.log(Image);
+
+      console.log(result.data);
       if (result.data.success) {
         setStatus(true);
+        console.log("dddd");
         dispatch(
           addProducts({
             Product_Name,
             Description,
             Price,
             Category,
+            Image,
           })
         );
         setMessage("The product has been created successfully");
