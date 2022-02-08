@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addProducts } from "../reducers/products/index";
-import {Image, Video, Transformation} from 'cloudinary-react';
+import { Image, Video, Transformation } from "cloudinary-react";
 // import { AuthContext } from "./context";
 
 //===============================================================
@@ -26,6 +26,8 @@ const NewProduct = () => {
   const { token, isLoggedIn } = state;
 
   const dispatch = useDispatch();
+  const [Image, setImage] = useState("");
+  const [url, setUrl] = useState("");
 
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
@@ -35,7 +37,30 @@ const NewProduct = () => {
   const [Description, setDescription] = useState("");
   const [Category, setCategory] = useState("");
   // }; //===============================================================
+  const uploadImage = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append("file", Image);
+      data.append("upload_preset", "oodpuzew");
+      data.append("cloud_name", "aljariri");
 
+      const result = await axios.post(
+        "https://api.cloudinary.com/v1_1/aljariri/image/upload",
+        data
+      );
+      console.log(result)
+      if (result.data.success) {
+        setUrl(data.url);
+        
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  {
+  }
   const createNewProduct = async (e) => {
     e.preventDefault();
     try {
@@ -80,8 +105,6 @@ const NewProduct = () => {
   };
 
   //===============================================================
-
- 
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -139,6 +162,11 @@ const NewProduct = () => {
             onChange={(e) => setPrice(e.target.value)}
           ></textarea>
           <br />
+          <input
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+          ></input>
+          <button onClick={uploadImage}>Upload</button>
           <div>
             <select
               id="categorySelector"
