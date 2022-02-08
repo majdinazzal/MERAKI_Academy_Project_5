@@ -16,7 +16,7 @@ productRouter.get("/search_1", getproductByuser);
 productRouter.get("/", getproductByproductname);
 productRouter.post("/", authentication, createNewproduct);
 productRouter.put("/:id", updateproductById);
-productRouter.delete("/del/:id", deleteProductById);
+productRouter.delete("/:id", deleteProductById);
 // productRouter.delete("/:id", deleteArticleById);
 
 module.exports = productRouter;
