@@ -23,6 +23,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
+  const token = localStorage.getItem("token");
 
   const [status, setStatus] = useState(false);
   // const [saveToken, setSaveToken] = useState("");
