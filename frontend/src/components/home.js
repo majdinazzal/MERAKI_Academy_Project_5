@@ -5,42 +5,26 @@ import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../reducers/products/index";
 import "./home.css";
 import { Link } from "react-router-dom";
+import NavBar from "./navBar";
 const Home = () => {
   const state = useSelector((state) => {
     return {
       products: state.products.products,
+      token: localStorage.getItem("token"),
     };
   });
 
   const { token, products } = state;
-
   const dispatch = useDispatch();
+
+  console.log(state.products);
   // ---------------------------------------------
   const [show, setShow] = useState(false);
   const [productsShower, setProductsShower] = useState([]);
   const [Product_Name, setProduct_Name] = useState("");
   const [found, setFound] = useState([]);
 
-  //===============================================================
-  //hi
-  const searchFix = (Product_Name) => {
-    // console.log("inside search");
-    axios
-      .get(`http://localhost:5000/search/${Product_Name}`)
-      .then((result) => {
-        console.log(result.data);
-        setFound(result.data.posts);
-      })
-      .catch((err) => {
-        console.log(err.response);
-        console.log(err);
-      });
-  };
-  // useEffect(() => {
-  //   searchFix("wwww");
-  // }, []);
-  // setFound(['wwww'])
-  const searchFunc = () => {
+  const searchSmallerFunc = () => {
     console.log("inside search");
     axios
       .get(`http://localhost:5000/search/${Product_Name}`)
@@ -70,75 +54,9 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div className="NavBar">
-        <div className="logo">Xchange</div>
-        <div>
-          <Link className="Homelinks" to="/home">
-            Home
-          </Link>{" "}
-        </div>
-
-        <div>
-          <Link className="Homelinks" to="/addProduct">
-            Add Product
-          </Link>{" "}
-        </div>
-        <div>
-          <Link className="Homelinks" to="/category">
-            Category
-          </Link>{" "}
-        </div>
-        <div>
-          <Link className="Homelinks" to="/login">
-            Login
-          </Link>{" "}
-        </div>
-
-      </div>
-      <div className="Searchbar">
-        <div>
-          <label>
-            <input
-              className="inputsearch"
-              placeholder="Search"
-              type={"text"}
-              onChange={(e) => {
-                console.log(e);
-                setProduct_Name(e.target.value);
-              }}
-            />
-            <button
-              onClick={() => {
-                searchFunc();
-                console.log(found);
-              }}
-            >
-              Search
-            </button>
-          </label>
-          </div>
-          <br />
-
-          {found.length ? (
-            //length is not defined???
-            <div>
-              {found.map((elem) => {
-                console.log(elem);
-                return (
-                  <div key={elem.id}>
-                    <h2>{elem.Product_Name}</h2>
-                    {/* <p>{elem}</p>
-                      <h6>{elem}</h6> */}
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <p></p>
-          )}
-        </div>
       <div className="product">
         {" "}
+        {/* try map on products instead of productsShower */}
         {productsShower &&
           productsShower.map((element, i) => {
             return (

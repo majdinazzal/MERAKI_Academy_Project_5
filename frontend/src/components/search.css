@@ -1,0 +1,40 @@
+#searchButtonS:hover {
+  background-color: black;
+  background-color: #e5e5e5;
+  border-radius: 0.2em;
+}
+#SearchBar {
+  border: solid 1px black;
+  color: blue;
+  width: 30em;
+  margin-top: 02em;
+  height: 01.39em;
+  border-radius: 0.2em;
+  margin-left: 37em;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+#foundPosts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(180, 179, 179, 0.863);
+  /* backdrop-filter: blur(5px); */
+  border: solid black 2px;
+  width: 40%;
+  height: 40%;
+  /* padding-left: 20%; */
+  margin-left: 27%;
+  margin-top: 01em;
+}
+#foundSearchContainer {
+  height: 100vh;
+}
+/* #searchText {
+  justify-content: center;
+  margin-top: 8em;
+  margin-left: 43%;
+  font-size: 30px;
+} */
+#searchBarHolder {
+  background-color: #e5e5e5;
+}

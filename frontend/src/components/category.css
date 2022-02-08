@@ -1,14 +1,18 @@
 .categoryLinks {
-  color: rgb(1, 1, 41);
+  font-family: cursive;
+
+  color: white;
   text-decoration: none;
   margin-bottom: 0.3%;
 }
 .categoryLinks:hover {
-  color: aqua;
+  color: white;
 }
 #logoCategory {
+  font-family: cursive;
+
   margin-left: 01%;
-  color: rgb(1, 1, 41);
+  color: white;
 }
 
 #categoryNavBar {
@@ -16,13 +20,13 @@
   padding-left: 0.93%;
   margin-right: 0%;
   padding-right: 0%;
-  background-color: orange;
+  background-color: black;
   border: solid;
-  width: 103%;
+  width: 100%;
 }
 #categoryLinksDiv {
   /* justify-content: space-around; */
-  color: rgb(1, 1, 41);
+  color: white;
   display: flex;
   gap: 19%;
   margin-left: 25%;
