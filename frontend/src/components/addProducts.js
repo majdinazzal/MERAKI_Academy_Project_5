@@ -28,18 +28,12 @@ const NewProduct = () => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
-  // const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
   const [Product_Name, setProduct_Name] = useState("");
   const [Price, setPrice] = useState();
   const [Description, setDescription] = useState("");
   const [Category, setCategory] = useState("");
-  // const product = {
-  //   product_Name,
-  //   product_Price,
-  //   product_Description,
-  //   category,
   // }; //===============================================================
 
   const createNewProduct = async (e) => {
@@ -86,19 +80,8 @@ const NewProduct = () => {
   };
 
   //===============================================================
-  // const createNewProduct = () => {
-  //   axios
-  //     .post("http://localhost:5000/product", product)
-  //     .then((result) => {
-  //       // console.log(token);
-  //       console.log(result);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
-  //===============================================================
+ 
 
   useEffect(() => {
     if (!isLoggedIn) {
