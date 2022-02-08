@@ -30,7 +30,7 @@ const NewProduct = () => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
   const [Product_Name, setProduct_Name] = useState("");
-  const [Price, setPrice] = useState();
+  const [Price, setPrice] = useState(0);
   const [Description, setDescription] = useState("");
   const [Category, setCategory] = useState("");
   // }; //===============================================================
@@ -48,9 +48,10 @@ const NewProduct = () => {
       );
       console.log(result);
       console.log(img);
-      console.log(result.data.url);
-      if (result.data.success) {
-        setDescription(result.data.url);
+      console.log(typeof result.data.url);
+      if (result.data.url) {
+        console.log("cloud")
+        setImage(result.data.url);
       }
     } catch (error) {
       console.log(error);
@@ -62,12 +63,12 @@ const NewProduct = () => {
   const createNewProduct = async (e) => {
     e.preventDefault();
     try {
-      const product = {
-        Product_Name,
-        Price,
-        Description,
-        Category,
-      };
+      // const product = {
+      //   Product_Name,
+      //   Price,
+      //   Description,
+      //   Category,
+      // };
       console.log(Image);
       const result = await axios.post(
         "http://localhost:5000/product",
