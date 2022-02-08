@@ -127,6 +127,7 @@ const deleteProductById = (req, res) => {
   const query = `DELETE FROM products WHERE id=?;`;
   const data = [id];
   connection.query(query, data, (err, result) => {
+    console.log(result)
     if (err) {
       return res.status(500).json({
         success: false,
@@ -134,7 +135,7 @@ const deleteProductById = (req, res) => {
         err: err,
       });
     }
-    if (!result.changedRows) {
+    if (!result.affectedRows) {
       return res.status(404).json({
         success: false,
         massage: `The product: ${id} is not found`,
