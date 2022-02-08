@@ -28,7 +28,9 @@ const NewProduct = () => {
   const dispatch = useDispatch();
   const [Image, setImage] = useState("");
   const [url, setUrl] = useState("");
-
+const [img
+  , setimg
+] = useState("")
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
@@ -41,7 +43,7 @@ const NewProduct = () => {
     e.preventDefault();
     try {
       const data = new FormData();
-      data.append("file", Image);
+      data.append("file", img);
       data.append("upload_preset", "oodpuzew");
       data.append("cloud_name", "aljariri");
 
@@ -50,8 +52,9 @@ const NewProduct = () => {
         data
       );
       console.log(result)
+      console.log(img)
       if (result.data.success) {
-        setUrl(data.url);
+        setImage(data.url);
         
       }
     } catch (error) {
@@ -77,6 +80,7 @@ const NewProduct = () => {
           Price,
           Description,
           Category,
+          Image
         },
         {
           headers: {
@@ -84,6 +88,7 @@ const NewProduct = () => {
           },
         }
       );
+      console.log(Image)
       if (result.data.success) {
         setStatus(true);
         dispatch(
@@ -164,7 +169,7 @@ const NewProduct = () => {
           <br />
           <input
             type="file"
-            onChange={(e) => setImage(e.target.files[0])}
+            onChange={(e) => setimg(e.target.files[0])}
           ></input>
           <button onClick={uploadImage}>Upload</button>
           <div>
