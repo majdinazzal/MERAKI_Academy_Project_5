@@ -25,6 +25,7 @@ import PC from "./components/categories/PC";
 import Phones from "./components/categories/Phones";
 import RealEstate from "./components/categories/RealEstate";
 import Tools from "./components/categories/Tools";
+import Footer from "./components/footer/footer"
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
       <NavBar></NavBar>
 
       <Routes>
-        t <Route path="/vehicles" element={<Vehicles />} />{" "}
+        <Route path="/vehicles" element={<Vehicles />} />{" "}
         <Route path="/categories" element={<Categories />} />{" "}
         <Route path="/category" element={<AllCategories />} />
         <Route path="/addOrder" element={<NewOrder />} />
@@ -47,6 +48,7 @@ function App() {
         <Route path="/RealEstate" element={<RealEstate />} />{" "}
         <Route path="/Tools" element={<Tools />} />{" "}
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
