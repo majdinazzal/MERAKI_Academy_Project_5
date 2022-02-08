@@ -6,13 +6,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addProducts } from "../reducers/products/index";
-// import {Image, Video, Transformation} from 'cloudinary-react';
-// import { AuthContext } from "./context";
 
 //===============================================================
 
 const NewProduct = () => {
-  // const { token, isLoggedIn } = useContext(AuthContext);
   const history = useNavigate();
 
   const state = useSelector((state) => {
@@ -21,36 +18,57 @@ const NewProduct = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
-  //hi
 
   const { token, isLoggedIn } = state;
 
   const dispatch = useDispatch();
-
+  const [Image, setImage] = useState("");
+  const [url, setUrl] = useState("");
+  const [img, setimg] = useState("");
   const [title, setTitle] = useState("");
-  // const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
   const [Product_Name, setProduct_Name] = useState("");
-  const [Price, setPrice] = useState();
+  const [Price, setPrice] = useState(0);
   const [Description, setDescription] = useState("");
   const [Category, setCategory] = useState("");
-  // const product = {
-  //   product_Name,
-  //   product_Price,
-  //   product_Description,
-  //   category,
   // }; //===============================================================
+  const uploadImage = async (e) => {
+    e.preventDefault();
+    try {
+      const data = new FormData();
+      data.append("file", img);
+      data.append("upload_preset", "oodpuzew");
+      data.append("cloud_name", "aljariri");
 
+      const result = await axios.post(
+        "https://api.cloudinary.com/v1_1/aljariri/image/upload",
+        data
+      );
+      console.log(result);
+      console.log(img);
+      console.log(typeof result.data.url);
+      if (result.data.url) {
+        console.log("cloud")
+        setImage(result.data.url);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  {
+  }
   const createNewProduct = async (e) => {
     e.preventDefault();
     try {
-      const product = {
-        Product_Name,
-        Price,
-        Description,
-        Category,
-      };
+      // const product = {
+      //   Product_Name,
+      //   Price,
+      //   Description,
+      //   Category,
+      // };
+      console.log(Image);
       const result = await axios.post(
         "http://localhost:5000/product",
         {
@@ -58,6 +76,7 @@ const NewProduct = () => {
           Price,
           Description,
           Category,
+          Image,
         },
         {
           headers: {
@@ -65,14 +84,19 @@ const NewProduct = () => {
           },
         }
       );
+      console.log(Image);
+
+      console.log(result.data);
       if (result.data.success) {
         setStatus(true);
+        console.log("dddd");
         dispatch(
           addProducts({
             Product_Name,
             Description,
             Price,
             Category,
+            Image,
           })
         );
         setMessage("The product has been created successfully");
@@ -84,19 +108,6 @@ const NewProduct = () => {
       }
     }
   };
-
-  //===============================================================
-  // const createNewProduct = () => {
-  //   axios
-  //     .post("http://localhost:5000/product", product)
-  //     .then((result) => {
-  //       // console.log(token);
-  //       console.log(result);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   //===============================================================
 
@@ -157,6 +168,11 @@ const NewProduct = () => {
             onChange={(e) => setPrice(e.target.value)}
           ></textarea>
           <br />
+          <input
+            type="file"
+            onChange={(e) => setimg(e.target.files[0])}
+          ></input>
+          <button onClick={uploadImage}>Upload</button>
           <div>
             <select
               id="categorySelector"

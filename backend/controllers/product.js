@@ -20,10 +20,10 @@ const getAllProduct = (req, res) => {
 };
 
 const createNewproduct = (req, res) => {
-  const { Product_Name, Description, Price, Category } = req.body;
+  const { Product_Name,Image, Description, Price, Category } = req.body;
   const userId = req.token.userId;
-  const query = `INSERT INTO products (Product_Name, Description,Price,Category,userId) VALUES (?,?,?,?,?);`;
-  const data = [Product_Name, Description, Price, Category, userId];
+  const query = `INSERT INTO products (Product_Name, Description,Image,Price,Category,userId) VALUES (?,?,?,?,?,?);`;
+  const data = [Product_Name, Description,Image, Price, Category, userId];
 
   connection.query(query, data, (err, results) => {
     if (err) {

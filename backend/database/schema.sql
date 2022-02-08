@@ -1,14 +1,14 @@
-create database MERAKI_Academy_Project_5;
+-- create database MERAKI_Academy_Project_5;
 use MERAKI_Academy_Project_5;
 
-create table user (
-id INT AUTO_INCREMENT NOT NULL,
-Username VARchar (255) UNIQUE,
-Phone_number INT,
-email VARchar (255) UNIQUE,
-Password VARchar (255),
-Primary Key (id)
-);
+-- create table user (
+-- id INT AUTO_INCREMENT NOT NULL,
+-- Username VARchar (255) UNIQUE,
+-- Phone_number INT,
+-- email VARchar (255) UNIQUE,
+-- Password VARchar (255),
+-- Primary Key (id)
+-- );
 --  user name check??
 
 
@@ -17,6 +17,7 @@ create table products (
 id INT AUTO_INCREMENT NOT NULL,
 Product_Name VARchar (255),
 Description VARchar (255),
+Image VARchar (255),
 userId INT,
 Price INT,
 Category VARchar (255),
