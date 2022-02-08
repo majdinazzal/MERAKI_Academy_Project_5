@@ -119,7 +119,7 @@ const Login = () => {
                 placeholder="Password"
                 required=""
               />
-              <button className="btn">Sign up</button>
+              <button className="btnsignup">Sign up</button>
             </form>
           </div>
 
@@ -142,7 +142,7 @@ const Login = () => {
                 placeholder="Password"
                 required=""
               />
-              <button className="btn" onClick={loginUser}>Login</button>
+              <button className="btnlogin" onClick={loginUser}>Login</button>
             </form>
           </div>
         </div>
