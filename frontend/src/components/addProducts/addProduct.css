@@ -1,62 +1,62 @@
-
-
 .addform {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 120vh;
-  /* margin-top: 0%; */
-  background-color: #e5e5e5;  
+  height: 110vh;
+  background-color: #e5e5e5;
 }
 
 .addform > div {
-  margin: 4%;
+  margin: 0.3%;
 }
 
 .inputaddProduct {
-  width: 100%;
+  width: 400px;
   padding: 12px 20px;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   border-color: #24292f;
+  font-family: cursive;
+  font-size:small;
 }
 
 .inputphoto {
-  width: 200px;
+  width: 400px;
   padding: 12px 20px;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   border-color: #24292f;
+  font-family: cursive;
+  font-size:small;
 }
-
 
 #categorySelector {
-  width: 200px;
+  width: 400px;
   padding: 12px 20px;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   border-color: #24292f;
+  font-family: cursive;
+  font-size:small;
 }
 
-.productButton{
-  width: 200px;
+.productButton {
+  width: 400px;
   padding: 12px 20px;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   border-color: #24292f;
-  background-color:#24292f;
-  color:#e5e5e5;
+  background-color: #24292f;
+  color: #e5e5e5;
+  font-family: cursive;
+  font-size:small;
 }
-
-
-
-
