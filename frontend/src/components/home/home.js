@@ -116,7 +116,7 @@ const Home = () => {
                 <p>{element.Product_Name}</p>
                 <p>{element.Product_Description}</p>{" "}
                 <p>{element.ProductPrice}</p> <p>{element.Category}</p>
-                {/* {element.userId === userId && ( */}
+                {element.userId == User && (
                 <>
                   {updateBox && productId === element.id && (
                     <form>
@@ -149,7 +149,7 @@ const Home = () => {
                     Update
                   </button>
                 </>
-                {/* )} */}
+                )}
               </div>
             );
           })}
