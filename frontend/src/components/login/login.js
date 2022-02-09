@@ -24,6 +24,8 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
   const token = localStorage.getItem("token");
+  const User = localStorage.getItem("User");
+
 
   const [status, setStatus] = useState(false);
   // const [saveToken, setSaveToken] = useState("");
@@ -40,8 +42,9 @@ const Login = () => {
       if (res.data) {
         console.log(res.data)
         setMessage("true");
-        localStorage.setItem("token", res.data.token);
-        // setSaveToken(res.data.token);
+        localStorage.setItem("User", res.data.results.id);
+        localStorage.setItem("token", res.data.token)
+
         dispatch(login(res.data.token));
       } else throw Error;
     } catch (error) {

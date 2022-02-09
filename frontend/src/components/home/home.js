@@ -30,6 +30,8 @@ const Home = () => {
   const [productId, setproductId] = useState("");
   const [userId, setUserId] = useState("");
   const [found, setFound] = useState([]);
+  const User = localStorage.getItem("User");
+
   //=================================================================
   const searchSmallerFunc = () => {
     console.log("inside search");
@@ -49,12 +51,12 @@ const Home = () => {
   const allProducts = async () => {
     try {
       const res = await axios.get("http://localhost:5000/product");
-      console.log(res.data);
+      console.log(User);
       if (res.data.success) {
         dispatch(setProducts(res.data.results));
         setProductsShower(res.data.results);
         setUserId(res.data.userId);
-        console.log(state.token.userId)
+        console.log(state.token)
         
       } else throw Error;
     } catch (error) {
