@@ -1,102 +1,31 @@
-/* post */
-.Routes {
-  /* height: 100vh; */
-  margin-top: -1em;
-}
-#form {
-  background-color:#e5e5e5;
-  width: 106%;
-  height: 100vh;
-  padding-left: 0%;
-  margin-left: -2%;
-}
-
-#categorySelector {
-  border-radius: 0.2em;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-
-  margin-top: 1em;
-  height: 02em;
-  width: 30%;
-  margin-left: 35%;
-}
-#categorySelector:hover {
-  border: black;
-}
-.postForPosting {
-  background-color: rgba(180, 179, 179, 0.863);
-
-  border: 02px solid black;
-  height: 40%;
-  width: 40em;
-  margin-top: 011em;
-  /* justify-content: center; */
-  margin-left: 24.3%;
-}
-.postInfo {
-  /* display: block; */
-  width: 20em;
-}
-#createPost {
-  border-radius: 0.2em;
-  margin-left: 45%;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-
-  margin-top: 2%;
-}
-#createPost:hover {
-  background-color: black;
-  color: white;
-}
-#postTitle {
-  font-family: cursive;
-
-  width: 30%;
-  border-radius: 0.1em;
-  height: 3em;
-  border: none;
-  margin-top: 5em;
-  margin-left: 35%;
-}
-#PostDescription {
-  font-family: cursive;
-
-  width: 30%;
-  height: 014em;
-  border-radius: 0.1em;
-  border: none;
-  margin-top: 0.3em;
-  margin-left: 35%;
-}
-#PostPrice {
-  font-family: cursive;
-
-  width: 30%;
-  height: 03em;
-  border-radius: 0.1em;
-  border: none;
-  margin-top: 0.3em;
-  margin-left: 35%;
-}
-#mainContainerPostCreate {
-  font-family: cursive;
-
+.addproductbody{
+  display: flex;
   justify-content: center;
-  width: 30%;
-  margin-left: 20%;
+  background-color: #e5e5e5;
+  height:80vh;
 }
-#commentsBar {
-  width: 40%;
-}
-#createPostMessage {
-  font-family: cursive;
 
-  margin-left: 60%;
-  width: 80%;
-  font-size: 060%;
-  color: black;
-  height: 6em;
+
+
+.addform{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
-#picUpload {
-  margin-left: 27%;
+
+.addform>div{
+  margin:3%;
 }
+
+.inputaddProduct{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
