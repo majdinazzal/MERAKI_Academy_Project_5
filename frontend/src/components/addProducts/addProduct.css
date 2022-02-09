@@ -1,15 +1,13 @@
-.addproductbody {
-  display: flex;
-  justify-content: center;
-  background-color: #e5e5e5;
-  height: 100vh;
-}
+
 
 .addform {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: 120vh;
+  /* margin-top: 0%; */
+  background-color: #e5e5e5;  
 }
 
 .addform > div {
@@ -58,3 +56,7 @@
   background-color:#24292f;
   color:#e5e5e5;
 }
+
+
+
+

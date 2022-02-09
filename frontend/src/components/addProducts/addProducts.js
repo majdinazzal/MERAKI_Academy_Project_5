@@ -113,20 +113,23 @@ const NewProduct = () => {
   //===============================================================
   return (
       <>
-      <div className="addproductbody">
-        <div className="formproduct">
+       
         <form className="addform" onSubmit={createNewProduct}>
           <div>
           <input className="inputaddProduct"
             type="text"
+
             placeholder="Add product name"
+
             onChange={(e) => setProduct_Name(e.target.value)}
           />
          </div>
          <div>
           <input
           className="inputaddProduct"
+
             placeholder="Add product description"
+
             onChange={(e) => setDescription(e.target.value)}
           ></input>
           </div>
@@ -135,19 +138,24 @@ const NewProduct = () => {
           <input
           className="inputaddProduct"
             placeholder="Add product price"
+
             onChange={(e) => setPrice(e.target.value)}
           ></input>
 
           </div>
           <div>
           <input
+
           className="inputphoto"
+
             type="file"
             onChange={(e) => setimg(e.target.files[0])}
           ></input>
           </div>
           <div>
+
           <button className="productButton" onClick={uploadImage}>Upload image</button>
+
           </div>
           <div>
             <select
@@ -167,10 +175,12 @@ const NewProduct = () => {
             </select>
           </div>
           <div>
+
           <button className="productButton" >Create New product</button>
+
           </div>
         </form>
-        </div>
+        
         {status
           ? message && (
               <div className="SuccessMessage">
@@ -183,7 +193,7 @@ const NewProduct = () => {
                 <p>{console.log(status)}</p>
               </div>
             )}
-            </div>
+            
       </>
   
   );
