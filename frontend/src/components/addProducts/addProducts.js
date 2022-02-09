@@ -62,12 +62,6 @@ const NewProduct = () => {
   const createNewProduct = async (e) => {
     e.preventDefault();
     try {
-      // const product = {
-      //   Product_Name,
-      //   Price,
-      //   Description,
-      //   Category,
-      // };
       console.log(Image);
       const result = await axios.post(
         "http://localhost:5000/product",
@@ -89,7 +83,6 @@ const NewProduct = () => {
       console.log(result.data);
       if (result.data.success) {
         setStatus(true);
-        console.log("dddd");
         dispatch(
           addProducts({
             Product_Name,
@@ -119,64 +112,47 @@ const NewProduct = () => {
 
   //===============================================================
   return (
-    <div id="addProductBackGround">
       <>
-
-        {/* <div id="categoryNavBar">
-          <Link className="categoryLinks" to={"/"}>
-            <h2 id="logoCategory">Xchange</h2>
-          </Link>
-          <div id="categoryLinksDiv">
-            <Link className="categoryLinks" to={"/Home"}>
-              Home
-            </Link>
-            <Link className="categoryLinks" to={"/category"}>
-              category
-            </Link>
-            <Link className="categoryLinks" to={"/addproduct"}>
-              add Product
-            </Link>
-            {state.token ? (
-              <Link className="categoryLinks" to={"/logout"}>
-                logout
-              </Link>
-            ) : (
-              <Link className="categoryLinks" to={"/login"}>
-                login
-              </Link>
-            )}
-          </div> */}
-        {/* </div> */}
-        <form id="form" onSubmit={createNewProduct}>
-          <br />
-          <input
-            id="postTitle"
+      <div className="addproductbody">
+        <div className="formproduct">
+        <form className="addform" onSubmit={createNewProduct}>
+          <div>
+          <input className="inputaddProduct"
             type="text"
             placeholder="Product name here"
             onChange={(e) => setProduct_Name(e.target.value)}
           />
-          <br />
-          <textarea
-            id="PostDescription"
+         </div>
+         <div>
+          <input
+          className="inputaddProduct"
             placeholder="product description here"
             onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-          <br />
-          <textarea
-            id="PostPrice"
+          ></input>
+          </div>
+          <div>
+
+          <input
+          className="inputaddProduct"
             placeholder="product price here"
             onChange={(e) => setPrice(e.target.value)}
-          ></textarea>
-          <br />
+          ></input>
+
+          </div>
+          <div>
           <input
+          className="inputaddProduct"
             type="file"
             onChange={(e) => setimg(e.target.files[0])}
           ></input>
-          <button onClick={uploadImage}>Upload</button>
+          </div>
+          <div>
+          <button onClick={uploadImage}>Upload Image</button>
+          </div>
           <div>
             <select
-              id="categorySelector"
-              placeholder="category"
+              
+              placeholder="category" 
               id="categorySelector"
               onClick={(e) => {
                 setCategory(e.target.value);
@@ -189,10 +165,12 @@ const NewProduct = () => {
               <option>tools</option>
               <option>realEstate</option> options
             </select>
-          </div>{" "}
-          <button id="createPost">Create New product</button>
+          </div>
+          <div>
+          <button >Create New product</button>
+          </div>
         </form>
-        <br />
+        </div>
         {status
           ? message && (
               <div className="SuccessMessage">
@@ -205,10 +183,11 @@ const NewProduct = () => {
                 <p>{console.log(status)}</p>
               </div>
             )}
+            </div>
       </>
-    </div>
+  
   );
 };
 
 export default NewProduct;
-//5.2.11.36
+
