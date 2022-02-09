@@ -118,14 +118,18 @@ const NewProduct = () => {
           <div>
           <input className="inputaddProduct"
             type="text"
-            placeholder="Add product name here"
+
+            placeholder="Add product name"
+
             onChange={(e) => setProduct_Name(e.target.value)}
           />
          </div>
          <div>
           <input
           className="inputaddProduct"
-            placeholder="Add product description here"
+
+            placeholder="Add product description"
+
             onChange={(e) => setDescription(e.target.value)}
           ></input>
           </div>
@@ -133,20 +137,25 @@ const NewProduct = () => {
 
           <input
           className="inputaddProduct"
-            placeholder="Add product price here"
+            placeholder="Add product price"
+
             onChange={(e) => setPrice(e.target.value)}
           ></input>
 
           </div>
           <div>
           <input
-          className="inputimage"
+
+          className="inputphoto"
+
             type="file"
             onChange={(e) => setimg(e.target.files[0])}
           ></input>
           </div>
           <div>
-          <button  className="buttonproduct" onClick={uploadImage}>Upload image</button>
+
+          <button className="productButton" onClick={uploadImage}>Upload image</button>
+
           </div>
           <div>
             <select
@@ -166,7 +175,9 @@ const NewProduct = () => {
             </select>
           </div>
           <div>
-          <button className="buttonproduct" >Create New product</button>
+
+          <button className="productButton" >Create New product</button>
+
           </div>
         </form>
         
