@@ -30,6 +30,8 @@ const Home = () => {
   const [productId, setproductId] = useState("");
   const [userId, setUserId] = useState("");
   const [found, setFound] = useState([]);
+  const User = localStorage.getItem("User");
+
   //=================================================================
   const searchSmallerFunc = () => {
     console.log("inside search");
@@ -49,12 +51,13 @@ const Home = () => {
   const allProducts = async () => {
     try {
       const res = await axios.get("http://localhost:5000/product");
-      console.log(res.data);
+      console.log(User);
       if (res.data.success) {
         dispatch(setProducts(res.data.results));
         setProductsShower(res.data.results);
         setUserId(res.data.userId);
-        console.log(userId);
+        console.log(state.token)
+        
       } else throw Error;
     } catch (error) {
       console.log(error);
@@ -113,7 +116,7 @@ const Home = () => {
                 <p>{element.Product_Name}</p>
                 <p>{element.Product_Description}</p>{" "}
                 <p>{element.ProductPrice}</p> <p>{element.Category}</p>
-                {/* {element.userId === userId && ( */}
+                {element.userId == User && (
                 <>
                   {updateBox && productId === element.id && (
                     <form>
@@ -146,7 +149,7 @@ const Home = () => {
                     Update
                   </button>
                 </>
-                {/* )} */}
+                )}
               </div>
             );
           })}

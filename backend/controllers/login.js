@@ -8,11 +8,13 @@ const login = (req, res) => {
   const query = `SELECT * FROM user WHERE email=?`;
   const data = [email];
   connection.query(query, data, (err, results) => {
+    console.log(results)
     if (err) throw err;
     if (results.length > 0) {
       bcrypt.compare(password, results[0].Password, (err, response) => {
         if (err) res.json(err);
         if (response) {
+          // res.json(results)
           const paylod = {
             userId: results[0].id,
             Phone_number: results[0].Phone_number,
@@ -22,7 +24,7 @@ const login = (req, res) => {
 
           const token = jwt.sign(paylod, secret);
 
-          res.status(200).json(token);
+          res.status(200).json({token:token,results:results[0]});
         } else {
           res.status(403).json({
             success: false,
