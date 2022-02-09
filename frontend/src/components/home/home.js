@@ -54,7 +54,8 @@ const Home = () => {
         dispatch(setProducts(res.data.results));
         setProductsShower(res.data.results);
         setUserId(res.data.userId);
-        console.log(userId);
+        console.log(state.token.userId)
+        
       } else throw Error;
     } catch (error) {
       console.log(error);

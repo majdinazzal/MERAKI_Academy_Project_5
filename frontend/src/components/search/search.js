@@ -76,27 +76,11 @@ const SearchFunc = () => {
           )}
         </div>
       </div>
-      <div>
-        <label>
-          <input
-            id="SearchBar"
-            placeholder="Search"
-            type={"text"}
-            onChange={(e) => {
-              console.log(e);
-              setProduct_Name(e.target.value);
-            }}
-          />
-          <button
-            id="searchButtonS"
-            onClick={() => {
-              searchSmallerFunc();
-              console.log(found);
-            }}
-          >
-            Search
-          </button>
-        </label>
+      <div class="search-box">
+    <button class="btn-search"><i class="fas fa-search"></i></button>
+    <input type="text" class="input-search" placeholder="Type to Search..."/>
+  </div>
+
         {found.length ? (
           <div id="foundSearchContainer">
             {found &&
@@ -116,7 +100,7 @@ const SearchFunc = () => {
           </div>
         )}
       </div>
-    </div>
+    
   );
 };
 export default SearchFunc;
