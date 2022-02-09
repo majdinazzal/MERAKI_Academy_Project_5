@@ -18,6 +18,7 @@ import NewProduct from "./components/addProducts/addProducts";
 import NewOrder from "./components/addOrders/addOrders";
 import NavBar from "./components/navBar/navBar";
 import AllCategories from "./components/category/category";
+import Profile from "./components/profile";
 import Categories from "./components/categories/clothes";
 import Vehicles from "./components/categories/Vehicles";
 //=============================================================
@@ -25,31 +26,37 @@ import PC from "./components/categories/PC";
 import Phones from "./components/categories/Phones";
 import RealEstate from "./components/categories/RealEstate";
 import Tools from "./components/categories/Tools";
-import Footer from "./components/footer/footer"
-
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
     <div className="App">
-      <NavBar></NavBar>
-
-      <Routes>
-        <Route path="/vehicles" element={<Vehicles />} />{" "}
-        <Route path="/categories" element={<Categories />} />{" "}
-        <Route path="/category" element={<AllCategories />} />
-        <Route path="/addOrder" element={<NewOrder />} />
-        <Route path="/addProduct" element={<NewProduct />} />
-        <Route path="/" element={<Hero />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/product" element={<ShowProduct />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/PC" element={<PC />} />{" "}
-        <Route path="/Phones" element={<Phones />} />{" "}
-        <Route path="/RealEstate" element={<RealEstate />} />{" "}
-        <Route path="/Tools" element={<Tools />} />{" "}
-      </Routes>
-      <Footer></Footer>
+      <div>
+        <NavBar></NavBar>
+      </div>
+      <div>
+        <Routes>
+          <Route path="/profile" element={<Profile />} />{" "}
+          <Route path="/vehicles" element={<Vehicles />} />{" "}
+          <Route path="/categories" element={<Categories />} />{" "}
+          <Route path="/category" element={<AllCategories />} />
+          <Route path="/addOrder" element={<NewOrder />} />
+          <Route path="/addProduct" element={<NewProduct />} />
+          <Route path="/" element={<Hero />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/product" element={<ShowProduct />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/PC" element={<PC />} />{" "}
+          <Route path="/Phones" element={<Phones />} />{" "}
+          <Route path="/RealEstate" element={<RealEstate />} />{" "}
+          <Route path="/Tools" element={<Tools />} />{" "}
+        </Routes>
+      </div>
+      <div>
+        {" "}
+        <Footer></Footer>
+      </div>
     </div>
   );
 }
