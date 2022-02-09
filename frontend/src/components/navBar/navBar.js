@@ -55,7 +55,7 @@ const NavBar = () => {
         <div>
           {token ? (
             <div>
-              <Link className="Homelinks" to="/login">
+              <Link className="Homelinks" to="/logout">
                 logout
               </Link>{" "}
             </div>
