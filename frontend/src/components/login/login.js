@@ -38,10 +38,11 @@ const Login = () => {
         password,
       });
       if (res.data) {
+        console.log(res.data)
         setMessage("true");
-        localStorage.setItem("token", res.data);
+        localStorage.setItem("token", res.data.token);
         // setSaveToken(res.data.token);
-        dispatch(login(res.data));
+        dispatch(login(res.data.token));
       } else throw Error;
     } catch (error) {
       if (error.response && error.response.data) {
