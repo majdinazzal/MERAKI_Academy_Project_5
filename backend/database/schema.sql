@@ -9,7 +9,7 @@ email VARchar (255) UNIQUE,
 Password VARchar (255),
 Primary Key (id)
 );
---  user name check??
+
 
 
 
@@ -35,4 +35,7 @@ product_id INT,
 FOREIGN KEY (product_id) REFERENCES products(id),
 Primary Key (id)
 );
+
+
+
 
