@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Profile = () => {
   const [status, setStatus] = useState("");
+  const getAllInfo = (req, res) => {
+    axios
+      .get(`http://localhost:5000/`)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    getAllInfo();
+  }, []);
   return (
     <div>
       <h1>profile page</h1>
       <form>
-<input type={"text"} placeholder="enter status here"></input>
-
+        <input type={"text"} placeholder="Change user name"></input>
       </form>
     </div>
   );

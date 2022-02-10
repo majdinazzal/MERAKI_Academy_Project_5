@@ -34,7 +34,7 @@ function App() {
       <div>
         <NavBar></NavBar>
       </div>
-      <div>
+      <div id="endPoints">
         <Routes>
           <Route path="/profile" element={<Profile />} />{" "}
           <Route path="/vehicles" element={<Vehicles />} />{" "}
@@ -53,7 +53,7 @@ function App() {
           <Route path="/Tools" element={<Tools />} />{" "}
         </Routes>
       </div>
-      <div>
+      <div className="footer">
         {" "}
         <Footer></Footer>
       </div>
