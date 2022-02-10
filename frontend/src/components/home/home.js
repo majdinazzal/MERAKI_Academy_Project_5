@@ -102,15 +102,18 @@ const Home = () => {
   }, []);
   return (
     <div>
-      search cop
+
             <div class="searchBox">
 
 <input             onChange={(e) => {
+             
               console.log(e);
               setProduct_Name(e.target.value);
             }}
  class="searchInput"type="text" name="" placeholder="Search"/>
 <button             onClick={() => {
+   const targetDiv = document.getElementById("1");
+   targetDiv.style.display = "none";
               searchSmallerFunc();
               console.log(found);
               dispatch(setProducts(found));
@@ -140,7 +143,7 @@ const Home = () => {
         ) : (
           <div id="searchText">{/* <p>No items....</p> */}</div>
         )}
-      <div className="product">
+      <div className="product" id="1">
         {" "}
         {/* try map on products instead of productsShower */}
         {productsShower &&
