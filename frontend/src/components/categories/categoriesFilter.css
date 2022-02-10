@@ -28,25 +28,38 @@
 #renderedContainer {
   display: grid;
   grid-template-columns: repeat(2, 30em);
-  grid-template-rows: repeat(2, 30em);
-  gap: 13%;
+  grid-template-rows: repeat(2, 28em);
+  /* gap: 13%; */
   margin-left: 0%;
   padding: 05%;
   margin-top: -3%;
   /* overflow-x: auto; */
-  overflow-y: auto;
+  /* overflow-y: auto; */
+  column-gap: 06em;
+  row-gap: 6em;
 }
 #images {
-  padding-left: 19%;
-  width: 60%;
+  padding-left: 0%;
+  width: 99.99%;
   height: 20em;
+  margin-left: 0.05%;
+  margin-top: 0.05%;
+}
+.text {
+  padding-bottom: 02%;
+  flex-wrap: wrap;
+  /* margin-left: 05%; */
 }
 #renderdCategory {
+  justify-content: center;
+  text-align: center;
   width: 100%;
   height: 100%;
   /* padding: 030%; */
-  border: solid blue;
-  margin-left: 02%;
+  border: solid #24292f;
+  margin-left: 32%;
+  word-wrap: break-word;
+  margin-top: 15%;
 }
 #footer {
   height: 100%;

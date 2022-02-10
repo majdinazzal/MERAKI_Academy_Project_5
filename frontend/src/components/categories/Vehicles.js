@@ -27,15 +27,14 @@ const Vehicles = () => {
           return (
             <div id="renderdCategory" key={i}>
               {" "}
+              <img id="images" src={elem.Image}></img>{" "}
               <h3 id="title" className="text">
-                title:{elem.Product_Name}
+                {elem.Product_Name}
                 <br></br>
-              <img id="images" src={elem.Image}></img>
               </h3>
               <p className="text">description:{elem.Description}</p>
-              <p className="text">
-                price:{elem.Price}JD , Category:{elem.Category}
-              </p>
+              <p className="text">price:{elem.Price}JD</p>
+              <p className="text"> Category:{elem.Category}</p>
             </div>
           );
         })}
