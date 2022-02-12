@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 
 const Profile = () => {
   const [status, setStatus] = useState("");
+  const userId = localStorage.getItem("User");
   const getAllInfo = (req, res) => {
     axios
-      .get(`http://localhost:5000/`)
+      .get(`http://localhost:5000/profile/${userId}`)
       .then((result) => {
         console.log(result);
       })
