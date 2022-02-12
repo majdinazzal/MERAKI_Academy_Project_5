@@ -102,7 +102,48 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div className="product">
+
+            <div class="searchBox">
+
+<input             onChange={(e) => {
+             
+              console.log(e);
+              setProduct_Name(e.target.value);
+            }}
+ class="searchInput"type="text" name="" placeholder="Search"/>
+<button             onClick={() => {
+   const targetDiv = document.getElementById("1");
+   targetDiv.style.display = "none";
+              searchSmallerFunc();
+              console.log(found);
+              dispatch(setProducts(found));
+            }}
+ class="searchButton" href="#">
+    <i class="material-icons">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-heart-fill" viewBox="0 0 16 16">
+  <path d="M6.5 13a6.474 6.474 0 0 0 3.845-1.258h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.008 1.008 0 0 0-.115-.1A6.471 6.471 0 0 0 13 6.5 6.502 6.502 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13Zm0-8.518c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
+</svg>
+    </i>
+</button>
+</div>
+
+             {found.length ? (
+          <div id="foundSearchContainer">
+            {found &&
+              found.map((elem, i) => {
+                return (
+                  <div key={i} id="foundPosts">
+                    <h2>{elem.Product_Name}</h2>
+                    <p>{elem.Description}</p>
+                    <h6>{elem.Category}</h6>
+                  </div>
+                );
+              })}
+          </div>
+        ) : (
+          <div id="searchText">{/* <p>No items....</p> */}</div>
+        )}
+      <div className="product" id="1">
         {" "}
         {/* try map on products instead of productsShower */}
         {productsShower &&

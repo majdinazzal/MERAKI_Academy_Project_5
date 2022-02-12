@@ -1,32 +1,29 @@
-* {
-  margin-top: 0%;
-}
-
-/* //======================================== */
+/* DONE DONE DONE DONE */
 
 #category {
   margin-left: -3em;
   display: grid;
   padding-left: 5.5%;
   padding-top: 03em;
-  grid-template-columns: 030em 030em 030em;
-  grid-template-rows: 020em 020em;
+  grid-template-columns: 030% 030% 030%;
+  grid-template-rows: 40% 40%;
   background-color: #e5e5e5;
   height: 100vh;
-  width: 93em;
+  width: 97.65%;
 }
+/* DONE DONE DONE DONE */
+
 .categoryPics {
-  margin-left: 2.5em;
+  margin-left: 20%;
   height: 75%;
-  width: 85%;
+  width: 80%;
 }
+/* DONE DONE DONE DONE */
+
 .categoryPics:hover {
   height: 18em;
   width: 27em;
   border: orange solid 0.3em;
 }
-#renderdCategory {
-  border: 1px solid black;
-  margin-top: 1.5em;
-  background-color: rgba(180, 179, 179, 0.863);
-}
+/* DONE DONE DONE DONE */
+
