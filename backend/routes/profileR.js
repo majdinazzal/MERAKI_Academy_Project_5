@@ -1,5 +1,6 @@
 const express = require("express");
-
+const profile = require("../controllers/profileBE");
 const profileRouter = express.Router();
-
-profileRouter.get("")
+//main route is /profile
+profileRouter.get("/", profile);
+module.exports = profileRouter;
