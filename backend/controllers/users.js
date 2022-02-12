@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 
 const createNewUser = async (req, res) => {
-  const { Username, Phone_number, password, email } = req.body;
+  const { Username, Phone_number, password, email, profileImg } = req.body;
 
   const encryptedPassword = await bcrypt.hash(password, saltRounds);
 
@@ -28,7 +28,7 @@ const createNewUser = async (req, res) => {
   });
 };
 
-//hi 
+//hi
 module.exports = {
   createNewUser,
 };
