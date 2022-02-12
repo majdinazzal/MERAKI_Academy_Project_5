@@ -61,7 +61,8 @@ const Profile = () => {
   }, []);
   return (
     <div className="profilePage">
-      <div>
+      <div id="pic">any</div>
+      <div id="buttons">
         <input
           type={"file"}
           onChange={(e) => {
@@ -70,17 +71,16 @@ const Profile = () => {
         ></input>
         <button onClick={profilePic}>upload</button>
       </div>
-      <div>
-        {/* <button onClick={profilePicutue}>nateeja</button> */}
-      </div>
+      <div>{/* <button onClick={profilePicutue}>nateeja</button> */}</div>
       {status &&
         status.map((element, i) => {
           return (
-            <div key={i}>
+            <div key={i} id="returnedInfo">
               <h1>welcome {element.Username}</h1>
-              <h3>"{element.Username}" Information</h3>
-              <h3>{element.email}</h3>
-              <h3>{element.Phone_number}</h3>
+              <br />
+              User_name: <h3>"{element.Username}" </h3> <br />
+              Email:<h3>{element.email}</h3> <br />
+              Phone_number<h3>{element.Phone_number}</h3>
             </div>
           );
         })}

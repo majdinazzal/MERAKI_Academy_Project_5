@@ -1,4 +1,5 @@
 import "./App.css";
+import "./components/profile.css";
 import "./components/category/category.css";
 import "./components/categories/clothes.css";
 import "./components/addProducts/addProduct.css";
