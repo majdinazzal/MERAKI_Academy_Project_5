@@ -96,9 +96,9 @@ const getproductByproductname = (req, res) => {
 };
 
 const getproductByuser = (req, res) => {
-  const userId = req.query.id;
-
-  const query = `SELECT * FROM products WHERE userId=${userId};`;
+  const {userId} = req.body;
+console.log(userId)
+  const query = `SELECT * FROM products WHERE userId=?;`;
   const data = [userId];
 
   connection.query(query, data, (err, results) => {
@@ -112,7 +112,7 @@ const getproductByuser = (req, res) => {
 
     //  are the data returned by mysql server
     res.status(200).json({
-      succesresults: true,
+      success: true,
       massage: `All the products for the author: ${userId}`,
 
       results: results,
