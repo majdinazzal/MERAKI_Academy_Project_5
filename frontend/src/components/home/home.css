@@ -15,7 +15,9 @@
 }
 
 .productimage {
-  width: 100%;
+  margin-top:20px;
+ 
+  width: 80%;
   height: auto;
 }
 
@@ -71,7 +73,7 @@
 }
 
 .founditem > div {
-  margin: 10%;
+  margin: 30%;
   text-align: center;
   border: solid #e5e5e5;
   background-color: #e5e5e5;
@@ -79,6 +81,7 @@
   border-radius: 50px;
   font-family: cursive;
   width: 33%;
+  height:auto;
 }
 
 .Sorry {
@@ -87,3 +90,19 @@
   font-family: cursive;
   /* margin-left: 200px; */
 }
+
+.homebuttons {
+
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-color: #24292f;
+    background-color: #24292f;
+    color: #e5e5e5;
+    font-family: cursive;
+    font-size:small;
+  }
+
