@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import Modal from 'react-modal';
 import Exmodal from "../exmodal/exmodal"
+
+import ReactStars from "react-rating-stars-component";
 import axios from "axios";
-// import StarRating from 'react-native-star-rating-widget';
+
 import { useSelector, useDispatch } from "react-redux";
 import {
   setProducts,
@@ -36,10 +38,6 @@ const Home = () => {
   const User = localStorage.getItem("User");
 
   const [modalIsOpen,setModalIsOpen] = useState(false);
-
-
-  const [rating, setRating] = useState(0);
-
 
   //=================================================================
   const searchSmallerFunc = () => {
@@ -114,7 +112,10 @@ const Home = () => {
       console.log(error);
     }
   };
-
+  
+  const ratingChanged = (newRating) => {
+    console.log(newRating);
+  };
   useEffect(() => {
     allProducts();
   }, []);
@@ -155,19 +156,18 @@ const Home = () => {
           productsShower.map((element, i) => {
             return (
               <div className="productelement" id="renderProduct" key={i}>
-                <img className="productimage" src={element.Image} />
-                {/* <StarRating
-        rating={rating}
-        onChange={setRating}
-      /> */}
-                <p>{element.Product_Name}</p>
-                <p>{element.Product_Description}</p>{" "}
-                <p>{element.ProductPrice}</p> <p>{element.Category}</p>
-                <button onClick={setModalIsOpenToTrue}>Click to Open Modal</button>
-                <Modal isOpen={modalIsOpen}>
-                <button onClick={setModalIsOpenToFalse}>x</button>
+                <div>
+                <div><img className="productimage" src={element.Image} /></div>
+                <div><p>{element.Product_Name}</p></div>
+                <div><p>{element.Product_Description}</p></div>
+                <div><p>{element.ProductPrice}</p></div>
+                <div><p>{element.Category}</p></div>
+                <div><button className="homebuttons" onClick={setModalIsOpenToTrue}>Click to Open Modal</button></div>
+                <div><Modal isOpen={modalIsOpen}></Modal></div>
+                <div><button onClick={setModalIsOpenToFalse}>Delete</button></div>
+                </div>
                 {/* <Exmodal/> */}
-            </Modal>
+            
 
                 {element.userId == User && (
                   <>
@@ -189,18 +189,11 @@ const Home = () => {
                         ></textarea>
                       </form>
                     )}
-                    <button
-                      className="homebuttons"
-                      onClick={() => deleteproduct(element.id)}
-                    >
-                      X
-                    </button>
-                    <button
-                      className="homebuttons"
-                      onClick={() => handleUpdateClick(element)}
-                    >
-                      Update
-                    </button>
+                    <button className="homebuttons" onClick={() => deleteproduct(element.id)}>
+                    Delete </button>
+                    <button className="homebuttons" onClick={() => handleUpdateClick(element)}>
+                      Update </button>
+                    <ReactStars count={5} onChange={ratingChanged} size={24} activeColor="#ffd700"/>,
                   </>
                 )}
               </div>
