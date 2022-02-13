@@ -1,0 +1,20 @@
+.profilePage {
+  height: 90vh;
+  /* border: red solid 4px; */
+  font-family: cursive;
+}
+#pic {
+  display: flex;
+  justify-content: center;
+  margin-top: 02%;
+  height: 33%;
+  width: 22%;
+  margin-left: 40%;
+  border: solid #24292f 2px;
+}
+#buttons {
+  margin-left: 41%;
+}
+#returnedInfo{
+  margin-left: 02%;
+}

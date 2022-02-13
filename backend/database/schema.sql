@@ -1,4 +1,4 @@
-create database MERAKI_Academy_Project_5;
+-- create database MERAKI_Academy_Project_5;
 use MERAKI_Academy_Project_5;
 
 create table user (
@@ -7,6 +7,7 @@ Username VARchar (255) UNIQUE,
 Phone_number INT,
 email VARchar (255) UNIQUE,
 Password VARchar (255),
+profileImg VARCHAR(255),
 Primary Key (id)
 );
 
@@ -35,7 +36,6 @@ product_id INT,
 FOREIGN KEY (product_id) REFERENCES products(id),
 Primary Key (id)
 );
-
 
 
 
