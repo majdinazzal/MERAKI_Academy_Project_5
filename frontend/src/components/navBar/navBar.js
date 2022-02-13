@@ -64,7 +64,7 @@ const NavBar = () => {
         <div>
           <Link to={"/profile"}>
             profile
-            {/* <img src={}></img> */}
+            {/* <img src={}></img>/ */}/
           </Link>
         </div>
         <div>
