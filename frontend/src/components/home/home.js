@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import Modal from 'react-modal';
+import Exmodal from "../exmodal/exmodal"
 import axios from "axios";
 // import StarRating from 'react-native-star-rating-widget';
 import { useSelector, useDispatch } from "react-redux";
@@ -33,7 +34,12 @@ const Home = () => {
   const [userId, setUserId] = useState("");
   const [found, setFound] = useState([]);
   const User = localStorage.getItem("User");
+
+  const [modalIsOpen,setModalIsOpen] = useState(false);
+
+
   const [rating, setRating] = useState(0);
+
 
   //=================================================================
   const searchSmallerFunc = () => {
@@ -88,6 +94,17 @@ const Home = () => {
     }
   };
   //=====================================================================
+ 
+
+
+    const setModalIsOpenToTrue =()=>{
+        setModalIsOpen(true)
+    }
+
+    const setModalIsOpenToFalse =()=>{
+        setModalIsOpen(false)
+    }
+//===============================================
   const deleteproduct = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/product/${id}`);
@@ -146,6 +163,12 @@ const Home = () => {
                 <p>{element.Product_Name}</p>
                 <p>{element.Product_Description}</p>{" "}
                 <p>{element.ProductPrice}</p> <p>{element.Category}</p>
+                <button onClick={setModalIsOpenToTrue}>Click to Open Modal</button>
+                <Modal isOpen={modalIsOpen}>
+                <button onClick={setModalIsOpenToFalse}>x</button>
+                {/* <Exmodal/> */}
+            </Modal>
+
                 {element.userId == User && (
                   <>
                     {updateBox && productId === element.id && (

@@ -38,4 +38,4 @@ Primary Key (id)
 );
 
 
-
+-- drop database MERAKI_Academy_Project_5;

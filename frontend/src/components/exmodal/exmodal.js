@@ -6,12 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Exmodal= () => {
     const [productId, setproductId] = useState([]);
-    const User = localStorage.getItem("User");
+    const userId = localStorage.getItem("User");
     const getproductbyuserid = async () => {
 
     try {
-        const res = await axios.get(`http://localhost:5000/product/byuser`,User);
-        console.log(User);
+        const res = await axios.get(`http://localhost:5000/product/byuser`,userId);
+        console.log(userId);
+        console.log(res)
         if (res.data.success) {
             setproductId(res.data.results)
         } else throw Error;
@@ -19,17 +20,19 @@ const Exmodal= () => {
         console.log(error);
       }
     };
-  
-    return
-    (       <>      
+    useEffect(() => {
+        getproductbyuserid();
+      }, []);
+    
+    
+    (             
         <div id="foundSearchContainer">
-          {found &&
-            found.map((elem, i) => {
+          {productId &&
+            productId.map((elem, i) => {
               return (
-                <div key={i} id="foundPosts">
+                <div key={i} id="productid">
                   <h2>{elem.Product_Name}</h2>
-                  <p>{elem.Description}</p>
-                  <h6>{elem.Category}</h6>
+                  
                 </div>
               );
             })}
@@ -37,6 +40,7 @@ const Exmodal= () => {
        
     
 
-</> 
+
     )
 }
+export default Exmodal;
