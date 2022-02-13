@@ -57,7 +57,10 @@
   width: 100%;
   height: 100%;
   /* padding: 030%; */
-  border: solid #24292f;
+  border: solid  #e5e5e5;
+   background-color: #e5e5e5;
+   box-shadow: inset 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.45);
+   border-radius: 50px;
   /* margin-left: 32%; */
   word-wrap: break-word;
   margin-top: 15%;
