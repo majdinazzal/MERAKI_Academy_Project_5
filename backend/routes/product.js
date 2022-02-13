@@ -12,7 +12,7 @@ const productRouter = express.Router();
 
 productRouter.get("/", getAllProduct);
 // artecles/search_1?auther=1
-productRouter.get("/search_1", getproductByuser);
+productRouter.get("/byuser", getproductByuser);
 productRouter.get("/", getproductByproductname);
 productRouter.post("/", authentication, createNewproduct);
 productRouter.put("/:id", updateproductById);
