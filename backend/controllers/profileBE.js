@@ -3,7 +3,7 @@ const db = require("../database/db");
 
 const profile = (req, res) => {
   const userId = req.params.userId;
-  const query = `select Username,Phone_number,email from user where id=${userId}`;
+  const query = `select Username,Phone_number,email,profileImg from user where id=${userId}`;
   const data = [userId];
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -20,10 +20,11 @@ const profile = (req, res) => {
   });
 };
 const profileImage = (req, res) => {
-  const profileImg = req.body.params;
+  const profileImg = req.body.img;
+  console.log("PROFILE IMAGE : ", profileImg);
   const userId = req.params.userId;
   const data = [profileImg];
-  const query = `update user set profileImg=${profileImg} where id=${userId} `;
+  const query = `update user set profileImg=? where id=${userId} `;
   connection.query(query, data, (err, result) => {
     if (err) {
       console.log(err);

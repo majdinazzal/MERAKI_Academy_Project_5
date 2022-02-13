@@ -3,18 +3,24 @@
   /* border: red solid 4px; */
   font-family: cursive;
 }
-#pic {
+#picHolder {
   display: flex;
   justify-content: center;
   margin-top: 02%;
-  height: 33%;
-  width: 22%;
+  height: 21em;
+  width: 15.5em;
   margin-left: 40%;
   border: solid #24292f 2px;
 }
 #buttons {
   margin-left: 41%;
+  width: auto;
 }
-#returnedInfo{
+#returnedInfo {
   margin-left: 02%;
+}
+#actualPic{
+width: 15em;
+height: 21em ;
+
 }

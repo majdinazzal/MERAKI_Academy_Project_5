@@ -61,7 +61,12 @@ const NavBar = () => {
     </i>
 </button>
 </div> */}
-
+        <div>
+          <Link to={"/profile"}>
+            profile
+            {/* <img src={}></img>/ */}/
+          </Link>
+        </div>
         <div>
           {token ? (
             <div>
@@ -78,9 +83,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
-
-      </div>
-    
+    </div>
   );
 };
 export default NavBar;

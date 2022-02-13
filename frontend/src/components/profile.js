@@ -29,7 +29,7 @@ const Profile = () => {
         "https://api.cloudinary.com/v1_1/abdullahhalammoush/image/upload",
         data
       );
-      console.log(result);
+      console.log(result.data.url);
       console.log(profileImg);
       console.log(typeof result.data.url);
       if (result.data.url) {
@@ -40,43 +40,47 @@ const Profile = () => {
         console.log(typeof result.data.url);
         setProfileImg(result.data.url);
         setUrlprofil(result.data.url);
+        profilePicutue(result.data.url);
         console.log(urlprofil);
       }
     } catch (error) {
       console.log(error);
     }
   };
-  // const profilePicutue = () => {
-  //   axios
-  //     .put(`http://localhost:5000/profile/${userId}`, urlprofil)
-  //     .then((nateeja) => {
-  //       console.log(nateeja);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const profilePicutue = (img) => {
+    console.log("USER ID : ", userId, " \nIMAGE URL : ", img);
+    axios
+      .put(`http://localhost:5000/profile/${userId}`, { img })
+      .then((nateeja) => {
+        console.log(nateeja);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
   useEffect(() => {
     getAllInfo();
   }, []);
   return (
     <div className="profilePage">
-      <div id="pic">any</div>
-      <div id="buttons">
-        <input
-          type={"file"}
-          onChange={(e) => {
-            setProfileImg(e.target.files[0]);
-          }}
-        ></input>
-        <button onClick={profilePic}>upload</button>
-      </div>
       <div>{/* <button onClick={profilePicutue}>nateeja</button> */}</div>
       {status &&
         status.map((element, i) => {
           return (
             <div key={i} id="returnedInfo">
               <h1>welcome {element.Username}</h1>
+              <div id="picHolder">
+                <img id="actualPic" src={element.profileImg}></img>
+              </div>
+              <div id="buttons">
+                <input
+                  type={"file"}
+                  onChange={(e) => {
+                    setProfileImg(e.target.files[0]);
+                  }}
+                ></input>
+                <button onClick={profilePic}>upload</button>
+              </div>
               <br />
               User_name: <h3>"{element.Username}" </h3> <br />
               Email:<h3>{element.email}</h3> <br />
