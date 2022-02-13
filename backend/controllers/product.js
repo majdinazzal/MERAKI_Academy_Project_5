@@ -20,10 +20,10 @@ const getAllProduct = (req, res) => {
 };
 
 const createNewproduct = (req, res) => {
-  const { Product_Name,Image, Description, Price, Category } = req.body;
+  const { Product_Name, Image, Description, Price, Category } = req.body;
   const userId = req.token.userId;
   const query = `INSERT INTO products (Product_Name, Description,Image,Price,Category,userId) VALUES (?,?,?,?,?,?);`;
-  const data = [Product_Name, Description,Image, Price, Category, userId];
+  const data = [Product_Name, Description, Image, Price, Category, userId];
 
   connection.query(query, data, (err, results) => {
     if (err) {
@@ -96,9 +96,10 @@ const getproductByproductname = (req, res) => {
 };
 
 const getproductByuser = (req, res) => {
-  const {userId} = req.body;
-console.log(userId)
-  const query = `SELECT * FROM products WHERE userId=?;`;
+  const  userId  = req.params.userId;
+  console.log(userId);
+  console.log("oojojojoiibo");
+  const query = `SELECT * FROM products WHERE userId=?`;
   const data = [userId];
 
   connection.query(query, data, (err, results) => {
@@ -113,7 +114,7 @@ console.log(userId)
     //  are the data returned by mysql server
     res.status(200).json({
       success: true,
-      massage: `All the products for the author: ${userId}`,
+      massage: `All the products for the user: ${userId}`,
 
       results: results,
     });
@@ -127,7 +128,7 @@ const deleteProductById = (req, res) => {
   const query = `DELETE FROM products WHERE id=?;`;
   const data = [id];
   connection.query(query, data, (err, result) => {
-    console.log(result)
+    console.log(result);
     if (err) {
       return res.status(500).json({
         success: false,
@@ -146,7 +147,7 @@ const deleteProductById = (req, res) => {
     res.status(200).json({
       success: true,
       massage: `Succeeded to delete product with id: ${id}`,
-      results:result,
+      results: result,
     });
   });
 };
