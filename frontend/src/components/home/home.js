@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Modal from 'react-modal';
 
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -32,6 +33,8 @@ const Home = () => {
   const [userId, setUserId] = useState("");
   const [found, setFound] = useState([]);
   const User = localStorage.getItem("User");
+  const [modalIsOpen,setModalIsOpen] = useState(false);
+
 
   //=================================================================
   const searchSmallerFunc = () => {
@@ -86,6 +89,17 @@ const Home = () => {
     }
   };
   //=====================================================================
+ 
+
+
+    const setModalIsOpenToTrue =()=>{
+        setModalIsOpen(true)
+    }
+
+    const setModalIsOpenToFalse =()=>{
+        setModalIsOpen(false)
+    }
+//===============================================
   const deleteproduct = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/product/${id}`);

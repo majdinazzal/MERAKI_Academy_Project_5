@@ -1,4 +1,4 @@
--- create database MERAKI_Academy_Project_5;
+create database MERAKI_Academy_Project_5;
 use MERAKI_Academy_Project_5;
 
 create table user (
@@ -38,4 +38,4 @@ Primary Key (id)
 );
 
 
-
+-- drop database MERAKI_Academy_Project_5;

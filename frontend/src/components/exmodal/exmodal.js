@@ -19,17 +19,19 @@ const Exmodal= () => {
         console.log(error);
       }
     };
-  
-    return
-    (       <>      
+    useEffect(() => {
+        getproductbyuserid();
+      }, []);
+    
+    
+    (             
         <div id="foundSearchContainer">
-          {found &&
-            found.map((elem, i) => {
+          {productId &&
+            productId.map((elem, i) => {
               return (
-                <div key={i} id="foundPosts">
+                <div key={i} id="productid">
                   <h2>{elem.Product_Name}</h2>
-                  <p>{elem.Description}</p>
-                  <h6>{elem.Category}</h6>
+                  
                 </div>
               );
             })}
@@ -37,6 +39,6 @@ const Exmodal= () => {
        
     
 
-</> 
+
     )
 }
