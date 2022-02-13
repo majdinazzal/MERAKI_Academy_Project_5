@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Modal from 'react-modal';
 import Exmodal from "../exmodal/exmodal"
 import axios from "axios";
+// import StarRating from 'react-native-star-rating-widget';
 import { useSelector, useDispatch } from "react-redux";
 import {
   setProducts,
@@ -33,7 +34,11 @@ const Home = () => {
   const [userId, setUserId] = useState("");
   const [found, setFound] = useState([]);
   const User = localStorage.getItem("User");
+
   const [modalIsOpen,setModalIsOpen] = useState(false);
+
+
+  const [rating, setRating] = useState(0);
 
 
   //=================================================================
@@ -151,6 +156,10 @@ const Home = () => {
             return (
               <div className="productelement" id="renderProduct" key={i}>
                 <img className="productimage" src={element.Image} />
+                {/* <StarRating
+        rating={rating}
+        onChange={setRating}
+      /> */}
                 <p>{element.Product_Name}</p>
                 <p>{element.Product_Description}</p>{" "}
                 <p>{element.ProductPrice}</p> <p>{element.Category}</p>
@@ -181,13 +190,13 @@ const Home = () => {
                       </form>
                     )}
                     <button
-                      className="delete"
+                      className="homebuttons"
                       onClick={() => deleteproduct(element.id)}
                     >
                       X
                     </button>
                     <button
-                      className="update"
+                      className="homebuttons"
                       onClick={() => handleUpdateClick(element)}
                     >
                       Update
