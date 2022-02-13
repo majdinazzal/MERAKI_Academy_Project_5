@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Modal from 'react-modal';
-
+import Exmodal from "../exmodal/exmodal"
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -154,6 +154,12 @@ const Home = () => {
                 <p>{element.Product_Name}</p>
                 <p>{element.Product_Description}</p>{" "}
                 <p>{element.ProductPrice}</p> <p>{element.Category}</p>
+                <button onClick={setModalIsOpenToTrue}>Click to Open Modal</button>
+                <Modal isOpen={modalIsOpen}>
+                <button onClick={setModalIsOpenToFalse}>x</button>
+                <AnimeList/>
+            </Modal>
+
                 {element.userId == User && (
                   <>
                     {updateBox && productId === element.id && (

@@ -42,3 +42,4 @@ const Exmodal= () => {
 
     )
 }
+export default Exmodal;
