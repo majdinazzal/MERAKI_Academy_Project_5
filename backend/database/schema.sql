@@ -1,4 +1,4 @@
--- create database MERAKI_Academy_Project_5;
+create database MERAKI_Academy_Project_5;
 use MERAKI_Academy_Project_5;
 
 create table user (

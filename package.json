@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-native": "^0.67.2",
+    "react-native-star-rating-widget": "^1.2.0"
+  }
+}
