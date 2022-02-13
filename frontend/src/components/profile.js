@@ -6,6 +6,8 @@ const Profile = () => {
   const [profileImg, setProfileImg] = useState("");
   const [urlprofil, setUrlprofil] = useState("");
   const userId = localStorage.getItem("User");
+  const [productId, setproductId] = useState([]);
+
   const getAllInfo = (req, res) => {
     axios
       .get(`http://localhost:5000/profile/${userId}`)
@@ -58,6 +60,33 @@ const Profile = () => {
         console.log(err.response);
       });
   };
+
+  const getUsersProducts = () => {
+    axios
+      .get(`http://localhost:5000/product/byuser/${userId}`)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const getproductbyuserid = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/product/byuser`,
+        userId
+      );
+      console.log(userId);
+      if (res.data.success) {
+        setproductId(res.data.results);
+        console.log(res.data);
+      } else throw Error;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getAllInfo();
   }, []);
@@ -82,9 +111,18 @@ const Profile = () => {
                 <button onClick={profilePic}>upload</button>
               </div>
               <br />
-              User_name: <h3>"{element.Username}" </h3> <br />
-              Email:<h3>{element.email}</h3> <br />
-              Phone_number<h3>{element.Phone_number}</h3>
+              <div id="textProfile">
+                <p className="textProfile">User_name:</p>{" "}
+                <h3 className="textProfile">"{element.Username}" </h3> <br />
+                <p className="textProfile">Email:</p>{" "}
+                <h3 className="textProfile">{element.email}</h3> <br />
+                <p className="textProfile">Phone_number</p>
+                <h3 className="textProfile">{element.Phone_number}</h3>
+              </div>
+              <button id="productsButton" onClick={getUsersProducts}>
+                Your products
+              </button>
+              {}
             </div>
           );
         })}
