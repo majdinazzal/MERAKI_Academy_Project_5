@@ -21,6 +21,7 @@ const Exmodal= () => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 setProduct_Name(elem.Product_Name)
+                console.log(elem.Product_Name)
               Swal.fire('Saved!', '', 'success')
             } else if (result.isDenied) {
               Swal.fire('Changes are not saved', '', 'info')
@@ -53,8 +54,8 @@ const Exmodal= () => {
                 <div key={i} id="productid">
                    
                    <h2>{elem.Product_Name}</h2>
-                   <button onClick={confirm(elem)
-                    }>exchange</button>
+                   <button onClick={()=>{confirm(elem)
+                   }}>exchange</button>
          
                       
                 </div>
