@@ -1,13 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import Modal from "react-modal";
 const Profile = () => {
   const [status, setStatus] = useState("");
   const [profileImg, setProfileImg] = useState("");
   const [urlprofil, setUrlprofil] = useState("");
   const userId = localStorage.getItem("User");
   const [productId, setproductId] = useState([]);
-
+  const [show, setShow] = useState(false);
+  const handleShow = () => {
+    setShow(true);
+  };
+  const handleClose = () => {
+    setShow(false);
+  };
   const getAllInfo = (req, res) => {
     axios
       .get(`http://localhost:5000/profile/${userId}`)
@@ -36,8 +42,6 @@ const Profile = () => {
       console.log(typeof result.data.url);
       if (result.data.url) {
         console.log(result);
-
-        console.log("space");
         console.log(profileImg);
         console.log(typeof result.data.url);
         setProfileImg(result.data.url);
@@ -86,7 +90,10 @@ const Profile = () => {
       console.log(error);
     }
   };
-
+  // const modal = () => {
+  //   getUsersProducts();
+  //   handleShow();
+  // };
   useEffect(() => {
     getAllInfo();
   }, []);
@@ -122,7 +129,10 @@ const Profile = () => {
               <button id="productsButton" onClick={getUsersProducts}>
                 Your products
               </button>
-              {}
+              <button onClick={handleShow}>show</button>
+              {console.log(show)}
+              <Modal show={show} onHide={handleClose}></Modal>
+              {/* complete the modal */}
             </div>
           );
         })}
