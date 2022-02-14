@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Modal from 'react-modal';
-import Exmodal from "../exmodal/exmodal"
+import Modal from "react-modal";
+import Exmodal from "../exmodal/exmodal";
 import axios from "axios";
 // import StarRating from 'react-native-star-rating-widget';
 import { useSelector, useDispatch } from "react-redux";
@@ -35,11 +35,9 @@ const Home = () => {
   const [found, setFound] = useState([]);
   const User = localStorage.getItem("User");
 
-  const [modalIsOpen,setModalIsOpen] = useState(false);
-
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const [rating, setRating] = useState(0);
-
 
   //=================================================================
   const searchSmallerFunc = () => {
@@ -94,17 +92,15 @@ const Home = () => {
     }
   };
   //=====================================================================
- 
 
+  const setModalIsOpenToTrue = () => {
+    setModalIsOpen(true);
+  };
 
-    const setModalIsOpenToTrue =()=>{
-        setModalIsOpen(true)
-    }
-
-    const setModalIsOpenToFalse =()=>{
-        setModalIsOpen(false)
-    }
-//===============================================
+  const setModalIsOpenToFalse = () => {
+    setModalIsOpen(false);
+  };
+  //===============================================
   const deleteproduct = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/product/${id}`);
@@ -120,111 +116,125 @@ const Home = () => {
   }, []);
   return (
     <>
-    <div>
-      <div class="searchBox">
-        <input onChange={(e) => {setProduct_Name(e.target.value);}}
-          class="searchInput"
-          type="text"
-          placeholder="Search" />
-        <button  class="searchButton" href="#" onClick={() => {
-            const targetDiv = document.getElementById("1");
-            targetDiv.style.display = "none";
-            searchSmallerFunc();
-            dispatch(setProducts(found));
-          }} >
-          <i class="material-icons">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-search-heart-fill"
-              viewBox="0 0 16 16"
-            >
-              <path d="M6.5 13a6.474 6.474 0 0 0 3.845-1.258h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.008 1.008 0 0 0-.115-.1A6.471 6.471 0 0 0 13 6.5 6.502 6.502 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13Zm0-8.518c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
-            </svg>
-          </i>
-        </button>
-      </div>
-      
-      
-      <div className="product" id="1">
-        {" "}
-        {/* try map on products instead of productsShower */}
-        {productsShower &&
-          productsShower.map((element, i) => {
-            return (
-              <div className="productelement" id="renderProduct" key={i}>
-                <img className="productimage" src={element.Image} />
-                {/* <StarRating
+      <div>
+        <div class="searchBox">
+          <input
+            onChange={(e) => {
+              setProduct_Name(e.target.value);
+            }}
+            class="searchInput"
+            type="text"
+            placeholder="Search"
+          />
+          <button
+            class="searchButton"
+            href="#"
+            onClick={() => {
+              const targetDiv = document.getElementById("1");
+              targetDiv.style.display = "none";
+              searchSmallerFunc();
+              dispatch(setProducts(found));
+            }}
+          >
+            <i class="material-icons">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-search-heart-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M6.5 13a6.474 6.474 0 0 0 3.845-1.258h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.008 1.008 0 0 0-.115-.1A6.471 6.471 0 0 0 13 6.5 6.502 6.502 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13Zm0-8.518c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
+              </svg>
+            </i>
+          </button>
+        </div>
+
+        <div className="product" id="1">
+          {" "}
+          {/* try map on products instead of productsShower */}
+          {productsShower &&
+            productsShower.map((element, i) => {
+              return (
+                <div className="productelement" id="renderProduct" key={i}>
+                  <img className="productimage" src={element.Image} />
+                  {/* <StarRating
         rating={rating}
         onChange={setRating}
       /> */}
-                <p>{element.Product_Name}</p>
-                <p>{element.Product_Description}</p>{" "}
-                <p>{element.ProductPrice}</p> <p>{element.Category}</p>
-                <button onClick={setModalIsOpenToTrue}>Click to Open Modal</button>
-                <Modal isOpen={modalIsOpen}>
-                <button onClick={setModalIsOpenToFalse}>x</button>
-                {/* <Exmodal/> */}
-            </Modal>
+                  <p>{element.Product_Name}</p>
+                  <p>{element.Product_Description}</p>{" "}
+                  <p>{element.ProductPrice}</p> <p>{element.Category}</p>
+                  <button onClick={setModalIsOpenToTrue}>
+                    Click to Open Modal
+                  </button>
+                  <Modal isOpen={modalIsOpen}>
+                    <button onClick={setModalIsOpenToFalse}>x</button>
+                    {/* <Exmodal/> */}
+                  </Modal>
+                  {element.userId == User && (
+                    <>
+                      {updateBox && productId === element.id && (
+                        <form>
+                          <br />
+                          <input
+                            type="text"
+                            defaultValue={element.Product_Name}
+                            placeholder="product title here"
+                            onChange={(e) => setProduct_Name(e.target.value)}
+                          />
+                          <br />
 
-                {element.userId == User && (
-                  <>
-                    {updateBox && productId === element.id && (
-                      <form>
-                        <br />
-                        <input
-                          type="text"
-                          defaultValue={element.Product_Name}
-                          placeholder="product title here"
-                          onChange={(e) => setProduct_Name(e.target.value)}
-                        />
-                        <br />
-
-                        <textarea
-                          placeholder="article description here"
-                          defaultValue={element.Product_Description}
-                          onChange={(e) => setDescription(e.target.value)}
-                        ></textarea>
-                      </form>
-                    )}
-                    <button
-                      className="homebuttons"
-                      onClick={() => deleteproduct(element.id)}
-                    >
-                      X
-                    </button>
-                    <button
-                      className="homebuttons"
-                      onClick={() => handleUpdateClick(element)}
-                    >
-                      Update
-                    </button>
-                  </>
-                )}
-              </div>
-            );
-          })}
-      </div>
-      <div className="founditem">
-      {found.length ? 
-          found && found.map((elem, i) => {
+                          <textarea
+                            placeholder="article description here"
+                            defaultValue={element.Product_Description}
+                            onChange={(e) => setDescription(e.target.value)}
+                          ></textarea>
+                        </form>
+                      )}
+                      <button
+                        className="homebuttons"
+                        onClick={() => deleteproduct(element.id)}
+                      >
+                        X
+                      </button>
+                      <button
+                        className="homebuttons"
+                        onClick={() => handleUpdateClick(element)}
+                      >
+                        Update
+                      </button>
+                    </>
+                  )}
+                </div>
+              );
+            })}
+        </div>
+        <div className="founditem">
+          {found.length ? (
+            found &&
+            found.map((elem, i) => {
               return (
                 <div>
-                  <div> <img className="productimage" src={elem.Image} /></div>
+                  <div>
+                    {" "}
+                    <img className="productimage" src={elem.Image} />
+                  </div>
                   <div>{elem.Product_Name}</div>
                   <div>{elem.Description}</div>
                   <div>{elem.Category}</div>
                 </div>
               );
             })
-      : 
-       <div className="Sorry"> <h2>Sorry, there are no items that match your search</h2> </div>
-      }
+          ) : (
+            <div className="Sorry">
+              {" "}
+              <h2>Sorry, there are no items that match your search</h2>{" "}
+            </div>
+          )}
+        </div>
       </div>
-    
-    </div>
     </>
   );
 };
