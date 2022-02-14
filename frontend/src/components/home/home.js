@@ -166,7 +166,7 @@ const Home = () => {
                 <button onClick={setModalIsOpenToTrue}>Click to Open Modal</button>
                 <Modal isOpen={modalIsOpen}>
                 <button onClick={setModalIsOpenToFalse}>x</button>
-                {/* <Exmodal/> */}
+                <Exmodal/>
             </Modal>
 
                 {element.userId == User && (
