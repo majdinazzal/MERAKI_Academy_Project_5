@@ -4,7 +4,6 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../../reducers/products/index";
 import "./navBar.css";
-
 const NavBar = () => {
   const state = useSelector((state) => {
     return {
@@ -12,7 +11,6 @@ const NavBar = () => {
       token: localStorage.getItem("token"),
     };
   });
-
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const [show, setShow] = useState(false);
@@ -61,12 +59,18 @@ const NavBar = () => {
     </i>
 </button>
 </div> */}
-        <div>
-          <Link to={"/profile"}>
-            profile
-            {/* <img src={}></img>/ */}/
-          </Link>
-        </div>
+        {token ? (
+          <div>
+            <Link to={"/profile"}>
+              profile
+              {/* <img src={}></img>/ */}/
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <Link to="/login">profile</Link>
+          </div>
+        )}
         <div>
           {token ? (
             <div>
