@@ -172,6 +172,57 @@ const Home = () => {
         rating={rating}
         onChange={setRating}
       /> */}
+                <p>{element.Product_Name}</p>
+                <p>{element.Product_Description}</p>{" "}
+                <p>{element.ProductPrice}</p> <p>{element.Category}</p>
+                <button onClick={setModalIsOpenToTrue}>Click to Open Modal</button>
+                <Modal isOpen={modalIsOpen}>
+                <button onClick={setModalIsOpenToFalse}>x</button>
+                <Exmodal/>
+            </Modal>
+
+                {element.userId == User && (
+                  <>
+                    {updateBox && productId === element.id && (
+                      <form>
+                        <br />
+                        <input
+                          type="text"
+                          defaultValue={element.Product_Name}
+                          placeholder="product title here"
+                          onChange={(e) => setProduct_Name(e.target.value)}
+                        />
+                        <br />
+
+                        <textarea
+                          placeholder="article description here"
+                          defaultValue={element.Product_Description}
+                          onChange={(e) => setDescription(e.target.value)}
+                        ></textarea>
+                      </form>
+                    )}
+                    <button
+                      className="homebuttons"
+                      onClick={() => deleteproduct(element.id)}
+                    >
+                      X
+                    </button>
+                    <button
+                      className="homebuttons"
+                      onClick={() => handleUpdateClick(element)}
+                    >
+                      Update
+                    </button>
+                  </>
+                )}
+              </div>
+            );
+          })}
+      </div>
+      <div className="founditem">
+      {found.length ? 
+          found && found.map((elem, i) => {
+
                   <p>{element.Product_Name}</p>
                   <p>{element.Product_Description}</p>{" "}
                   <p>{element.ProductPrice}</p> <p>{element.Category}</p>
