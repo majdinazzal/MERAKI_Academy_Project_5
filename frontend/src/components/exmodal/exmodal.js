@@ -8,8 +8,9 @@ import Checkbox from "../checkbox/checkbox"
 const Exmodal= () => {
     const [productId, setproductId] = useState([]);
     const userId = localStorage.getItem("User");
-    
-    const confirm = () => {
+    const [Product_Name, setProduct_Name] = useState("");
+
+    const confirm = (elem) => {
         Swal.fire({
             title: 'Do you want to save the changes?',
             showDenyButton: true,
@@ -19,7 +20,7 @@ const Exmodal= () => {
           }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-
+                setProduct_Name(elem.Product_Name)
               Swal.fire('Saved!', '', 'success')
             } else if (result.isDenied) {
               Swal.fire('Changes are not saved', '', 'info')
@@ -52,12 +53,10 @@ const Exmodal= () => {
                 <div key={i} id="productid">
                    
                    <h2>{elem.Product_Name}</h2>
-                   <button onClick={confirm}>exchange</button>
+                   <button onClick={confirm(elem)
+                    }>exchange</button>
          
-        
-
-                  {/* <h2>{elem.Product_Name}</h2> */}
-                  
+                      
                 </div>
               );
             })}

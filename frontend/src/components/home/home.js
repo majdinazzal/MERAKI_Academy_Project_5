@@ -187,7 +187,7 @@ const Home = () => {
                     </div>
 
                     <Modal isOpen={modalIsOpen}>
-                      <button onClick={setModalIsOpenToFalse}>Delete</button>
+                      <button onClick={setModalIsOpenToFalse}>x</button>
 
                       <Exmodal />
                     </Modal>
