@@ -30,22 +30,24 @@ const Exmodal= () => {
       return (     
             
         <div id="foundSearchContainer">
+              <select >
+         <option>Select Options</option>
           {productId &&
             productId.map((elem, i) => {
               return (
+                  
                 <div key={i} id="productid">
-                          {/* <Checkbox
-        name="a"
-        label="{elem.Product_Name}"
-        checked={checkedOne}
-        onChange={updateOne}
-      /> */}
+             
+         
+         
+        
 
-                  <h2>{elem.Product_Name}</h2>
+                  {/* <h2>{elem.Product_Name}</h2> */}
                   
                 </div>
               );
             })}
+             </select> <br /><br />
         </div>
        
     
