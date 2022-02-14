@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./checkbox.scss";
+// import "./checkbox.scss";
 
 /**
  * A simple Checkbox component

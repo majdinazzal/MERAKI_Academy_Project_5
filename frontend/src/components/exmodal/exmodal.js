@@ -1,17 +1,31 @@
 import React, { useContext, useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-
+import Checkbox from "../checkbox/checkbox"
 
 const Exmodal= () => {
     const [productId, setproductId] = useState([]);
     const userId = localStorage.getItem("User");
-    const [checkedOne, setCheckedOne] = useState(false);
-    const updateOne = () => {       console.log("aaaaa");
-   setCheckedOne(!checkedOne)};
-    const [checkedTwo, setCheckedTwo] = useState(true);
-  
+    
+    const confirm = () => {
+        Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+
+              Swal.fire('Saved!', '', 'success')
+            } else if (result.isDenied) {
+              Swal.fire('Changes are not saved', '', 'info')
+            }
+          })
+        }          
     const getUsersProducts = () => {
         axios
           .get(`http://localhost:5000/product/byuser/${userId}`)
@@ -30,15 +44,15 @@ const Exmodal= () => {
       return (     
             
         <div id="foundSearchContainer">
-              <select >
-         <option>Select Options</option>
+            
           {productId &&
             productId.map((elem, i) => {
               return (
                   
                 <div key={i} id="productid">
-             
-         
+                   
+                   <h2>{elem.Product_Name}</h2>
+                   <button onClick={confirm}>exchange</button>
          
         
 
@@ -47,7 +61,7 @@ const Exmodal= () => {
                 </div>
               );
             })}
-             </select> <br /><br />
+             
         </div>
        
     
