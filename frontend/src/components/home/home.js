@@ -2,9 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
 import Exmodal from "../exmodal/exmodal";
 
-
 import ReactStars from "react-rating-stars-component";
-
 import axios from "axios";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -41,9 +39,6 @@ const Home = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const [rating, setRating] = useState(0);
-
-
   //=================================================================
   const searchSmallerFunc = () => {
     console.log("inside search");
@@ -51,7 +46,7 @@ const Home = () => {
       .get(`http://localhost:5000/search/${Product_Name}`)
       .then((result) => {
         console.log(result.data.result);
-        setFound(result.data.result);
+        setFound(result.data.result) ;
         console.log(found);
       })
       .catch((err) => {
@@ -166,74 +161,6 @@ const Home = () => {
             productsShower.map((element, i) => {
               return (
                 <div className="productelement" id="renderProduct" key={i}>
-
-                  <img className="productimage" src={element.Image} />
-                  {/* <StarRating
-        rating={rating}
-        onChange={setRating}
-      /> */}
-                <p>{element.Product_Name}</p>
-                <p>{element.Product_Description}</p>{" "}
-                <p>{element.ProductPrice}</p> <p>{element.Category}</p>
-                <button onClick={setModalIsOpenToTrue}>Click to Open Modal</button>
-                <Modal isOpen={modalIsOpen}>
-                <button onClick={setModalIsOpenToFalse}>x</button>
-                <Exmodal/>
-            </Modal>
-
-                {element.userId == User && (
-                  <>
-                    {updateBox && productId === element.id && (
-                      <form>
-                        <br />
-                        <input
-                          type="text"
-                          defaultValue={element.Product_Name}
-                          placeholder="product title here"
-                          onChange={(e) => setProduct_Name(e.target.value)}
-                        />
-                        <br />
-
-                        <textarea
-                          placeholder="article description here"
-                          defaultValue={element.Product_Description}
-                          onChange={(e) => setDescription(e.target.value)}
-                        ></textarea>
-                      </form>
-                    )}
-                    <button
-                      className="homebuttons"
-                      onClick={() => deleteproduct(element.id)}
-                    >
-                      X
-                    </button>
-                    <button
-                      className="homebuttons"
-                      onClick={() => handleUpdateClick(element)}
-                    >
-                      Update
-                    </button>
-                  </>
-                )}
-              </div>
-            );
-          })}
-      </div>
-      <div className="founditem">
-      {found.length ? 
-          found && found.map((elem, i) => {
-
-                  <p>{element.Product_Name}</p>
-                  <p>{element.Product_Description}</p>{" "}
-                  <p>{element.ProductPrice}</p> <p>{element.Category}</p>
-                  <button onClick={setModalIsOpenToTrue}>
-                    Click to Open Modal
-                  </button>
-                  <Modal isOpen={modalIsOpen}>
-                    <button onClick={setModalIsOpenToFalse}>x</button>
-                    {/* <Exmodal/> */}
-                  </Modal>
-
                   <div>
                     <div>
                       <img className="productimage" src={element.Image} />
@@ -258,15 +185,13 @@ const Home = () => {
                         Click to Open Modal
                       </button>
                     </div>
-                    <div>
-                      <Modal isOpen={modalIsOpen}></Modal>
-                    </div>
-                    <div>
-                      <button onClick={setModalIsOpenToFalse}>Delete</button>
-                    </div>
-                  </div>
-                  {/* <Exmodal/> */}
 
+                    <Modal isOpen={modalIsOpen}>
+                      <button onClick={setModalIsOpenToFalse}>Delete</button>
+
+                      <Exmodal />
+                    </Modal>
+                  </div>
 
                   {element.userId == User && (
                     <>
@@ -292,25 +217,22 @@ const Home = () => {
                         className="homebuttons"
                         onClick={() => deleteproduct(element.id)}
                       >
-
-                        X
                         Delete{" "}
                       </button>
                       <button
                         className="homebuttons"
                         onClick={() => handleUpdateClick(element)}
                       >
-                        Update
-                      </button>
                         Update{" "}
                       </button>
-                      <ReactStars
-                        count={5}
-                        onChange={ratingChanged}
-                        size={24}
-                        activeColor="#ffd700"
-                      />
-                      ,
+                      <div className="stars">
+                        <ReactStars
+                          count={5}
+                          onChange={ratingChanged}
+                          size={24}
+                          activeColor="#ffd700"
+                        />
+                      </div>
                     </>
                   )}
                 </div>

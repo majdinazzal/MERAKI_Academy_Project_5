@@ -34,12 +34,12 @@ const Exmodal= () => {
             productId.map((elem, i) => {
               return (
                 <div key={i} id="productid">
-                          <Checkbox
+                          {/* <Checkbox
         name="a"
         label="{elem.Product_Name}"
         checked={checkedOne}
         onChange={updateOne}
-      />
+      /> */}
 
                   <h2>{elem.Product_Name}</h2>
                   
