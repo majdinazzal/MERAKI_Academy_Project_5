@@ -109,12 +109,13 @@
     font-family: cursive;
     font-size:small;
   }
-
-  div.react-stars-wrapper-07556213757631907{
-  margin-left: 100px;
-  background-color: #24292f;
-  }
   
   ReactStars{
   background-color: #24292f;
+  }
+
+  .homebuttons:hover{
+    cursor:pointer;
+    color:#24292f;
+    background-color:#e5e5e5;
   }
