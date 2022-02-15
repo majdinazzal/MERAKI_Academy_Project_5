@@ -212,12 +212,12 @@ const Home = () => {
                         Update{" "}
                       </button>
                       <div className="stars">
-                        {/* <ReactStars
+                        <ReactStars
                           count={5}
                           onChange={ratingChanged}
                           size={24}
                           activeColor="#FFD700"
-                        /> */}
+                        />
                       </div>
                     </>
                   )}

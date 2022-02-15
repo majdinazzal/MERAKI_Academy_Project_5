@@ -23,6 +23,7 @@ state VARchar (255),
 userId INT,
 Price INT,
 Category VARchar (255),
+softDelete INT DEFAULT 1,
 FOREIGN KEY (userId) REFERENCES user(id),
 Primary Key (id)
 );
