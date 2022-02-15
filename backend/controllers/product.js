@@ -154,11 +154,12 @@ const deleteProductById = (req, res) => {
   });
 };
 const updateproductByname = (req, res) => {
-  const { Product_Name } = req.body;
+  const id = req.params.id;
+  ;
 
-  const query = `UPDATE products SET state='pending'  WHERE Product_Name= ?;`;
+  const query = `UPDATE products SET state_product='pending'  WHERE id= ?;`;
 
-  const data = [Product_Name];
+  const data = [id];
 
   connection.query(query, data, (err, results) => {
     if (err) {
