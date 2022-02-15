@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 const UserProducts = () => {
   const [allPrdcts, setAllPrdcts] = useState([]);
   const userId = localStorage.getItem("User");
