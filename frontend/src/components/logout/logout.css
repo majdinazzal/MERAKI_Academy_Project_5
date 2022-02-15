@@ -24,3 +24,8 @@
     font-size:small;
   }
   
+  .logoutButton:hover{
+    cursor:pointer;
+    color:#24292f;
+    background-color:#e5e5e5;
+  }

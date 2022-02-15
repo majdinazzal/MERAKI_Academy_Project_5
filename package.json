@@ -2,6 +2,8 @@
   "dependencies": {
     "react-modal": "^3.14.4",
     "react-native": "^0.67.2",
-    "react-native-star-rating-widget": "^1.2.0"
+    "react-native-star-rating-widget": "^1.2.0",
+    "react-rating-stars-component": "^2.2.0",
+    "sweetalert2": "^11.4.0"
   }
 }

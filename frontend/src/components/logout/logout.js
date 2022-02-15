@@ -23,7 +23,7 @@ const Logout=()=>{
         }}
       >
         YES
-      </button>
+      </button>{" "}
       </Link>
       </div>
       </div>

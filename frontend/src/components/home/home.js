@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
 import Exmodal from "../exmodal/exmodal";
-
 import ReactStars from "react-rating-stars-component";
 import axios from "axios";
-
 import { useSelector, useDispatch } from "react-redux";
 import {
   setProducts,
@@ -21,10 +19,8 @@ const Home = () => {
       token: localStorage.getItem("token"),
     };
   });
-
   const { token, products } = state;
   const dispatch = useDispatch();
-
   // ---------------------------------------------
   const [show, setShow] = useState(false);
   const [Price, setPrice] = useState("");
@@ -36,9 +32,7 @@ const Home = () => {
   const [userId, setUserId] = useState("");
   const [found, setFound] = useState([]);
   const User = localStorage.getItem("User");
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
   //=================================================================
   const searchSmallerFunc = () => {
     console.log("inside search");
@@ -46,7 +40,7 @@ const Home = () => {
       .get(`http://localhost:5000/search/${Product_Name}`)
       .then((result) => {
         console.log(result.data.result);
-        setFound(result.data.result) ;
+        setFound(result.data.result);
         console.log(found);
       })
       .catch((err) => {
@@ -92,11 +86,9 @@ const Home = () => {
     }
   };
   //=====================================================================
-
   const setModalIsOpenToTrue = () => {
     setModalIsOpen(true);
   };
-
   const setModalIsOpenToFalse = () => {
     setModalIsOpen(false);
   };
@@ -110,7 +102,6 @@ const Home = () => {
       console.log(error);
     }
   };
-
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
@@ -153,7 +144,6 @@ const Home = () => {
             </i>
           </button>
         </div>
-
         <div className="product" id="1">
           {" "}
           {/* try map on products instead of productsShower */}
@@ -185,14 +175,11 @@ const Home = () => {
                         Click to Open Modal
                       </button>
                     </div>
-
                     <Modal isOpen={modalIsOpen}>
                       <button onClick={setModalIsOpenToFalse}>x</button>
-
                       <Exmodal />
                     </Modal>
                   </div>
-
                   {element.userId == User && (
                     <>
                       {updateBox && productId === element.id && (
@@ -205,7 +192,6 @@ const Home = () => {
                             onChange={(e) => setProduct_Name(e.target.value)}
                           />
                           <br />
-
                           <textarea
                             placeholder="article description here"
                             defaultValue={element.Product_Description}
@@ -226,12 +212,12 @@ const Home = () => {
                         Update{" "}
                       </button>
                       <div className="stars">
-                        <ReactStars
+                        {/* <ReactStars
                           count={5}
                           onChange={ratingChanged}
                           size={24}
-                          activeColor="#ffd700"
-                        />
+                          activeColor="#FFD700"
+                        /> */}
                       </div>
                     </>
                   )}
@@ -266,5 +252,4 @@ const Home = () => {
     </>
   );
 };
-
 export default Home;
