@@ -15,6 +15,7 @@ const ProfileModal = () => {
       <button onClick={switchModalTrue}>ShowProducts</button>
       <Modal isOpen={modalShower}>
         <button onClick={switchModalfalse}>close</button>
+        <br /> <br />
         <UserProducts />{" "}
       </Modal>
     </div>
