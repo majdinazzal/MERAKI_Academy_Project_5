@@ -15,6 +15,7 @@ const UserProducts = () => {
         console.log(err);
       });
   };
+
   useEffect(getUsersProducts, []);
 
   return (
@@ -26,8 +27,17 @@ const UserProducts = () => {
             <div key={i}>
               {" "}
               <br />
-              {elem.Product_Name}
-              <button>2pac</button>
+              product name : {elem.Product_Name} <br />
+              product state : ({elem.state_product}) <br />
+              <button
+                onClick={() => {
+                  Swal.fire("description :", elem.Description, elem.Price);
+                }}
+              >
+                more
+              </button>
+              <br />
+              =====================================
             </div>
             // flex display then flex then gap between the render and the button
           );
