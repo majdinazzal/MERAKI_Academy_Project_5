@@ -6,17 +6,18 @@ const sDelete = (req, res) => {
   const userId = req.body;
   const query = `update products set softDelete=1 where userId=${userId}`;
   //check if data is freinds with ${} ???????????
-  const data = [userId];
-  connection.query(query, data, (err, result) => {
+  connection.query(query, (err, result) => {
     if (err) {
       console.log(err);
+      res.status(500).json({
+        success: false,
+        message: "internal server error",
+        result: result,
+      });
+    } else {
       res
-        .status(500)
-        .json({
-          success: false,
-          message: "internal server error",
-          result: result,
-        });
+        .status(200)
+        .json({ success: true, message: "Sdelete =1", result: result });
     }
   });
 };
