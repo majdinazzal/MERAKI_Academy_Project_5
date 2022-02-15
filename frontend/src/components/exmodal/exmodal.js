@@ -1,17 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-
+import Checkbox from "../checkbox/checkbox"
 
 const Exmodal= () => {
     const [productId, setproductId] = useState([]);
     const userId = localStorage.getItem("User");
-    const [checkedOne, setCheckedOne] = useState(false);
-    const updateOne = () => {       console.log("aaaaa");
-   setCheckedOne(!checkedOne)};
-    const [checkedTwo, setCheckedTwo] = useState(true);
-  
+    const [Product_Name, setProduct_Name] = useState("");
+
+    const confirm = (elem) => {
+        Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                setProduct_Name(elem.Product_Name)
+                console.log(elem.Product_Name)
+              Swal.fire('Saved!', '', 'success')
+            } else if (result.isDenied) {
+              Swal.fire('Changes are not saved', '', 'info')
+            }
+          })
+        }          
     const getUsersProducts = () => {
         axios
           .get(`http://localhost:5000/product/byuser/${userId}`)
@@ -30,22 +46,22 @@ const Exmodal= () => {
       return (     
             
         <div id="foundSearchContainer">
+            
           {productId &&
             productId.map((elem, i) => {
               return (
-                <div key={i} id="productid">
-                          {/* <Checkbox
-        name="a"
-        label="{elem.Product_Name}"
-        checked={checkedOne}
-        onChange={updateOne}
-      /> */}
-
-                  <h2>{elem.Product_Name}</h2>
                   
+                <div key={i} id="productid">
+                   
+                   <h2>{elem.Product_Name}</h2>
+                   <button onClick={()=>{confirm(elem)
+                   }}>exchange</button>
+         
+                      
                 </div>
               );
             })}
+             
         </div>
        
     

@@ -151,6 +151,36 @@ const deleteProductById = (req, res) => {
     });
   });
 };
+const updateproductByname = (req, res) => {
+  const { Product_Name } = req.body;
+
+  const query = `UPDATE products SET state='pending'  WHERE Product_Name= ?;`;
+
+  const data = [Product_Name];
+
+  connection.query(query, data, (err, results) => {
+    if (err) {
+      return res.status(404).json({
+        success: false,
+        massage: `Server error`,
+        err: err,
+      });
+    }
+    if (results.changedRows == 0) {
+      res.status(404).json({
+        success: false,
+        massage: `The product: ${id} is not found`,
+        err: err,
+      });
+    }
+    // result are the data returned by mysql server
+    res.status(201).json({
+      success: true,
+      massage: `product updated`,
+      results: results,
+    });
+  });
+};
 
 module.exports = {
   getAllProduct,
@@ -159,4 +189,5 @@ module.exports = {
   getproductByproductname,
   getproductByuser,
   deleteProductById,
+  updateproductByname
 };
