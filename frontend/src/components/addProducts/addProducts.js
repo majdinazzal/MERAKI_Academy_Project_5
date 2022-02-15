@@ -22,6 +22,7 @@ const NewProduct = () => {
   const { token, isLoggedIn } = state;
 
   const dispatch = useDispatch();
+  const [state_product, setState_product] = useState("available")
   const [Image, setImage] = useState("");
   const [url, setUrl] = useState("");
   const [img, setimg] = useState("");
@@ -71,6 +72,7 @@ const NewProduct = () => {
           Description,
           Category,
           Image,
+          state_product,
         },
         {
           headers: {
@@ -90,6 +92,7 @@ const NewProduct = () => {
             Price,
             Category,
             Image,
+            state_product,
           })
         );
         setMessage("The product has been created successfully");
