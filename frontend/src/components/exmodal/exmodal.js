@@ -9,6 +9,8 @@ const Exmodal= () => {
     const [productId, setproductId] = useState([]);
     const userId = localStorage.getItem("User");
     const [Product_Name, setProduct_Name] = useState("");
+    const [state_product, setState_product] = useState("pending")
+
 
     const confirm = (elem) => {
         Swal.fire({
@@ -22,12 +24,22 @@ const Exmodal= () => {
             if (result.isConfirmed) {
                 setProduct_Name(elem.Product_Name)
                 console.log(elem.Product_Name)
+                updateProductbyname(elem.Product_Name)
               Swal.fire('Saved!', '', 'success')
             } else if (result.isDenied) {
               Swal.fire('Changes are not saved', '', 'info')
             }
           })
-        }          
+        }     
+        const updateProductbyname = async (Product_Name) => {
+          try {
+            await axios.put(`http://localhost:5000/product}`, {
+              Product_Name            });
+          } catch (error) {
+            console.log(error);
+          }
+        };
+           
     const getUsersProducts = () => {
         axios
           .get(`http://localhost:5000/product/byuser/${userId}`)

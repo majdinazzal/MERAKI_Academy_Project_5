@@ -24,15 +24,8 @@ const createNewproduct = (req, res) => {
     req.body;
   const userId = req.token.userId;
   const query = `INSERT INTO products (Product_Name, Description,Image,state_product,Price,Category,userId) VALUES (?,?,?,?,?,?,?);`;
-  const data = [
-    Product_Name,
-    Description,
-    Image,
-    state_product,
-    Price,
-    Category,
-    userId,
-  ];
+  const data = [Product_Name, Description,Image,state_product,Price,Category,userId];
+
 
   connection.query(query, data, (err, results) => {
     if (err) {
