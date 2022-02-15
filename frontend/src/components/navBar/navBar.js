@@ -34,7 +34,7 @@ const NavBar = () => {
   return (
     <div>
       <div className="NavBar">
-        <div className="logo">Xchange</div>
+        <div><Link className="logo" to="/">Xchange</Link></div>
         <div>
           <Link className="Homelinks" to="/home">
             Home
@@ -61,21 +61,21 @@ const NavBar = () => {
 </div> */}
         {token ? (
           <div>
-            <Link to={"/profile"}>
-              profile
-              {/* <img src={}></img>/ */}/
+            <Link className="Homelinks" to="/profile">
+              Profile
+              {/* <img src={}></img>/ */}
             </Link>
           </div>
         ) : (
           <div>
-            <Link to="/login">profile</Link>
+            <Link className="Homelinks" to="/login">Profile</Link>
           </div>
         )}
         <div>
           {token ? (
             <div>
               <Link className="Homelinks" to="/logout">
-                logout
+                Logout
               </Link>{" "}
             </div>
           ) : (
