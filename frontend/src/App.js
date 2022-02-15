@@ -1,5 +1,5 @@
 import "./App.css";
-import "./components/profile.css";
+import "./components/profile/profile.css";
 import "./components/category/category.css";
 import "./components/categories/clothes.css";
 import "./components/addProducts/addProduct.css";
@@ -10,7 +10,7 @@ import { UserContext } from "./components/login/login";
 import React, { useContext } from "react";
 // import components
 import Hero from "./components/hero/hero";
-import ProfileModal from "./components/usersProducts";
+import ProfileModal from "./components/profile/usersProducts";
 import Home from "./components/home/home";
 import Login from "./components/login/login";
 import Logout from "./components/logout/logout";
@@ -19,7 +19,7 @@ import NewProduct from "./components/addProducts/addProducts";
 import NewOrder from "./components/addOrders/addOrders";
 import NavBar from "./components/navBar/navBar";
 import AllCategories from "./components/category/category";
-import Profile from "./components/profile";
+import Profile from "./components/profile/profile";
 import Categories from "./components/categories/clothes";
 import Vehicles from "./components/categories/Vehicles";
 //=============================================================

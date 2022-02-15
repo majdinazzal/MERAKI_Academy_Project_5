@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-modal/lib/components/Modal";
 import UserProducts from "./userProductRender";
+import "./profile.css"
+
 
 const ProfileModal = () => {
   const [modalShower, setModalShower] = useState(false);
@@ -12,10 +14,12 @@ const ProfileModal = () => {
   };
   return (
     <div>
-      <button onClick={switchModalTrue}>ShowProducts</button>
+      <br/>
+      <button className="showbutton" onClick={switchModalTrue}>Show your products</button>
       <Modal isOpen={modalShower}>
-        <button onClick={switchModalfalse}>close</button>
-        <br /> <br />
+        <br/>
+        <button className="profilebutton" onClick={switchModalfalse}>close</button>
+        <br />
         <UserProducts />{" "}
       </Modal>
     </div>
