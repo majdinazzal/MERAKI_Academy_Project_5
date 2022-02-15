@@ -22,7 +22,7 @@ const getAllProduct = (req, res) => {
 const createNewproduct = (req, res) => {
   const { Product_Name, Image, Description,state_product, Price, Category } = req.body;
   const userId = req.token.userId;
-  const query = `INSERT INTO products (Product_Name, Description,Image,state_product,Price,Category,userId) VALUES (?,?,?,?,?,?);`;
+  const query = `INSERT INTO products (Product_Name, Description,Image,state_product,Price,Category,userId) VALUES (?,?,?,?,?,?,?);`;
   const data = [Product_Name, Description,Image,state_product,Price,Category,userId];
 
   connection.query(query, data, (err, results) => {
