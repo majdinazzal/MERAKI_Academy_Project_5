@@ -7,7 +7,7 @@ import "./components/categories/categoriesFilter.css";
 import "./components/search/search.css";
 import { Route, Routes } from "react-router-dom";
 import { UserContext } from "./components/login/login";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import ReactModal from "react-modal";
 // import components
 import Hero from "./components/hero/hero";
