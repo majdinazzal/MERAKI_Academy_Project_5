@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
+import ProfileModal from "./usersProducts";
 const Profile = () => {
   const [status, setStatus] = useState("");
   const [profileImg, setProfileImg] = useState("");
@@ -129,10 +130,8 @@ const Profile = () => {
               <button id="productsButton" onClick={getUsersProducts}>
                 Your products
               </button>
-              <button onClick={handleShow}>show</button>
-              {console.log(show)}
-              <Modal show={show} onHide={handleClose}></Modal>
-              {/* complete the modal */}
+              <br />
+              <ProfileModal />
             </div>
           );
         })}

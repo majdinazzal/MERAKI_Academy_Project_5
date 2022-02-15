@@ -8,9 +8,10 @@ import "./components/search/search.css";
 import { Route, Routes } from "react-router-dom";
 import { UserContext } from "./components/login/login";
 import { useContext } from "react";
+import ReactModal from "react-modal";
 // import components
-
 import Hero from "./components/hero/hero";
+import ProfileModal from "./components/usersProducts";
 import Home from "./components/home/home";
 import Login from "./components/login/login";
 import Logout from "./components/logout/logout";
@@ -38,6 +39,7 @@ function App() {
       <div id="endPoints">
         <Routes>
           <Route path="/profile" element={<Profile />} />{" "}
+          <Route path="/ProfileModal" element={<ProfileModal />} />{" "}
           <Route path="/vehicles" element={<Vehicles />} />{" "}
           <Route path="/categories" element={<Categories />} />{" "}
           <Route path="/category" element={<AllCategories />} />

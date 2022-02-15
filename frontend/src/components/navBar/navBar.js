@@ -50,20 +50,11 @@ const NavBar = () => {
             Category
           </Link>{" "}
         </div>
-        {/* <div class="searchBox">
-
-<input class="searchInput"type="text" name="" placeholder="Search"/>
-<button class="searchButton" href="#">
-    <i class="material-icons">
-        search
-    </i>
-</button>
-</div> */}
         {token ? (
           <div>
-            <Link className="Homelinks" to="/profile">
-              Profile
-              {/* <img src={}></img>/ */}
+            <Link className="Homelinks" to={"/profile"}>
+              profile
+
             </Link>
           </div>
         ) : (
