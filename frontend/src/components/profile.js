@@ -130,6 +130,7 @@ const Profile = () => {
               <button id="productsButton" onClick={getUsersProducts}>
                 Your products
               </button>
+              <br />
               <ProfileModal />
             </div>
           );
