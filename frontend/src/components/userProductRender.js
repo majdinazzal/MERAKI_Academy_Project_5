@@ -14,14 +14,22 @@ const UserProducts = () => {
         console.log(err);
       });
   };
-  useEffect(getUsersProducts(), []);
+  useEffect(getUsersProducts, []);
 
   return (
     <div>
-      <h1>afsf</h1>
+      {/* <h1>afsf</h1> */}
       {allPrdcts &&
         allPrdcts.map((elem, i) => {
-          return <p key={i}>{elem.Product_Name}</p>;
+          return (
+            <div key={i}>
+              {" "}
+              <br />
+              {elem.Product_Name}
+              <button>2pac</button>
+            </div>
+            // flex display then flex then gap between the render and the button
+          );
         })}{" "}
     </div>
   );
