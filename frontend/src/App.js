@@ -8,7 +8,6 @@ import "./components/search/search.css";
 import { Route, Routes } from "react-router-dom";
 import { UserContext } from "./components/login/login";
 import React, { useContext } from "react";
-import ReactModal from "react-modal";
 // import components
 import Hero from "./components/hero/hero";
 import ProfileModal from "./components/usersProducts";
