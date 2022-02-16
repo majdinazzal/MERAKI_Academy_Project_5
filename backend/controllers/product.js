@@ -188,6 +188,67 @@ const updateproductByname = (req, res) => {
     });
   });
 };
+//==========================================
+const updateproductexchange = (req, res) => {
+  const id = req.params.id;
+  const {Product_Exchange}=req.body
+  const query = `UPDATE products SET Product_Exchange=?  WHERE id= ?;`;
+console.log({Product_Exchange:Product_Exchange})
+  const data = [Product_Exchange,id];
+console.log(Product_Exchange)
+  connection.query(query, data, (err, results) => {
+    if (err) {
+      return res.status(404).json({
+        success: false,
+        massage: `Server error`,
+        err: err,
+      });
+    }
+    if (results.changedRows == 0) {
+      res.status(404).json({
+        success: false,
+        massage: `The product: ${id} is not found`,
+        err: err,
+      });
+    }
+    // result are the data returned by mysql server
+    res.status(201).json({
+      success: true,
+      massage: `product updated`,
+      results: results,
+    });
+  });
+};
+const updateproductrejected = (req, res) => {
+  const id = req.params.id;
+  const query = `UPDATE products SET state_product='Available'  WHERE id= ?;`;
+
+  const data = [id];
+
+  connection.query(query, data, (err, results) => {
+    if (err) {
+      return res.status(404).json({
+        success: false,
+        massage: `Server error`,
+        err: err,
+      });
+    }
+    if (results.changedRows == 0) {
+      res.status(404).json({
+        success: false,
+        massage: `The product: ${id} is not found`,
+        err: err,
+      });
+    }
+    // result are the data returned by mysql server
+    res.status(201).json({
+      success: true,
+      massage: `product updated`,
+      results: results,
+    });
+  });
+};
+
 
 module.exports = {
   getAllProduct,
@@ -197,4 +258,6 @@ module.exports = {
   getproductByuser,
   deleteProductById,
   updateproductByname,
+  updateproductexchange,
+  updateproductrejected
 };

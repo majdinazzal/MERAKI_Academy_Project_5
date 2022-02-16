@@ -44,6 +44,8 @@ const Exmodal = () => {
         console.log(idex);
         updateProductbyid(idex);
         ///save id from local storage
+        updateProductexhange(elem.id)
+        // updateProductexhange(idex)
         Swal.fire("Saved!", "", "success");
       } else if (result.isDenied) {
         Swal.fire("Changes are not saved", "", "info");
@@ -63,6 +65,24 @@ const Exmodal = () => {
         console.log(err);
       });
   };
+  // updateProductexhange(17)
+  const updateProductexhange = (id) => {
+    console.log(typeof id);
+    let ids = id.toString();
+    console.log(ids);
+    console.log()
+    const Product_Exchange=idex
+    console.log()
+    axios
+      .put(`http://localhost:5000/product/exhange2/${ids}`,{Product_Exchange})
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
 
   return (
     <div id="foundSearchContainer">
