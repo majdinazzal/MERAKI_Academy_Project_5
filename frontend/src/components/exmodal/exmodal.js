@@ -54,9 +54,7 @@ const Exmodal = () => {
   useEffect(() => {
     getUsersProducts();
   }, []);
-  const softDelete = () => {
-    axios.put(`http://localhost:5000/softDel/${userId}`);
-  };
+
   return (
     <div id="foundSearchContainer">
       {productId &&
