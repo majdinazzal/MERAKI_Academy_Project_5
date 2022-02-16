@@ -10,35 +10,37 @@ const Exmodal = () => {
   const userId = localStorage.getItem("User");
   const [Product_Name, setProduct_Name] = useState("");
   const [state_product, setState_product] = useState("pending");
+const idex= localStorage.getItem("id");
 
-  const confirm = (elem) => {
-    Swal.fire({
-      title: "Do you want to save the changes?",
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: "Save",
-      denyButtonText: `Don't save`,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        setProduct_Name(elem.Product_Name);
-        console.log(elem.Product_Name);
-        updateProductbyname(elem.Product_Name);
-        Swal.fire("Saved!", "", "success");
-      } else if (result.isDenied) {
-        Swal.fire("Changes are not saved", "", "info");
-      }
-    });
-  };
-  const updateProductbyname = async (Product_Name) => {
-    try {
-      await axios.put(`http://localhost:5000/product}`, {
-        Product_Name,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
+  // const confirm = (elem) => {
+  //   Swal.fire({
+  //     title: "Do you want to save the changes?",
+  //     showDenyButton: true,
+  //     showCancelButton: true,
+  //     confirmButtonText: "Save",
+  //     denyButtonText: `Don't save`,
+  //   }).then((result) => {
+  //     /* Read more about isConfirmed, isDenied below */
+  //     if (result.isConfirmed) {
+  //       setProduct_Name(elem.Product_Name);
+  //       console.log(elem.Product_Name);
+  //       updateProductbyname(elem.Product_Name);
+  //       Swal.fire("Saved!", "", "success");
+  //     } else if (result.isDenied) {
+  //       Swal.fire("Changes are not saved", "", "info");
+  //     }
+  //   });
+  // };
+  // const updateProductbyname = async (Product_Name) => {
+  //   try {
+  //     await axios.put(`http://localhost:5000/product}`, {
+  //       Product_Name,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const getUsersProducts = () => {
     axios
@@ -72,7 +74,9 @@ const Exmodal = () => {
         // console.log(id)
         updateProductbyid(elem.id);
         //just  updateProductbyid(from local storage)
-        ///save id from local storage
+        console.log(idex)
+        updateProductbyid(idex)
+  ///save id from local storage
         Swal.fire("Saved!", "", "success");
       } else if (result.isDenied) {
         Swal.fire("Changes are not saved", "", "info");
@@ -95,20 +99,20 @@ const Exmodal = () => {
   };
   // updateProductbyid(6)
 
-  const getUsersProducts = () => {
-    axios
-      .get(`http://localhost:5000/product/byuser/${userId}`)
-      .then((result) => {
-        console.log(result);
-        setproductId(result.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  useEffect(() => {
-    getUsersProducts();
-  }, []);
+  // const getUsersProducts = () => {
+  //   axios
+  //     .get(`http://localhost:5000/product/byuser/${userId}`)
+  //     .then((result) => {
+  //       console.log(result);
+  //       setproductId(result.data.results);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  // useEffect(() => {
+  //   getUsersProducts();
+  // }, []);
 
   return (
     <div id="foundSearchContainer">
