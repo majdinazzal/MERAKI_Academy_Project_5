@@ -2,7 +2,7 @@ const sDelete = require("../controllers/softDelete");
 const express = require("express");
 
 const softDelRouter = express.Router();
-
-softDelRouter.put("/", sDelete);
+//the main route is /softDel
+softDelRouter.put("/:userId", sDelete);
 
 module.exports = softDelRouter;

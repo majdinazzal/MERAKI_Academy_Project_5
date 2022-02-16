@@ -3,9 +3,8 @@ const db = require("../database/db");
 
 const sDelete = (req, res) => {
   //we need to update the dataBase(products table)
-  const userId = req.body;
-  const query = `update products set softDelete=1 where userId=${userId}`;
-  //check if data is freinds with ${} ???????????
+  const userId = req.params.userId;
+  const query = `update products set softDelete=0 where userId=${userId}`;
   connection.query(query, (err, result) => {
     if (err) {
       console.log(err);
