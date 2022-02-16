@@ -30,6 +30,7 @@ const Exmodal= () => {
                 // console.log(id)
                 updateProductbyid(elem.id)
                 //just  updateProductbyid(from local storage)
+                ///save id from local storage
               Swal.fire('Saved!', '', 'success')
             } else if (result.isDenied) {
               Swal.fire('Changes are not saved', '', 'info')
