@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import "./profile.css"
 const UserProducts = () => {
   const [allPrdcts, setAllPrdcts] = useState([]);
   const [id, setId] = useState("");
@@ -40,7 +41,7 @@ const UserProducts = () => {
               <br />
               product name : {elem.Product_Name} <br />
               product state : ({elem.state_product}) <br />
-              <button
+              <button className="profilebutton"
                 onClick={() => {
                   Swal.fire("description :", elem.Description, elem.Price);
                 }}
