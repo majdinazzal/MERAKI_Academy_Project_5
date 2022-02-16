@@ -248,6 +248,30 @@ const updateproductrejected = (req, res) => {
     });
   });
 };
+const getproductexhange = (req, res) => {
+  const Product_Exchange = req.params.Product_Exchange;
+  console.log(userId);
+  const query = `SELECT * FROM products WHERE Product_Exchange=? and softDelete=0`;
+  const data = [Product_Exchange];
+
+  connection.query(query, data, (err, results) => {
+    if (err) {
+      return res.status(404).json({
+        success: false,
+        massage: "The user Not Found",
+        err: err,
+      });
+    }
+
+    //  are the data returned by mysql server
+    res.status(200).json({
+      success: true,
+      massage: `All the products for the Product_Exchange: ${Product_Exchange}`,
+
+      results: results,
+    });
+  });
+};
 
 
 module.exports = {

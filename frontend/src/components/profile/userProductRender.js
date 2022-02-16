@@ -23,13 +23,31 @@ const UserProducts = () => {
       .post(`http://localhost:5000/softDel/${id}`, { userId })
       .then((result) => {
         console.log(result);
+        getUsersProducts()
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const rejected = (id) => {
+    console.log(typeof id);
+    let ids = id.toString();
+    console.log(ids);
+    axios
+      .put(`http://localhost:5000/product/reject/${ids}`)
+      .then((result) => {
+        console.log(result);
+        getUsersProducts()
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  useEffect(getUsersProducts, []);
+
+  useEffect(() => {
+    getUsersProducts();
+  }, []);
 
   return (
     <div>
@@ -50,6 +68,9 @@ const UserProducts = () => {
               >
                 more
               </button>
+              {elem.state_product == "pending" && (
+                <>
+               
               <button
                 onClick={() => {
                   setId(elem.id);
@@ -58,8 +79,10 @@ const UserProducts = () => {
               >
                 accept
               </button>
-              <button>reject</button>
+              <button onClick={()=>{rejected(elem.id)}}>reject</button>
               <br />
+              </>
+              )}
               =====================================
             </div>
             // flex display then flex then gap between the render and the button

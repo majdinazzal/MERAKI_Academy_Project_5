@@ -71,10 +71,10 @@ const Exmodal = () => {
     let ids = id.toString();
     console.log(ids);
     console.log()
-    const Product_Exchange=idex
+    const Product_Exchange=ids
     console.log()
     axios
-      .put(`http://localhost:5000/product/exhange2/${ids}`,{Product_Exchange})
+      .put(`http://localhost:5000/product/exhange2/${idex}`,{Product_Exchange})
       .then((result) => {
         console.log(result);
       })

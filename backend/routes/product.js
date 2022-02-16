@@ -22,7 +22,7 @@ productRouter.put("/:id", updateproductById);
 productRouter.delete("/:id", deleteProductById);
 productRouter.put("/exchange/:id",updateproductByname)
 productRouter.put("/exhange2/:id",updateproductexchange)
-productRouter.put("/reject/:id")
+productRouter.put("/reject/:id",updateproductrejected)
 // productRouter.delete("/:id", deleteArticleById);
 
 module.exports = productRouter;
