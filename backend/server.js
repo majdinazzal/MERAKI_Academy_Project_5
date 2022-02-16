@@ -19,6 +19,7 @@ const ordersRouter = require("./routes/orders");
 const productRouter = require("./routes/product");
 const profileRouter = require("./routes/profileR");
 const softDelRouter = require("./routes/softDelete");
+const exchangeUpdateRouter = require("./routes/updateXchangeR");
 // Routes Middleware
 app.use("/users", usersRouter);
 app.use("/login", loginRouter);
@@ -28,6 +29,7 @@ app.use("/search", searchRouter);
 app.use("/category", categoryRouter);
 app.use("/profile", profileRouter);
 app.use("/softDel", softDelRouter);
+app.use("/updateExchange", exchangeUpdateRouter);
 app.listen(PORT, () => {
   console.log(`SERVER WORKING ON PORT: ${PORT}`);
 });
