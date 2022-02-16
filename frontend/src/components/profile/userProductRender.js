@@ -32,35 +32,34 @@ const UserProducts = () => {
   useEffect(getUsersProducts, []);
 
   return (
-    <div>
+    <div className="userProductRender">
       {/* <h1>afsf</h1> */}
       {allPrdcts &&
         allPrdcts.map((elem, i) => {
           return (
-            <div key={i}>
+            <div className="userProductRender" key={i}>
               {" "}
               <br />
-              product name : {elem.Product_Name} <br />
-              product state : ({elem.state_product}) <br />
+              Product name : {elem.Product_Name} <br />
+              Product state : ({elem.state_product}) <br />
               <button
-                className="profilebutton"
+                className="profilerenderbutton"
                 onClick={() => {
                   Swal.fire("description :", elem.Description, elem.Price);
                 }}
               >
-                more
+                More
               </button>
-              <button
+              <button className="profilerenderbutton"
                 onClick={() => {
                   setId(elem.id);
                   softDelete(elem.id);
                 }}
               >
-                accept
+                Accept
               </button>
-              <button>reject</button>
+              <button className="profilerenderbutton">reject</button>
               <br />
-              =====================================
             </div>
             // flex display then flex then gap between the render and the button
           );
