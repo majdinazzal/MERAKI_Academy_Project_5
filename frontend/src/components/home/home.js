@@ -201,7 +201,7 @@ const Home = () => {
                           />
                           <br />
                           <textarea
-                            placeholder="article description here"
+                            placeholder="product description here"
                             defaultValue={element.Product_Description}
                             onChange={(e) => setDescription(e.target.value)}
                           ></textarea>

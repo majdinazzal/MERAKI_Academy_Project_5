@@ -2,10 +2,10 @@ const connection = require("../database/db");
 const { connect } = require("../database/db");
 const db = require("../database/db");
 const updateExchange = (req, res) => {
-  const xId = req.params.xId;
+  const Product_Exchange = req.params.xId;
   const id = req.body;
-  const query = `update products set Product_Exchange=? where id =?`;
-  const data = [xId, id];
+  const query = `update products SET Product_Exchange=? where id =?`;
+  const data = [Product_Exchange, id];
   connection.query(query, data, (result, err) => {
     if (err) {
       console.log(err);

@@ -6,7 +6,10 @@ const {
   getproductByproductname,
   getproductByuser,
   deleteProductById,
-  updateproductByname
+  updateproductByname,
+  updateproductexchange,
+  updateproductrejected,
+  getproductexhange
 } = require("../controllers/product");
 const authentication = require("../middleware/authentication");
 const productRouter = express.Router();
@@ -19,7 +22,9 @@ productRouter.post("/", authentication, createNewproduct);
 productRouter.put("/:id", updateproductById);
 productRouter.delete("/:id", deleteProductById);
 productRouter.put("/exchange/:id",updateproductByname)
-
+productRouter.put("/exhange2/:id",updateproductexchange)
+productRouter.put("/reject/:id",updateproductrejected)
+productRouter.get("/show/:id",getproductexhange)
 // productRouter.delete("/:id", deleteArticleById);
 
 module.exports = productRouter;

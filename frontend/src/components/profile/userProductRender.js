@@ -5,6 +5,7 @@ import "./profile.css";
 const UserProducts = () => {
   const [allPrdcts, setAllPrdcts] = useState([]);
   const [id, setId] = useState("");
+  const [Show, setShow] = useState([])
   const userId = localStorage.getItem("User");
 
   const getUsersProducts = () => {
@@ -23,13 +24,45 @@ const UserProducts = () => {
       .post(`http://localhost:5000/softDel/${id}`, { userId })
       .then((result) => {
         console.log(result);
+        getUsersProducts()
       })
       .catch((err) => {
         console.log(err);
       });
   };
+  const rejected = (id) => {
+    console.log(typeof id);
+    let ids = id.toString();
+    console.log(ids);
+    axios
+      .put(`http://localhost:5000/product/reject/${ids}`)
+      .then((result) => {
+        console.log(result);
+        getUsersProducts()
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const getexchangeproduct = (idex) => {
+    axios
+      .get(`http://localhost:5000/product/show/${idex}`)
+      .then((result) => {
+        console.log(result);
+        setShow(result.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  // const ex =(id)=>{
+  //   getexchangeproduct(id)
+  // }
 
-  useEffect(getUsersProducts, []);
+
+  useEffect(() => {
+    getUsersProducts();
+  }, []);
 
   return (
     <div className="userProductRender">
@@ -50,6 +83,11 @@ const UserProducts = () => {
               >
                 More
               </button>
+              {elem.state_product == "pending" && (
+                <>
+
+              
+
               <button className="profilerenderbutton"
                 onClick={() => {
                   setId(elem.id);
@@ -58,8 +96,13 @@ const UserProducts = () => {
               >
                 Accept
               </button>
-              <button className="profilerenderbutton">reject</button>
+              <button className="profilerenderbutton" onClick={()=>{rejected(elem.id)}}>reject</button>
               <br />
+              </>
+              )}
+
+              
+             
             </div>
             // flex display then flex then gap between the render and the button
           );
