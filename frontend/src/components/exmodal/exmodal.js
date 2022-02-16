@@ -1,34 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
-
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import Checkbox from "../checkbox/checkbox";
-
 const Exmodal = () => {
   const [productId, setproductId] = useState([]);
   const userId = localStorage.getItem("User");
   const [Product_Name, setProduct_Name] = useState("");
   const [state_product, setState_product] = useState("pending");
-const idex= localStorage.getItem("id");
-
-
+  const idex = localStorage.getItem("id");
  
-
-
-  const updateProductbyname = async (Product_Name) => {
-    try {
-      await axios.put(`http://localhost:5000/product}`, {
-        Product_Name,
+  const getUsersProducts = () => {
+    axios
+      .get(`http://localhost:5000/product/byuser/${userId}`)
+      .then((result) => {
+        console.log(result);
+        setproductId(result.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    } catch (error) {
-      console.log(error);
-    }
   };
-
-
-
- 
+  useEffect(() => {
+    getUsersProducts();
+  }, []);
   const confirm = (elem) => {
     Swal.fire({
       title: "Do you want to save the changes?",
@@ -46,9 +41,9 @@ const idex= localStorage.getItem("id");
         // console.log(id)
         updateProductbyid(elem.id);
         //just  updateProductbyid(from local storage)
-        console.log(idex)
-        updateProductbyid(idex)
-  ///save id from local storage
+        console.log(idex);
+        updateProductbyid(idex);
+        ///save id from local storage
         Swal.fire("Saved!", "", "success");
       } else if (result.isDenied) {
         Swal.fire("Changes are not saved", "", "info");
@@ -61,7 +56,6 @@ const idex= localStorage.getItem("id");
     console.log(ids);
     axios
       .put(`http://localhost:5000/product/exchange/${ids}`)
-
       .then((result) => {
         console.log(result);
       })
@@ -69,8 +63,6 @@ const idex= localStorage.getItem("id");
         console.log(err);
       });
   };
-  // updateProductbyid(6)
-
 
   return (
     <div id="foundSearchContainer">
@@ -92,5 +84,4 @@ const idex= localStorage.getItem("id");
     </div>
   );
 };
-//
 export default Exmodal;
