@@ -15,6 +15,7 @@ const idex= localStorage.getItem("id");
 
  
 
+
   const updateProductbyname = async (Product_Name) => {
     try {
       await axios.put(`http://localhost:5000/product}`, {
@@ -24,6 +25,7 @@ const idex= localStorage.getItem("id");
       console.log(error);
     }
   };
+
 
 
  
@@ -90,4 +92,5 @@ const idex= localStorage.getItem("id");
     </div>
   );
 };
+//
 export default Exmodal;

@@ -7,7 +7,8 @@ export const ContactUs = () => {
     const sendEmail = (e) => {
       e.preventDefault();
   
-      emailjs.sendForm('gamil', 'template_5zh3yev', e.target, 'user_424QRbyntfeicOfcjX99p')
+      emailjs.sendForm('service_iamad6s', 'template_5zh3yev', form.current
+      , 'user_424QRbyntfeicOfcjX99p')
         .then((result) => {
             console.log(result.text);
         }, (error) => {
@@ -28,3 +29,4 @@ export const ContactUs = () => {
     );
   };
   
+  export default ContactUs;
