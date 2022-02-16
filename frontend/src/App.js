@@ -22,6 +22,7 @@ import AllCategories from "./components/category/category";
 import Profile from "./components/profile/profile";
 import Categories from "./components/categories/clothes";
 import Vehicles from "./components/categories/Vehicles";
+import ContactUs from "./components/contactus/contact"
 //=============================================================
 import PC from "./components/categories/PC";
 import Phones from "./components/categories/Phones";
@@ -53,6 +54,7 @@ function App() {
           <Route path="/Phones" element={<Phones />} />{" "}
           <Route path="/RealEstate" element={<RealEstate />} />{" "}
           <Route path="/Tools" element={<Tools />} />{" "}
+          <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </div>
       <div className="footer">
