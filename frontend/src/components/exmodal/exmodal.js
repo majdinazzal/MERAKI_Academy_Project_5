@@ -10,6 +10,7 @@ const Exmodal= () => {
     const userId = localStorage.getItem("User");
     const [Product_Name, setProduct_Name] = useState("");
     const [state_product, setState_product] = useState("pending")
+    // const [id, setid] = useState("")
 
 
     const confirm = (elem) => {
@@ -24,21 +25,33 @@ const Exmodal= () => {
             if (result.isConfirmed) {
                 setProduct_Name(elem.Product_Name)
                 console.log(elem.Product_Name)
-                updateProductbyname(elem.Product_Name)
+                // setid(elem.id)
+                console.log(elem.id)
+                // console.log(id)
+                updateProductbyid(elem.id)
+                //just  updateProductbyid(from local storage)
+                ///save id from local storage
               Swal.fire('Saved!', '', 'success')
             } else if (result.isDenied) {
               Swal.fire('Changes are not saved', '', 'info')
             }
           })
         }     
-        const updateProductbyname = async (Product_Name) => {
-          try {
-            await axios.put(`http://localhost:5000/product}`, {
-              Product_Name            });
-          } catch (error) {
-            console.log(error);
-          }
-        };
+        const updateProductbyid =  (id) => {
+          console.log(typeof id)
+          let ids =id.toString()
+          console.log(ids)
+          axios
+          .put(`http://localhost:5000/product/exchange/${ids}`)
+
+          .then((result) => {
+            console.log(result);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+        // updateProductbyid(6)
            
     const getUsersProducts = () => {
         axios

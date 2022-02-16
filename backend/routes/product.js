@@ -18,7 +18,7 @@ productRouter.get("/", getproductByproductname);
 productRouter.post("/", authentication, createNewproduct);
 productRouter.put("/:id", updateproductById);
 productRouter.delete("/:id", deleteProductById);
-productRouter.put("/",updateproductByname)
+productRouter.put("/exchange/:id",updateproductByname)
 
 // productRouter.delete("/:id", deleteArticleById);
 
