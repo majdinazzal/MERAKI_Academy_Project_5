@@ -240,7 +240,6 @@ const Home = () => {
               return (
                 <div>
                   <div>
-                    {" "}
                     <img className="productimage" src={elem.Image} />
                   </div>
                   <div>{elem.Product_Name}</div>

@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import Checkbox from "../checkbox/checkbox";
+import "../exmodal/exmodal.css"
 const Exmodal = () => {
   const [productId, setproductId] = useState([]);
   const userId = localStorage.getItem("User");
@@ -85,18 +86,19 @@ const Exmodal = () => {
 
 
   return (
-    <div id="foundSearchContainer">
+    <div className="modalbody" id="foundSearchContainer">
       {productId &&
         productId.map((elem, i) => {
           return (
             <div key={i} id="productid">
               <h2>{elem.Product_Name}</h2>
-              <button
+              <h3>Do you want to Exchange?</h3>
+              <button className="Exchangebutton"
                 onClick={() => {
                   confirm(elem);
                 }}
               >
-                exchange
+                Confirm Exchange
               </button>
             </div>
           );
