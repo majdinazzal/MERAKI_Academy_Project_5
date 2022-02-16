@@ -1,6 +1,6 @@
 const connection = require("../database/db");
 const getAllProduct = (req, res) => {
-  const query = `SELECT * FROM products;`;
+  const query = `SELECT * FROM products WHERE softDelete=0;`;
   // use the query method to execute a query
   connection.query(query, (err, result) => {
     if (err) {
