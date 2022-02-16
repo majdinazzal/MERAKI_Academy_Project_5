@@ -18,9 +18,9 @@ const ProfileModal = () => {
       <button className="showbutton" onClick={switchModalTrue}>Show your products</button>
       <Modal isOpen={modalShower}>
         <br/>
-        <button className="profilebutton" onClick={switchModalfalse}>close</button>
+        <button className="profileclosebutton" onClick={switchModalfalse}>x</button>
         <br />
-        <UserProducts />{" "}
+        <UserProducts/>{" "}
       </Modal>
     </div>
   );
