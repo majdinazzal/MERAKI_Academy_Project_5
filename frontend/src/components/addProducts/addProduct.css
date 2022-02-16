@@ -60,3 +60,9 @@
   font-family: cursive;
   font-size:small;
 }
+
+.productButton:hover{
+  background-color: #e5e5e5;
+  color:#24292f;
+  cursor: pointer;
+}
