@@ -1,40 +1,8 @@
 .profilePage {
   height: 100vh;
-  /* border: red solid 4px; */
   font-family: cursive;
 }
-/* #picHolder {
-  display: flex;
-  justify-content: center;
-  margin-top: 02%;
-  height: 21em;
-  width: 15.5em;
-  /* margin-left: 40%; */
-  /* border: solid #24292f 2px; */
-/* } */ */
-/* #buttons {
-  /* margin-left: 41%; */
-  /* width: 14em; */
-/* } */ */
-/* #returnedInfo {
-  margin-left: 02%;
-}
-#actualPic{
-width: 15.4999em;
-height: 21em ; */
 
-/* } */
-/* .textProfile{
-width: 8em;
-margin-left: 50%;
-/* margin-bottom: 40%; */
-/* margin-top: 10%; */
-/* } */ */
-/* #textProfile{
-  margin-top: -25%;
-  margin-left: -40%;
-
-} */
 #productsButton{
 
   margin-left: 30%;
@@ -62,9 +30,7 @@ margin-left: 50%;
 }
 
 .showbutton {
-  /* margin-left : 30%; */
   width: 30%;
-  /* height: 30%; */
   font-size:large;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -89,9 +55,6 @@ margin-left: 50%;
   background-color: #24292f;
   color: #e5e5e5;
   width: 30%;
-  /* margin-top: 10%;
-  width: 50%;
-  margin-left: 30%; */
   border-radius: 4px;
   box-sizing: border-box;
 }
@@ -105,7 +68,6 @@ margin-left: 50%;
 .profilebox{
   display: grid;
   grid-template-columns: 50% 50%;
-  /* grid-template-rows: 100%; */
 }
 
 .profilebox>div{
@@ -114,15 +76,15 @@ margin-left: 50%;
 
 .userinfo{
   margin-top: 15%;
-  /* margin-left: 50%, */
-
-}
-
-.Showproduct{
-  /* margin-right: 25%; */
 }
 
 .Welcome{
   display: flex;
   justify-content: center;
+}
+
+img{
+  height:auto;
+  width: 40% ;
+  margin-top:10% ;
 }
