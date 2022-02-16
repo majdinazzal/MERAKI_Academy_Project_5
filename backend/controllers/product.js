@@ -107,7 +107,7 @@ const getproductByproductname = (req, res) => {
 const getproductByuser = (req, res) => {
   const userId = req.params.userId;
   console.log(userId);
-  const query = `SELECT * FROM products WHERE userId=?`;
+  const query = `SELECT * FROM products WHERE userId=? and softDelete=0`;
   const data = [userId];
 
   connection.query(query, data, (err, results) => {
@@ -161,8 +161,6 @@ const deleteProductById = (req, res) => {
 };
 const updateproductByname = (req, res) => {
   const id = req.params.id;
-  ;
-
   const query = `UPDATE products SET state_product='pending'  WHERE id= ?;`;
 
   const data = [id];

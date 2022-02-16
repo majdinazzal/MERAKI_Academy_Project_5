@@ -3,8 +3,6 @@
   font-family: cursive;
 }
 
-#productsButton{
-
   margin-left: 30%;
   margin-top: 04%;
 }
@@ -20,18 +18,18 @@
   background-color: #24292f;
   color: #e5e5e5;
   font-family: cursive;
-  font-size:small;
+  font-size: small;
 }
 
-.profilebutton:hover{
-  cursor:pointer;
-  color:#24292f;
-  background-color:#e5e5e5;
+.profilebutton:hover {
+  cursor: pointer;
+  color: #24292f;
+  background-color: #e5e5e5;
 }
 
 .showbutton {
   width: 30%;
-  font-size:large;
+
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -39,17 +37,16 @@
   background-color: #24292f;
   color: #e5e5e5;
   font-family: cursive;
-  font-size:small;
+  font-size: small;
 }
 
-.showbutton:hover{
-  cursor:pointer;
-  color:#24292f;
-  background-color:#e5e5e5;
+.showbutton:hover {
+  cursor: pointer;
+  color: #24292f;
+  background-color: #e5e5e5;
 }
 
-
-.uploadbutton{
+.uploadbutton {
   box-sizing: border-box;
   border-color: #24292f;
   background-color: #24292f;
@@ -59,26 +56,26 @@
   box-sizing: border-box;
 }
 
-.uploadbutton:hover{
-  cursor:pointer;
-  color:#24292f;
-  background-color:#e5e5e5;
+.uploadbutton:hover {
+  cursor: pointer;
+  color: #24292f;
+  background-color: #e5e5e5;
 }
 
-.profilebox{
+.profilebox {
   display: grid;
   grid-template-columns: 50% 50%;
 }
 
-.profilebox>div{
+.profilebox > div {
   text-align: center;
 }
 
-.userinfo{
+.userinfo {
   margin-top: 15%;
 }
 
-.Welcome{
+.Welcome {
   display: flex;
   justify-content: center;
 }

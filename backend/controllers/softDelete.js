@@ -3,11 +3,9 @@ const db = require("../database/db");
 
 const sDelete = (req, res) => {
   //we need to update the dataBase(products table)
-  console.log("soft soft soft");
   const id = req.params.id;
-  const userId = req.body;
-  const query = `update products set softDelete=1 where id=? and userId=?  `;
-  const data = [id, userId];
+  const query = `update products set softDelete=1 where id=?  `;
+  const data = [id];
   connection.query(query, data, (err, result) => {
     if (err) {
       console.log(err);
