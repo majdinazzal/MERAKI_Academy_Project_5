@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import "./profile.css"
+import "./profile.css";
 const UserProducts = () => {
   const [allPrdcts, setAllPrdcts] = useState([]);
   const [id, setId] = useState("");
   const userId = localStorage.getItem("User");
+
   const getUsersProducts = () => {
     axios
       .get(`http://localhost:5000/product/byuser/${userId}`)
@@ -17,7 +18,7 @@ const UserProducts = () => {
         console.log(err);
       });
   };
-  const softDelete = () => {
+  const softDelete = (id) => {
     axios
       .post(`http://localhost:5000/softDel/${id}`, { userId })
       .then((result) => {
@@ -41,7 +42,8 @@ const UserProducts = () => {
               <br />
               product name : {elem.Product_Name} <br />
               product state : ({elem.state_product}) <br />
-              <button className="profilebutton"
+              <button
+                className="profilebutton"
                 onClick={() => {
                   Swal.fire("description :", elem.Description, elem.Price);
                 }}
@@ -51,7 +53,7 @@ const UserProducts = () => {
               <button
                 onClick={() => {
                   setId(elem.id);
-                  softDelete();
+                  softDelete(elem.id);
                 }}
               >
                 accept
