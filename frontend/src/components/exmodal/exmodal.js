@@ -130,4 +130,5 @@ const Exmodal = () => {
     </div>
   );
 };
+//
 export default Exmodal;
