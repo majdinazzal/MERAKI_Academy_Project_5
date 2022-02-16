@@ -249,10 +249,10 @@ const updateproductrejected = (req, res) => {
   });
 };
 const getproductexhange = (req, res) => {
-  const Product_Exchange = req.params.Product_Exchange;
+  const id = req.params.id;
   console.log(userId);
-  const query = `SELECT * FROM products WHERE Product_Exchange=? and softDelete=0`;
-  const data = [Product_Exchange];
+  const query = `SELECT * FROM products WHERE id=? and softDelete=0`;
+  const data = [id];
 
   connection.query(query, data, (err, results) => {
     if (err) {
@@ -266,7 +266,7 @@ const getproductexhange = (req, res) => {
     //  are the data returned by mysql server
     res.status(200).json({
       success: true,
-      massage: `All the products for the Product_Exchange: ${Product_Exchange}`,
+      massage: `All the products for the Product_Exchange: ${id}`,
 
       results: results,
     });
@@ -283,5 +283,6 @@ module.exports = {
   deleteProductById,
   updateproductByname,
   updateproductexchange,
-  updateproductrejected
+  updateproductrejected,
+  getproductexhange
 };

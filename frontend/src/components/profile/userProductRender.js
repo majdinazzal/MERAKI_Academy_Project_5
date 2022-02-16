@@ -5,6 +5,7 @@ import "./profile.css";
 const UserProducts = () => {
   const [allPrdcts, setAllPrdcts] = useState([]);
   const [id, setId] = useState("");
+  const [Show, setShow] = useState([])
   const userId = localStorage.getItem("User");
 
   const getUsersProducts = () => {
@@ -43,6 +44,20 @@ const UserProducts = () => {
         console.log(err);
       });
   };
+  const getexchangeproduct = (idex) => {
+    axios
+      .get(`http://localhost:5000/product/show/${idex}`)
+      .then((result) => {
+        console.log(result);
+        setShow(result.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const ex =(id)=>{
+    getexchangeproduct(id)
+  }
 
 
   useEffect(() => {
@@ -62,15 +77,22 @@ const UserProducts = () => {
               product state : ({elem.state_product}) <br />
               <button
                 className="profilebutton"
-                onClick={() => {
-                  Swal.fire("description :", elem.Description, elem.Price);
+                onClick={() => {ex(elem.Product_Exchange)
                 }}
               >
                 more
               </button>
               {elem.state_product == "pending" && (
                 <>
-               
+                             <button
+                className="profilebutton"
+                onClick={() => {
+                  Swal.fire("description :", elem.Description, elem.Price);
+                }}
+              >
+                more
+              </button>
+
               <button
                 onClick={() => {
                   setId(elem.id);
