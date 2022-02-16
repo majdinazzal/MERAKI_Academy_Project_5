@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import "./profile.css"
 const UserProducts = () => {
   const [allPrdcts, setAllPrdcts] = useState([]);
+  const [id, setId] = useState("");
   const userId = localStorage.getItem("User");
   const getUsersProducts = () => {
     axios
@@ -11,6 +12,16 @@ const UserProducts = () => {
       .then((result) => {
         console.log(result);
         setAllPrdcts(result.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const softDelete = () => {
+    axios
+      .post(`http://localhost:5000/softDel/${id}`, { userId })
+      .then((result) => {
+        console.log(result);
       })
       .catch((err) => {
         console.log(err);
@@ -37,6 +48,15 @@ const UserProducts = () => {
               >
                 more
               </button>
+              <button
+                onClick={() => {
+                  setId(elem.id);
+                  softDelete();
+                }}
+              >
+                accept
+              </button>
+              <button>reject</button>
               <br />
               =====================================
             </div>

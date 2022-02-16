@@ -23,7 +23,8 @@ state_product VARchar (255),
 userId INT,
 Price INT,
 Category VARchar (255),
-softDelete INT DEFAULT 1,
+softDelete INT DEFAULT 0,
+Product_Exchange VARCHAR(255),
 FOREIGN KEY (userId) REFERENCES user(id),
 Primary Key (id)
 );

@@ -86,8 +86,9 @@ const Home = () => {
     }
   };
   //=====================================================================
-  const setModalIsOpenToTrue = () => {
+  const setModalIsOpenToTrue = (id) => {
     setModalIsOpen(true);
+    const prdctId = localStorage.setItem("id", id);
   };
   const setModalIsOpenToFalse = () => {
     setModalIsOpen(false);
@@ -105,9 +106,13 @@ const Home = () => {
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
+  // const rating=localStorage.setItem("rating",ratingChanged)
   useEffect(() => {
     allProducts();
   }, []);
+  const multiTask = () => {
+    setModalIsOpenToTrue();
+  };
   return (
     <>
       <div>
@@ -170,11 +175,14 @@ const Home = () => {
                     <div>
                       <button
                         className="homebuttons"
-                        onClick={setModalIsOpenToTrue}
+                        onClick={() => {
+                          setModalIsOpenToTrue(element.id);
+                        }}
                       >
                         Click to Open Modal
                       </button>
                     </div>
+
                     <Modal isOpen={modalIsOpen}>
                       <button onClick={setModalIsOpenToFalse}>x</button>
                       <Exmodal />

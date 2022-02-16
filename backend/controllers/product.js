@@ -24,8 +24,15 @@ const createNewproduct = (req, res) => {
     req.body;
   const userId = req.token.userId;
   const query = `INSERT INTO products (Product_Name, Description,Image,state_product,Price,Category,userId) VALUES (?,?,?,?,?,?,?);`;
-  const data = [Product_Name, Description,Image,state_product,Price,Category,userId];
-
+  const data = [
+    Product_Name,
+    Description,
+    Image,
+    state_product,
+    Price,
+    Category,
+    userId,
+  ];
 
   connection.query(query, data, (err, results) => {
     if (err) {
@@ -100,7 +107,6 @@ const getproductByproductname = (req, res) => {
 const getproductByuser = (req, res) => {
   const userId = req.params.userId;
   console.log(userId);
-  console.log("oojojojoiibo");
   const query = `SELECT * FROM products WHERE userId=?`;
   const data = [userId];
 
