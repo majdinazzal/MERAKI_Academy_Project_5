@@ -55,9 +55,9 @@ const UserProducts = () => {
         console.log(err);
       });
   };
-  const ex =(id)=>{
-    getexchangeproduct(id)
-  }
+  // const ex =(id)=>{
+  //   getexchangeproduct(id)
+  // }
 
 
   useEffect(() => {
@@ -77,21 +77,14 @@ const UserProducts = () => {
               product state : ({elem.state_product}) <br />
               <button
                 className="profilebutton"
-                onClick={() => {ex(elem.Product_Exchange)
-                }}
-              >
-                more
-              </button>
-              {elem.state_product == "pending" && (
-                <>
-                             <button
-                className="profilebutton"
                 onClick={() => {
                   Swal.fire("description :", elem.Description, elem.Price);
                 }}
               >
                 more
               </button>
+              {elem.state_product == "pending" && (
+                <>
 
               <button
                 onClick={() => {
