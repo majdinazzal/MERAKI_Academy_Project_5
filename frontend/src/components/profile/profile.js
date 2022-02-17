@@ -2,7 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import ProfileModal from "./usersProducts";
-import "./profile.css"
+import AfterWePressMore from "./productDescription";
+import ProductInformationModal from "./productInfo";
+
+import "./profile.css";
 const Profile = () => {
   const [status, setStatus] = useState("");
   const [profileImg, setProfileImg] = useState("");
@@ -101,51 +104,48 @@ const Profile = () => {
   }, []);
   return (
     <>
-    <div className="profilePage">
-      <div>{/* <button onClick={profilePicutue}>nateeja</button> */}</div>
-      {status &&
-        status.map((element, i) => {
-          return (
-            <>
-            <div className="Welcome">
-            <h1 >Welcome {element.Username}</h1>
-            </div>
-            <div className="profilebox"  key={i} id="returnedInfo">
-              <div> 
-              
-              
-                <img id="actualPic" src={element.profileImg}></img>
-          <br/>
-                <input
-                  type={"file"}
-                  onChange={(e) => {
-                    setProfileImg(e.target.files[0]);
-                  }}
-                ></input>
-                 <br/>
-                <button className="uploadbutton" onClick={profilePic}>Upload photo</button>
-          
-              </div>
-             
-
-              <div className="userinfo">
-                <p className="textProfile">User_name:</p>{" "}
-                <h3 className="textProfile">"{element.Username}" </h3> <br />
-                <p className="textProfile">Email:</p>{" "}
-                <h3 className="textProfile">{element.email}</h3> <br />
-                <p className="textProfile">Phone_number</p>
-                <h3 className="textProfile">{element.Phone_number}</h3>
-                <div className="Showproduct">
-              <ProfileModal />
+      <div className="profilePage">
+        <div>{/* <button onClick={profilePicutue}>nateeja</button> */}</div>
+        {status &&
+          status.map((element, i) => {
+            return (
+              <>
+                <div className="Welcome">
+                  <h1>Welcome {element.Username}</h1>
                 </div>
-              </div>
-              
-             
-            </div>
-            </>
-          );
-        })}
-    </div>
+                <div className="profilebox" key={i} id="returnedInfo">
+                  <div>
+                    <img id="actualPic" src={element.profileImg}></img>
+                    <br />
+                    <input
+                      type={"file"}
+                      onChange={(e) => {
+                        setProfileImg(e.target.files[0]);
+                      }}
+                    ></input>
+                    <br />
+                    <button className="uploadbutton" onClick={profilePic}>
+                      Upload photo
+                    </button>
+                  </div>
+
+                  <div className="userinfo">
+                    <p className="textProfile">User_name:</p>{" "}
+                    <h3 className="textProfile">"{element.Username}" </h3>{" "}
+                    <br />
+                    <p className="textProfile">Email:</p>{" "}
+                    <h3 className="textProfile">{element.email}</h3> <br />
+                    <p className="textProfile">Phone_number</p>
+                    <h3 className="textProfile">{element.Phone_number}</h3>
+                    <div className="Showproduct">
+                      <ProfileModal />
+                    </div>
+                  </div>
+                </div>
+              </>
+            );
+          })}
+      </div>
     </>
   );
 };

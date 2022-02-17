@@ -1,3 +1,4 @@
+const { resume } = require("../database/db");
 const connection = require("../database/db");
 const getAllProduct = (req, res) => {
   const query = `SELECT * FROM products WHERE softDelete=0;`;
@@ -191,11 +192,11 @@ const updateproductByname = (req, res) => {
 //==========================================
 const updateproductexchange = (req, res) => {
   const id = req.params.id;
-  const {Product_Exchange}=req.body
+  const { Product_Exchange } = req.body;
   const query = `UPDATE products SET Product_Exchange=?  WHERE id= ?;`;
-console.log({Product_Exchange:Product_Exchange})
-  const data = [Product_Exchange,id];
-console.log(Product_Exchange)
+  console.log({ Product_Exchange: Product_Exchange });
+  const data = [Product_Exchange, id];
+  console.log(Product_Exchange);
   connection.query(query, data, (err, results) => {
     if (err) {
       return res.status(404).json({
@@ -249,10 +250,9 @@ const updateproductrejected = (req, res) => {
   });
 };
 const getproductexhange = (req, res) => {
-  const id = req.params.id;
-  console.log(userId);
+  const xchangedItem = req.params.xchangedItem;
   const query = `SELECT * FROM products WHERE id=? and softDelete=0`;
-  const data = [id];
+  const data = [xchangedItem];
 
   connection.query(query, data, (err, results) => {
     if (err) {
@@ -266,13 +266,32 @@ const getproductexhange = (req, res) => {
     //  are the data returned by mysql server
     res.status(200).json({
       success: true,
-      massage: `All the products for the Product_Exchange: ${id}`,
+      massage: `All the products for the Product_Exchange: ${xchangedItem}`,
 
       results: results,
     });
   });
 };
 
+const productName = (req, res) => {
+  const productName = req.params.productName;
+  const { productId } = req.body;
+  const query = `select Product_Exchange from products where Product_Name=? and id=?`;
+  const data = [productName, productId];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      console.log(err);
+      res
+        .status(404)
+        .json({ success: false, message: "Nothing was found", result: result });
+    } else {
+      console.log(result);
+      res
+        .status(200)
+        .json({ success: true, message: `All products`, result: result });
+    }
+  });
+};
 
 module.exports = {
   getAllProduct,
@@ -284,5 +303,6 @@ module.exports = {
   updateproductByname,
   updateproductexchange,
   updateproductrejected,
-  getproductexhange
+  getproductexhange,
+  productName,
 };
