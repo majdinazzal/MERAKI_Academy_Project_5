@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import Swal from "sweetalert2";
 
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -123,7 +124,14 @@ const Login = () => {
                 placeholder="Password"
                 required=""
               />
-              <button className="btnsignup">Sign up</button>
+              <button onClick={()=>{Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Account successfully created',
+  showConfirmButton: false,
+  timer: 1500
+})
+}} className="btnsignup">Sign up</button>
             </form>
           </div>
 

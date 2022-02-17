@@ -4,6 +4,8 @@ import Exmodal from "../exmodal/exmodal";
 import ReactStars from "react-rating-stars-component";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import Swal from "sweetalert2";
+
 import {
   setProducts,
   updateProduct,
@@ -103,6 +105,43 @@ const Home = () => {
       console.log(error);
     }
   };
+  const confirmDelete=(id)=>{
+    const swalWithBootstrapButtons =  Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success',
+          deleteproduct(id)
+        )
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error'
+        )
+      }
+    })
+  }
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
@@ -209,7 +248,7 @@ const Home = () => {
                       )}
                       <button
                         className="homebuttons"
-                        onClick={() => deleteproduct(element.id)}
+                        onClick={() => confirmDelete(element.id)}
                       >
                         Delete{" "}
                       </button>

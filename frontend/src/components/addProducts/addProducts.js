@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Route, Routes, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import { useNavigate } from "react-router-dom";
 
@@ -179,7 +180,14 @@ const NewProduct = () => {
           </div>
           <div>
 
-          <button className="productButton" >Create New product</button>
+          <button onClick={()=>{Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Your product has been saved',
+  showConfirmButton: false,
+  timer: 1500
+})
+}} className="productButton" >Create New product</button>
 
           </div>
         </form>
@@ -187,12 +195,12 @@ const NewProduct = () => {
         {status
           ? message && (
               <div className="SuccessMessage">
-                {message} && <p>{console.log(status)}</p>
+                {/* {message} && <p>{console.log(status)}</p> */}
               </div>
             )
           : message && (
               <div className="ErrorMessage">
-                {message}
+                {/* {message} */}
                 <p>{console.log(status)}</p>
               </div>
             )}
